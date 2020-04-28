@@ -1,7 +1,7 @@
 let express = require("express");
-let bodyParser = require('body-parser');
+let bodyParser = require("body-parser");
 let app = express();
-let cors = require('cors')
+let cors = require("cors");
 let mysql = require("mysql");
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,7 +27,7 @@ connection.connect(function(error){
 
 //////////////////////
 
-//--------------------------API artículo--------------------------
+//----------------------------------API artículo------------------------------------------------------------//
 
 // app.get("/articulos", function(req, res, next)
 // {
@@ -46,6 +46,7 @@ connection.connect(function(error){
 //     );
 // }
 // );
+
 
 app.get("/articulo/:id", function(req, res, next)
     {
@@ -135,7 +136,7 @@ app.delete("/articulo", function(req, res, next)
 
 ///////////////////////////
 
-// API para el que realiza
+//------------------------------- API para el que realiza-------------------------------//
 app.get("/intercambio/realiza/:id", function(req, res, next)
     {
         let variable = "SELECT intercambio_id, intercambio.estado_intercambio, usuario.nick, articulo.nombre, articulo.antiguedad, articulo.descripcion, articulo.estado, articulo.imagen FROM intercambio JOIN usuario ON (intercambio.usuario_idRealiza = usuario.usuario_id) JOIN articulo ON (intercambio.articulo_idRealiza = articulo.articulo_id) WHERE intercambio.usuario_idRealiza = ?";
@@ -154,7 +155,7 @@ app.get("/intercambio/realiza/:id", function(req, res, next)
     }
 );
 
-// API para el que recibe
+// -------------------------------API para el que recibe-------------------------------//
 app.get("/intercambio/recibe/:id", function(req, res, next)
     {
         let variable = "SELECT intercambio_id, usuario.nick, articulo.nombre, articulo.antiguedad, articulo.descripcion, articulo.estado, articulo.imagen FROM intercambio JOIN usuario ON (intercambio.usuario_idRecibe = usuario.usuario_id) JOIN articulo ON (intercambio.articulo_idRecibe = articulo.articulo_id) WHERE intercambio.usuario_idRecibe = ?";
@@ -228,7 +229,7 @@ app.delete("/intercambio", function(req, res, next)
 );
 
 
- //API para favoritos
+ //-------------------------------API para favoritos-------------------------------//
 
 
  app.get("/favoritos/:usuario_id", function(req, res, next)
@@ -346,7 +347,7 @@ app.put("/usuario", (req, res) => {
     })
 })
 
-//Api para valoraciones
+//--------------------------------------------------Api para valoraciones-------------------------------//
 app.put("/usuario/valoraciones", (req, res) => {
     let usuario = new Array('' + req.body.usuario_id + '')
     connection.query("SELECT valoraciones FROM usuario WHERE usuario_id=?", usuario, (err, result) => {
@@ -384,4 +385,92 @@ app.delete("/usuario", (req, res) => {
     })
 })
 
- app.listen(3000)
+
+
+//-----------------------------Api ArtículoUsuario-------------------------------//
+
+app.get("/articuloUsuario", (request, response) => {
+  let myUser = new Array("" + request.query.usuario_id + "");
+  console.log(myUser);
+  let sql;
+  if (myUser == "undefined") {
+    sql = "SELECT * FROM usuario_articulo";
+  } else {
+    sql = "SELECT * FROM usuario_articulo WHERE usuario_articulo_id =?";
+  }
+  connection.query(sql, myUser, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      response.send(result);
+      console.log("GET de user");
+    }
+  });
+});
+
+app.get("/articuloUsuario/:usuario_articulo_id", (request, response) => {
+  let myUser = new Array("" + request.params.usuario_articulo_id + "");
+  console.log(myUser);
+  let sql;
+  sql = "SELECT * FROM usuario_articulo WHERE usuario_articulo_id=?";
+
+  connection.query(sql, myUser, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      response.send(result);
+      console.log("GET de user");
+    }
+  });
+});
+
+app.post("/articuloUsuario", (request, response) => {
+  let sql;
+  let myUser = new Array(request.body.usuario_id, request.body.articulo_id);
+  console.log(myUser);
+  sql = "INSERT INTO usuario_articulo (usuario_id,articulo_id) VALUES(?,?)";
+  connection.query(sql, myUser, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      response.send(result);
+      console.log("POST de user");
+    }
+  });
+});
+
+app.put("/articuloUsuario", (request, response) => {
+  let sql;
+  let myUser = new Array(
+    request.body.usuario_articulo_id,
+    request.body.usuario_id,
+    request.body.articulo_id
+  );
+  sql =
+    "UPDATE usuario_articulo SET usuario_articulo_id=?,usuario_id=?,articulo_id=? WHERE usuario_id=?";
+  connection.query(sql, myUser, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      response.send(result);
+      console.log(myUser);
+      console.log("PUT de user");
+    }
+  });
+});
+
+app.delete("/articuloUsuario", (request, response) => {
+  let sql;
+  let myUser = new Array("" + request.body.usuario_articulo_id + "");
+  sql = "DELETE FROM usuario_articulo WHERE usuario_articulo_id=?";
+  connection.query(sql, myUser, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      response.send(result);
+      console.log("DELETE de user");
+    }
+  });
+});
+
+app.listen(3000);
