@@ -24,7 +24,7 @@ connection.connect(function(error){
     }
  });
 
- //----------------------------------- API para favoritos -----------------------------------//
+ //API para favoritos
 
 
 app.get("/favoritos/:usuario_id", function(req, res, next)
