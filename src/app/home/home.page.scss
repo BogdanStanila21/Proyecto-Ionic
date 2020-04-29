@@ -22,7 +22,9 @@ ion-header{
 ion-content{
   --background:white;
   ion-searchbar{
-    --icon-color:#293462;       
+    --background:white;
+    --icon-color:#293462;
+    --box-shadow:2px 2px 3px -1px rgba(0,0,0,0.21);   
   }
   ion-row{
     --background:#E8E8E8;
