@@ -1,7 +1,8 @@
 {
   "name": "AppMobil",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
