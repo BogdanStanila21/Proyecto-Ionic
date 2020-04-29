@@ -1,16 +1,15 @@
 ion-header{
   ion-toolbar{
-    --background:#E8E8E8;
-    border-bottom: 1px solid #293462;
+    --background:#293462;
     ion-icon{
       font-size: 40px;
       margin-left: 10px;
-      color: #293462;
+      color: white;
     }
     ion-title{
       text-align: center;
       font-size: 25px;
-      color: #293462;
+      color: white;
     }
     ion-avatar{
       width: 40px;
@@ -21,9 +20,28 @@ ion-header{
   }
 }
 ion-content{
-  --background:#E8E8E8;
+  --background:white;
   ion-searchbar{
-    --icon-color:#293462;
-           
+    --icon-color:#293462;       
+  }
+  ion-row{
+    --background:#E8E8E8;
+    ion-col{
+      div{
+        text-align: center;
+        background-color: #293462;
+        border-radius: 3px;
+        img{
+          margin-top: 1vw;
+          width: 95%;
+          height: 200px;
+          object-fit: cover;
+          object-position: center center;
+        }
+        ion-text{
+          color:white;
+        }
+      }    
+    }    
   }
 }
