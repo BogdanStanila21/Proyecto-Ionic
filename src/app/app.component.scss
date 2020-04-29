@@ -14,3 +14,32 @@ ion-tab-bar{
         color: #293462;
     }
 }
+/* Añadir esta línea para importar las variables */
+
+/*------>      @import '../../app.component.scss'      <------*/
+
+/* Variables para los colores */
+$color-primary: #293462;
+$color-primary-dark: #191F39;
+$color-secondary: #EC9B3B;
+$color-sencodary-light: #F7BE16;
+$color-success: #77AD40;
+$color-danger: #AD2F4A;
+$color-grey: #E8E8E8;
+$color-grey-dark: #D3D3D3;
+
+/* Variable para la tipografía */
+$font-primary: "";
+$font-heading: "";
+
+/* Tamaño base. Cambiar este valor para cambiar el tamaño de todos los textos */
+$text-base-size: 1em;
+
+/* Tamaño de fuente */
+$text__sm: calc(0.75 * #{$text-base-size});
+$text__md: calc(1 * #{$text-base-size});
+$text__lg: calc(1.25 * #{$text-base-size});
+$text__xl: calc(1.5 * #{$text-base-size});
+$text__h3: calc(2 * #{$text-base-size});
+$text__h2: calc(2.5 * #{$text-base-size});
+$text__h1: calc(3 * #{$text-base-size});
