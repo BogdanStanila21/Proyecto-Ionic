@@ -16,7 +16,11 @@ const routes: Routes = [
     path: "perfil",
     loadChildren: () =>
       import("./perfil/perfil.module").then((m) => m.PerfilPageModule),
+  },  {
+    path: 'intercambio',
+    loadChildren: () => import('./intercambio/intercambio.module').then( m => m.IntercambioPageModule)
   },
+
 ];
 
 @NgModule({

@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-buttons slot="start">
+    <ion-back-button
+        [text]="buttonText"
+        [icon]="buttonIcon">
+    </ion-back-button>
+  </ion-buttons>
+  <p>Peticiones</p>
+  <ion-icon name="person-outline"></ion-icon>
+</ion-header>
+
+<ion-content>
+  <ion-row>  <!-- iconos de Intercambio -->
+    <ion-col size="6" class="mitad1">
+      <ion-icon name="arrow-redo-outline" id="menu"></ion-icon>
+    </ion-col>
+
+    <ion-col size="6" class="mitad2">
+      <ion-icon name="arrow-undo-outline" id="menu"></ion-icon>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="articulos"> <!-- Productos ofrecidos y que me ofrecen -->
+    <ion-col size="5" class="mios"> <!-- mis productos -->
+      <div>
+      <img src="https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201911/20/00189060011619____3__640x640.jpg" alt="">
+      <ion-label>Patinete eléctrico</ion-label> 
+    </div>
+    </ion-col>
+    <ion-icon name="swap-horizontal-outline" id="flecha"></ion-icon>
+    <ion-col size="5" class="otros"> <!-- productos que me ofrecen -->
+      <div>
+      <img src="https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201809/20/00108451997269____4__640x640.jpg" alt="">
+      <ion-label>Bicicleta de montaña</ion-label> 
+    </div>
+    </ion-col>
+  </ion-row>
+  <ion-row><!-- botones de aceptar/rechazar -->
+
+
+  </ion-row>
+
+
+</ion-content>

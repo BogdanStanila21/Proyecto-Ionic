@@ -1,0 +1,63 @@
+@import '../../theme/variables.scss';
+
+ion-header {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+p {
+    font-size: 24px;
+    margin: 0 auto;
+    color: #293462;
+}
+ion-label{
+    color: white;
+    font-size: 15px;
+}
+ion-content {
+    padding: 16px;
+}
+ion-icon {
+    font-size: 48px;
+    color: #293462;
+}
+#menu{
+    color: white;
+    margin-left: 80px;
+}    
+#flecha{
+    margin-top: 65px;
+    color: #293462;
+}
+.mitad1 {
+    font-size: 32px;
+    margin: 0 auto;
+    background-color: #293462;
+}
+.mitad2{
+    font-size: 32px;
+    margin: 0 auto;
+    background-color: #ec9b3b;
+}
+.articulos{
+    margin-top: 10px;
+}
+.mios{
+    width: 100%;
+    font-size: 32px;
+    margin: 0 auto;
+    background-color: #293462;
+}
+.otros{
+    width: 100%;
+    font-size: 32px;
+    margin: 0 auto;
+    background-color: #ec9b3b;
+}
+
+
+
+
+  
