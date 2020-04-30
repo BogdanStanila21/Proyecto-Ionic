@@ -16,9 +16,18 @@ const routes: Routes = [
     path: "perfil",
     loadChildren: () =>
       import("./perfil/perfil.module").then((m) => m.PerfilPageModule),
-  },  {
+  },
+  {
     path: 'intercambio',
     loadChildren: () => import('./intercambio/intercambio.module').then( m => m.IntercambioPageModule)
+  },
+  {
+    path: 'menu',
+    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
+  },
+  {
+    path: 'editar-perfil',
+    loadChildren: () => import('./editar-perfil/editar-perfil.module').then( m => m.EditarPerfilPageModule)
   },
 
 ];

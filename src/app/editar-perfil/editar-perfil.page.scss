@@ -1,0 +1,14 @@
+@import '../../theme/variables.scss';
+
+ion-header{
+    ion-toolbar{
+        --background:var(--color-primary);
+        color:var(--color-grey);
+        text-align: center;
+        ion-icon{
+            color:var(--color-success);
+            font-size: 32px;
+            margin-right: 16px;
+        }
+    }
+}

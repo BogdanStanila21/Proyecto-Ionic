@@ -74,6 +74,18 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  //Mis colores
+
+  --color-primary: #293462;
+  --color-primary-dark: #191F39;
+  --color-secondary: #EC9B3B;
+  --color-sencodary-light: #F7BE16;
+  --color-success: #77AD40;
+  --color-danger: #AD2F4A;
+  --color-grey: #E8E8E8;
+  --color-grey-dark: #D3D3D3;
+  --background-opacity:rgba(255, 255, 255, 0.479);
 }
 
 @media (prefers-color-scheme: dark) {
