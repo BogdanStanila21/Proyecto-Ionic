@@ -3,27 +3,32 @@
   margin: 0;
   box-sizing: border-box;
 }
+// .my-custom-menu {
+//   --width: 500px;
+// }
+.text {
+  font-size: 24px;
+  text-align: center;
+}
 ion-header {
   padding: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 0;
+  ion-menu-button {
+    font-size: 32px;
+  }
   ion-icon {
-    font-size: 48px;
+    font-size: 56px;
     color: #293462;
   }
-  p {
-    font-size: 24px;
-    margin: 0 auto;
-  }
 }
-
 ion-content {
   padding: 16px;
-
-  .centrar {
-    padding-left: 30%;
+  display: flex;
+  ion-row.estrellas {
+    width: 70%;
+    margin: 0 auto;
     .star {
       font-size: 32px;
       // display: inline;
@@ -31,38 +36,26 @@ ion-content {
       color: #293462;
     }
   }
-  #container {
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 16px;
+  ion-row {
+    padding: 8px 32px;
     .card {
-      height: 150px;
-      width: 188px;
-      margin: 4px;
       background-color: #293462;
-      position: relative;
-      .cerrar {
-        position: absolute;
-        font-size: 40px;
-        right: -4px;
-        top: -8px;
-        color: #ad2f4a;
-      }
-      .cuadrado {
+      height: 150px;
+      padding: 4px;
+      border-radius: 8px;
+      margin: 0 auto;
+      margin-top: 16px;
+      -webkit-box-shadow: 10px 10px 5px 0px rgba(211, 211, 211, 1);
+      -moz-box-shadow: 10px 10px 5px 0px rgba(211, 211, 211, 1);
+      box-shadow: 10px 10px 5px 0px rgba(211, 211, 211, 1);
+      .foto {
         height: 80%;
-        width: 180px;
-        background-color: white;
-        margin: 0 auto;
-        margin-top: 4px;
-        ion-icon {
-          font-size: 96px;
-          margin: 10px 46px;
-          color: #ec9b3b;
+        img {
+          height: 100%;
+          width: 100%;
         }
       }
-      .producto {
-        padding: 4px;
+      p {
         color: white;
         text-align: center;
         font-weight: 700;
