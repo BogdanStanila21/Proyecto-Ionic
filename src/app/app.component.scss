@@ -1,3 +1,19 @@
+ion-tab-bar{
+    --background:white;
+    ion-tab-button{
+        --color:rgb(112, 111, 111);
+        ion-badge{
+            --background:#F7BE16;
+            --color:#293462;
+        }
+        .add{
+            color: #F7BE16;
+        }
+    }
+    .activo{
+        color: #293462;
+    }
+}
 /* Añadir esta línea para importar las variables */
 
 /*------>      @import '../../app.component.scss'      <------*/
