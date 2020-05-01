@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="ion-page" id="main-content">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </div>
+    <p class="text">"usuario"</p>
+    <ion-icon name="person-circle-outline" slot="end"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="estrellas">
+    <ion-icon class="star" name="star-outline"></ion-icon
+    ><ion-icon class="star" name="star-outline"></ion-icon
+    ><ion-icon class="star" name="star-outline"></ion-icon
+    ><ion-icon class="star" name="star-outline"></ion-icon
+    ><ion-icon class="star" name="star-outline"></ion-icon>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="5" class="card"
+      ><div class="foto">
+        <img
+          src="https://img.milanuncios.com/fg/3364/48/336448257_2.jpg?VersionId=98GyuXnZAK7IXMPXXgFSl75WWXrQdNbb"
+          alt=""
+        />
+      </div>
+      <p>"producto"</p>
+    </ion-col>
+    <ion-col size="5" class="card"
+      ><div class="foto">
+        <img
+          src="https://musicaladn.com/153230/trompeta-sib-weril.jpg"
+          alt=""
+        />
+      </div>
+      <p>"producto"</p>
+    </ion-col>
+    <ion-col size="5" class="card"
+      ><div class="foto">
+        <img
+          src="https://corredordemontana.mundodeportivo.com/media/zoo/images/22.10.14_Vivobarefoot_freak_trail_2_bab4871cc902d8e8aad7fd9419408f75.png"
+          alt=""
+        />
+      </div>
+      <p>"producto"</p>
+    </ion-col>
+    <ion-col size="5" class="card"
+      ><div class="foto">
+        <img
+          src="https://4.bp.blogspot.com/-zdHHB26XhIs/WPbdnuVFY6I/AAAAAAAASiY/cChmu_HzNO81wtslIF7RBmcbm2FXd6zHgCPcB/s1600/gato.jpg"
+          alt=""
+        />
+      </div>
+      <p>"producto"</p>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<script
+  type="module"
+  src="https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/ionic.esm.js"
+></script>
+<script
+  nomodule
+  src="https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/ionic.js"
+></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@ionic/core@next/css/ionic.bundle.css"
+/>
+<style>
+  :root {
+    --ion-safe-area-top: 20px;
+    --ion-safe-area-bottom: 22px;
+  }
+</style>
+<script type="module">
+  import { menuController } from "https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/index.esm.js";
+  window.menuController = menuController;
+</script>
+
+<ion-menu side="start" content-id="main-content">
+  <ion-header>
+    <ion-toolbar translucent>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-icon name="layers-outline"></ion-icon>
+        <ion-label>Historial</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="settings-outline"></ion-icon>
+        <ion-label>Editar perfil</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="mail-outline"></ion-icon>
+        <ion-label>Mensajes</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<script>
+  async function openMenu() {
+    await menuController.open();
+  }
+</script>
