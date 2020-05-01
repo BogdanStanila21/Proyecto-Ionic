@@ -1,17 +1,17 @@
-ion-header{
-  ion-toolbar{
-    --background:#293462;
-    ion-icon{
+ion-header {
+  ion-toolbar {
+    --background: #293462;
+    ion-icon {
       font-size: 40px;
       margin-left: 10px;
       color: white;
     }
-    ion-title{
+    ion-title {
       text-align: center;
       font-size: 25px;
       color: white;
     }
-    ion-avatar{
+    ion-avatar {
       width: 40px;
       height: 40px;
       margin-right: 10px;
@@ -19,35 +19,36 @@ ion-header{
     }
   }
 }
-ion-content{
-  --background: url("https://i.pinimg.com/736x/1c/27/d7/1c27d7cff2c7263ea6d14d875bcc9394.jpg") var(--background-opacity);
+ion-content {
+  --background: url(../monsters-icons-background-creative-white-background-cartoon-monsters-funny-monsters-besthqwallpapers.com-960x800.jpg)
+    var(--background-opacity);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
-  ion-searchbar{
-    --background:white;
-    --icon-color:#293462;
-    --box-shadow:2px 2px 3px -1px rgba(0,0,0,0.21);   
+  background-size: cover;
+  ion-searchbar {
+    --background: white;
+    --icon-color: #293462;
+    --box-shadow: 2px 2px 3px -1px rgba(0, 0, 0, 0.21);
   }
-  ion-row{
-    --background:#E8E8E8;
-    ion-col{
-      div{
+  ion-row {
+    --background: #e8e8e8;
+    ion-col {
+      div {
         text-align: center;
         background-color: #293462;
         border-radius: 3px;
         cursor: pointer;
-        img{
+        img {
           margin-top: 1vw;
           width: 95%;
           height: 256px;
           object-fit: cover;
           object-position: center center;
         }
-        ion-text{
-          color:white;
+        ion-text {
+          color: white;
         }
-      }    
-    }    
+      }
+    }
   }
 }
