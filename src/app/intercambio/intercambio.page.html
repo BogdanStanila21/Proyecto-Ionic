@@ -1,44 +1,66 @@
 <ion-header>
-  <ion-buttons slot="start">
-    <ion-back-button
-        [text]="buttonText"
-        [icon]="buttonIcon">
-    </ion-back-button>
-  </ion-buttons>
-  <p>Peticiones</p>
+  <ion-toolbar> <!-- botón Back -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Peticiones</ion-title>
+  </ion-toolbar>
   <ion-icon name="person-outline"></ion-icon>
 </ion-header>
 
 <ion-content>
-  <ion-row>  <!-- iconos de Intercambio -->
-    <ion-col size="6" class="mitad1">
-      <ion-icon name="arrow-redo-outline" id="menu"></ion-icon>
-    </ion-col>
+  <!-- iconos de Intercambio -->
+  <ion-segment (ionChange)="segmentChanged($event)">
+    <ion-segment-button class="mitad1">
+      <!--<ion-label id="icon1">MIS ARTICULOS</ion-label> -->
+      <ion-icon name="arrow-redo-outline" id="icon1"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button class="mitad2">
+       <!-- <ion-label id="icon2">OTROS ARTICULOS</ion-label> -->
+      <ion-icon name="arrow-undo-outline" id="icon2"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
 
-    <ion-col size="6" class="mitad2">
-      <ion-icon name="arrow-undo-outline" id="menu"></ion-icon>
-    </ion-col>
-  </ion-row>
-
-  <ion-row class="articulos"> <!-- Productos ofrecidos y que me ofrecen -->
-    <ion-col size="5" class="mios"> <!-- mis productos -->
+  <ion-row class="articulos"> <!-- Artículos ofrecidos y que me ofrecen -->
+    <ion-col size="5" class="mios"> <!-- mis artículos ofrecidos -->
       <div>
       <img src="https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201911/20/00189060011619____3__640x640.jpg" alt="">
       <ion-label>Patinete eléctrico</ion-label> 
     </div>
     </ion-col>
     <ion-icon name="swap-horizontal-outline" id="flecha"></ion-icon>
-    <ion-col size="5" class="otros"> <!-- productos que me ofrecen -->
+    <ion-col size="5" class="otros"> <!-- artículos que me ofrecen -->
       <div>
       <img src="https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201809/20/00108451997269____4__640x640.jpg" alt="">
       <ion-label>Bicicleta de montaña</ion-label> 
     </div>
     </ion-col>
   </ion-row>
-  <ion-row><!-- botones de aceptar/rechazar -->
+
+  <ion-col size="12"> <!-- botones de aceptar/rechazar -->
+    <ion-button expand="full" shape="round" color="success">Aceptar</ion-button>
+    <ion-button expand="full" shape="round" color="danger">Rechazar</ion-button>
+  </ion-col>
+
+  <ion-col size="12">  <!-- Check si ya realizó la transacción-->
+    <div class="valorar">
+      <h6>¿Has realizado ya el trueque?</h6> <br>
+      <ion-checkbox></ion-checkbox> 
+    </div>
+    <div class="valorar">  <!-- valorar al usuario-->
+      <h6>Valora al usuario</h6> <br>
+      <ion-icon class="star" name="star-outline"></ion-icon>
+      <ion-icon class="star" name="star-outline"></ion-icon>
+      <ion-icon class="star" name="star-outline"></ion-icon>
+      <ion-icon class="star" name="star-outline"></ion-icon>
+      <ion-icon class="star" name="star-outline"></ion-icon>
+    </div>
+    <br>
+    <div class="valorar">  <!-- pendiente de respuesta-->
+    <ion-icon name="speedometer-outline"></ion-icon>
+    <h6>Tu solicitud se encuentra pendiente de respuesta</h6> <br>
+    </div>
+  </ion-col>
 
 
-  </ion-row>
-
-
-</ion-content>
+</ion-content> <!--cierra content-->
