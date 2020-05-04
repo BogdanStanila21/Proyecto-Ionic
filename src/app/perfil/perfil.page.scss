@@ -11,7 +11,7 @@
   margin: 0 auto;
 }
 ion-header {
-  padding: 8px;
+  // padding: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,6 +24,11 @@ ion-header {
     color: #293462;
     margin: 0 auto;
   }
+  ion-avatar{
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+}
   #icono {
     position: absolute;
     right: 50px;

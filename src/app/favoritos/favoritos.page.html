@@ -1,8 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-icon name="arrow-back-outline" slot="start" class="flecha" [routerLink]="['/menu']"></ion-icon>
+    <ion-back-button defaultHref="home" slot="start"></ion-back-button>
     <ion-title class="titulo">Mis favoritos</ion-title>
-    <ion-icon name="person-circle-outline" slot="end" class="perfil" [routerLink]="['/perfil']"></ion-icon>
+    <ion-avatar slot="end" [routerLink]="['/perfil']">
+      <img src="https://www.creativosonline.org/blog/wp-content/uploads/2010/05/creativosonline_crear_avatar_profesional.jpg">
+    </ion-avatar>
   </ion-toolbar>
 </ion-header>
   

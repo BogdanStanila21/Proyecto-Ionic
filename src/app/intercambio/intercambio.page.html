@@ -4,7 +4,7 @@
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
     <ion-title>Peticiones</ion-title>
-    <ion-avatar slot="end">
+    <ion-avatar slot="end" [routerLink]="['/perfil']">
       <img src="https://www.creativosonline.org/blog/wp-content/uploads/2010/05/creativosonline_crear_avatar_profesional.jpg">
     </ion-avatar>
   </ion-toolbar>
@@ -12,7 +12,7 @@
 
 <ion-content>
   <!-- iconos de Intercambio -->
-  <ion-segment (ionChange)="segmentChanged($event)">
+  <ion-segment>
     <ion-segment-button class="mitad1">
       <!--<ion-label id="icon1">MIS ARTICULOS</ion-label> -->
       <ion-icon name="arrow-redo-outline" id="icon1"></ion-icon>

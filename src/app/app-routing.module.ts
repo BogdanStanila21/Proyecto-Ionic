@@ -50,7 +50,15 @@ const routes: Routes = [
   {
     path: 'favoritos',
     loadChildren: () => import('./favoritos/favoritos.module').then( m => m.FavoritosPageModule)
+  },  {
+    path: 'selecionar-mi-producto',
+    loadChildren: () => import('./selecionar-mi-producto/selecionar-mi-producto.module').then( m => m.SelecionarMiProductoPageModule)
   },
+  {
+    path: 'chat-general',
+    loadChildren: () => import('./chat-general/chat-general.module').then( m => m.ChatGeneralPageModule)
+  },
+
 ]
 @NgModule({
   imports: [
