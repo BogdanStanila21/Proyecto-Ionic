@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button defaultHref="home" slot="start"></ion-back-button>
+    <ion-title>Chat</ion-title>
+    <ion-avatar slot="end">
+      <img src="https://www.creativosonline.org/blog/wp-content/uploads/2010/05/creativosonline_crear_avatar_profesional.jpg">
+    </ion-avatar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" #content>
+
+  <ion-text class="timer" *ngFor="let item of chat">
+    <p *ngIf="item.usuario_realiza==id;else esFalse" class="mimensaje">{{item.mensaje}}</p>
+    <ng-template #esFalse>
+      <p class="otro">{{item.mensaje}}</p>
+    </ng-template>
+  </ion-text>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-input #texto></ion-input>
+      <ion-icon name="paper-plane" (click)="enviarChat(texto.value)"></ion-icon>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

@@ -25,7 +25,41 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-.searchbar-input {
-  border: 1px solid #293462 !important;
-  border-radius: 30px !important;
+
+.searchbar-input{
+    border: 1px solid var(--color-primary) !important;
+    border-radius: 32px !important;
+  }
+
+.alert{
+  --background:var(--color-grey) ;
+  .alert-button-group{
+    margin: 0 auto;
+    width: 100%;
+    .alertButton{
+      color: var(--color-primary)!important;
+      text-align: center;
+      background-color:var(--color-grey)!important;
+      margin: 0;
+      width: 50%;
+      border-radius: 32px;
+      border: 2px solid var(--color-primary);
+      .alert-button-inner{
+        justify-content: center;
+      }
+    }
+    .alertButton2{
+      color: var(--color-grey)!important;
+      text-align: center;
+      background-color:var(--color-primary)!important;
+      margin: 0;
+      width: 50%;
+      border-radius: 32px;
+      border: 2px solid var(--color-primary);
+      .alert-button-inner{
+        justify-content: center;
+      }
+    }
+  }
+  
 }
