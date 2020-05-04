@@ -385,5 +385,31 @@ app.delete("/usuario", (req, res) => {
     })
 })
 
+//--------------------------------------------------Api para chat-------------------------------//
+
+app.get("/chat/:id",(req,res)=>{
+    let sql="SELECT * FROM chat WHERE (usuario_recibe="+req.params.id+")||((usuario_realiza="+req.params.id+"))";
+
+    connection.query(sql,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result);
+        }
+    })
+})
+
+app.post("/chat",(req,res)=>{
+    let variable=[req.body.usuario_realiza, req.body.usuario_recibe, req.body.mensaje];
+    let sql="INSERT INTO chat (usuario_realiza, usuario_recibe, mensaje) VALUES (?, ?, ?)";
+
+    connection.query(sql, variable, (err,result)=>{
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+        }
+    })
+})
 
 app.listen(3000);
