@@ -47,6 +47,10 @@ const routes: Routes = [
     path: 'intercambio',
     loadChildren: () => import('./intercambio/intercambio.module').then( m => m.IntercambioPageModule)
   },
+  {
+    path: 'favoritos',
+    loadChildren: () => import('./favoritos/favoritos.module').then( m => m.FavoritosPageModule)
+  },
 ]
 @NgModule({
   imports: [
