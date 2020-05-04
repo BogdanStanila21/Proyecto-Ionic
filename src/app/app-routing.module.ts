@@ -47,6 +47,11 @@ const routes: Routes = [
     path: 'intercambio',
     loadChildren: () => import('./intercambio/intercambio.module').then( m => m.IntercambioPageModule)
   },
+  {
+    path: 'subir-articulo',
+    loadChildren: () => import('./subir-articulo/subir-articulo.module').then( m => m.SubirArticuloPageModule)
+  },
+
 ]
 @NgModule({
   imports: [

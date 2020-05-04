@@ -12,8 +12,8 @@
 
 <ion-content>
   <!-- iconos de Intercambio -->
-  <ion-segment (ionChange)="segmentChanged($event)">
-    <ion-segment-button class="mitad1">
+  <ion-segment value="cualquiera">
+    <ion-segment-button class="mitad1" value="cualquiera">
       <!--<ion-label id="icon1">MIS ARTICULOS</ion-label> -->
       <ion-icon name="arrow-redo-outline" id="icon1"></ion-icon>
     </ion-segment-button>
@@ -63,6 +63,15 @@
     <h6>Tu solicitud se encuentra pendiente de respuesta</h6> <br>
     </div>
   </ion-col>
+
+
+  <ion-card>
+    <ion-item href="subir-articulo" class="ion-activated">
+      <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+      <ion-label>Subir Artículo</ion-label>
+    </ion-item>
+  </ion-card>
+
 
 
 </ion-content> <!--cierra content-->
