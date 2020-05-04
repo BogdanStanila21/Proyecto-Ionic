@@ -42,7 +42,11 @@ const routes: Routes = [
   {
     path: 'chat',
     loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
-  }
+  },
+  {
+    path: 'intercambio',
+    loadChildren: () => import('./intercambio/intercambio.module').then( m => m.IntercambioPageModule)
+  },
 ]
 @NgModule({
   imports: [
