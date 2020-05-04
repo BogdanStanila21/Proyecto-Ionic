@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "home",
+    redirectTo: "login",
     pathMatch: "full",
   },
   {
@@ -18,21 +18,27 @@ const routes: Routes = [
       import("./perfil/perfil.module").then((m) => m.PerfilPageModule),
   },
   {
-    path: 'menu',
-    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
-  },  {
-    path: 'editar-perfil',
-    loadChildren: () => import('./editar-perfil/editar-perfil.module').then( m => m.EditarPerfilPageModule)
+    path: "menu",
+    loadChildren: () =>
+      import("./menu/menu.module").then((m) => m.MenuPageModule),
   },
   {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    path: "editar-perfil",
+    loadChildren: () =>
+      import("./editar-perfil/editar-perfil.module").then(
+        (m) => m.EditarPerfilPageModule
+      ),
   },
   {
-    path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+    path: "login",
+    loadChildren: () =>
+      import("./login/login.module").then((m) => m.LoginPageModule),
   },
-
+  {
+    path: "registro",
+    loadChildren: () =>
+      import("./registro/registro.module").then((m) => m.RegistroPageModule),
+  },
 ];
 
 @NgModule({
