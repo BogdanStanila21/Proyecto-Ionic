@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon name="arrow-back-outline" slot="start" class="flecha" [routerLink]="['/menu']"></ion-icon>
+    <!-- <ion-title class="titulo">producto</ion-title> -->
+    <ion-icon name="person-circle-outline" slot="end" class="perfil" [routerLink]="['/perfil']"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+
+     <!-- información de un artículo -->
+    <ion-row class="info">
+      <ion-col size="12">
+        <img class="foto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS2MOr781z2aPsktDAc6WfH9zrEQz-HjvNcnCtKkq4eFdPAFOYO&usqp=CAU" alt="">
+        <h2><strong class="nombre">Productos de baño</strong></h2>
+        <h5><strong>Antigüedad: </strong>xxxx</h5>
+        <h5><strong>Estado: </strong>xxxx</h5>
+        <h5 class="texto">Están nuevos, cómpralos que se me acaban. Funcionan que da gusto verlos oye y dejan todo como los chorros del oro.</h5>
+      </ion-col>
+    </ion-row>
+
+     <!-- botón de solicitar producto para el cambio -->
+    <ion-col size="12">
+      <ion-button expand="full" shape="round">Solicitar cambio</ion-button>
+    </ion-col>
+
+    <ion-item-divider></ion-item-divider>
+
+     <!-- datos del usuario propietario -->
+    <div class="container2">
+      <img class="avatar" src="https://www.creativosonline.org/blog/wp-content/uploads/2010/05/creativosonline_crear_avatar_profesional.jpg">
+      
+      <div class="container3">
+        <h6 class="usuario">Xxxx</h6>
+        
+        <ion-icon class="star" name="star-outline"></ion-icon>
+        <ion-icon class="star" name="star-outline"></ion-icon>
+        <ion-icon class="star" name="star-outline"></ion-icon>
+        <ion-icon class="star" name="star-outline"></ion-icon>
+        <ion-icon class="star" name="star-outline"></ion-icon>
+      </div>
+    </div>
+
+  </div>
+</ion-content>
