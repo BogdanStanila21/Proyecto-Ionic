@@ -40,18 +40,28 @@ const routes: Routes = [
       import("./registro/registro.module").then((m) => m.RegistroPageModule),
   },
   {
-    path: 'chat',
-    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
+    path: "historial",
+    loadChildren: () =>
+      import("./historial/historial.module").then((m) => m.HistorialPageModule),
   },
   {
-    path: 'intercambio',
-    loadChildren: () => import('./intercambio/intercambio.module').then( m => m.IntercambioPageModule)
+    path: "chat",
+    loadChildren: () =>
+      import("./chat/chat.module").then((m) => m.ChatPageModule),
   },
   {
-    path: 'favoritos',
-    loadChildren: () => import('./favoritos/favoritos.module').then( m => m.FavoritosPageModule)
+    path: "intercambio",
+    loadChildren: () =>
+      import("./intercambio/intercambio.module").then(
+        (m) => m.IntercambioPageModule
+      ),
   },
-]
+  {
+    path: "favoritos",
+    loadChildren: () =>
+      import("./favoritos/favoritos.module").then((m) => m.FavoritosPageModule),
+  },
+];
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
