@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar> <!-- botón Back -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Subir Artículo</ion-title>
+    <ion-avatar slot="end">
+      <img src="https://www.creativosonline.org/blog/wp-content/uploads/2010/05/creativosonline_crear_avatar_profesional.jpg">
+    </ion-avatar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="subir">
+    <ion-card>
+      <ion-item>
+        <ion-textarea placeholder="Título*"></ion-textarea>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-textarea placeholder="Antiguedad*"></ion-textarea>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-textarea placeholder="Descripción*"></ion-textarea>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label>Estado del artículo</ion-label>
+        <ion-select value="estado" okText="Aceptar" cancelText="Cancelar">
+          <ion-select-option value="Vehículos" >sin usar-nuevo</ion-select-option>
+          <ion-select-option value="Videojuegos">usado-como nuevo</ion-select-option>
+          <ion-select-option value="Electrónica">usado-buen estado</ion-select-option>
+          <ion-select-option value="Ropa y Accesorios">notablemente usado</ion-select-option>
+        </ion-select>
+      </ion-item>
+  </ion-card> 
+    <ion-card>
+      <ion-item>
+        <ion-label>Escoge una categoria</ion-label>
+        <ion-select value="categoria" okText="Aceptar" cancelText="Cancelar">
+          <ion-select-option value="Vehículos">Vehículos</ion-select-option>
+          <ion-select-option value="Videojuegos">Videojuegos</ion-select-option>
+          <ion-select-option value="Electrónica">Electrónica</ion-select-option>
+          <ion-select-option value="Ropa y Accesorios">Ropa y Accesorios</ion-select-option>
+          <ion-select-option value="Libros y revistas">Libros y revistas</ion-select-option>
+          <ion-select-option value="Muebles de Hogar">Muebles de Hogar</ion-select-option>
+          <ion-select-option value="Coleccionismo">Coleccionismo</ion-select-option>
+          <ion-select-option value="Herramientas">Herramientas</ion-select-option>
+          <ion-select-option value="Otra">Otra</ion-select-option>
+        </ion-select>
+      </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201909/11/00194610600879____1__640x640.jpg">
+      </ion-thumbnail>
+      <ion-label>Sube una imágen de tu artículo</ion-label>
+    </ion-item>
+  </ion-card>
+
+  <ion-button expand="full" shape="round" color="primary">Subir Artículo</ion-button>
+
+</ion-card>
+
+</ion-content> <!--cierra content-->
