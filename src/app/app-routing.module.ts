@@ -60,7 +60,11 @@ const routes: Routes = [
     path: "favoritos",
     loadChildren: () =>
       import("./favoritos/favoritos.module").then((m) => m.FavoritosPageModule),
+  },  {
+    path: 'bienvenida',
+    loadChildren: () => import('./bienvenida/bienvenida.module').then( m => m.BienvenidaPageModule)
   },
+
 ];
 @NgModule({
   imports: [
