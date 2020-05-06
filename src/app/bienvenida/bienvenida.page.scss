@@ -1,0 +1,65 @@
+:root {
+  --ion-safe-area-top: 20px;
+  --ion-safe-area-bottom: 22px;
+}
+
+ion-slides {
+  height: 100%;
+}
+
+.swiper-slide {
+  display: block;
+}
+
+.swiper-slide h2 {
+  margin-top: 4rem;
+  font-size: 30px;
+  color: rgba(0, 0, 0, 0.534);
+}
+
+.swiper-slide img {
+  max-height: 50%;
+  max-width: 80%;
+  margin: 60px 0 40px;
+  pointer-events: none;
+}
+
+p {
+  color: var(--ion-text-color, #ffffff80);
+  margin-top: 360px;
+  margin-left: 10px;
+  padding: 0 40px;
+  font-size: 22px;
+}
+
+.uno {
+  background: url("https://i.ibb.co/3Tkz9gv/jpg-cohete.jpg") no-repeat
+    center/cover;
+  padding: 0px 25px;
+}
+.dos {
+  background: url("https://i.ibb.co/pQ0Zvbs/jpg-cohete-2.jpg") no-repeat
+    center/cover;
+  background-position: -230px;
+  .p2 {
+    font-size: 18px;
+    text-justify: left;
+    margin-left: 30px;
+  }
+}
+.tres {
+  height: 100%;
+  width: 100%;
+  background: url("https://i.ibb.co/yRg3RdK/Start-up-6-04.jpg") no-repeat
+    center/cover;
+  background-size: cover;
+  background-position: -80px;
+  p {
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+  ion-button {
+    width: 100px;
+    margin-right: 20px;
+  }
+}

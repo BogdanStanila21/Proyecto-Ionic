@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "login",
+    redirectTo: "bienvenida",
     pathMatch: "full",
   },
   {
@@ -40,20 +40,62 @@ const routes: Routes = [
       import("./registro/registro.module").then((m) => m.RegistroPageModule),
   },
   {
-    path: 'chat',
-    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
+    path: "historial",
+    loadChildren: () =>
+      import("./historial/historial.module").then((m) => m.HistorialPageModule),
   },
   {
-    path: 'intercambio',
-    loadChildren: () => import('./intercambio/intercambio.module').then( m => m.IntercambioPageModule)
+    path: "chat",
+    loadChildren: () =>
+      import("./chat/chat.module").then((m) => m.ChatPageModule),
   },
   {
-    path: 'favoritos',
-    loadChildren: () => import('./favoritos/favoritos.module').then( m => m.FavoritosPageModule)
+    path: "intercambio",
+    loadChildren: () =>
+      import("./intercambio/intercambio.module").then(
+        (m) => m.IntercambioPageModule
+      ),
   },
   {
-    path: 'info-articulo',
-    loadChildren: () => import('./info-articulo/info-articulo.module').then( m => m.InfoArticuloPageModule)
+    path: "favoritos",
+    loadChildren: () =>
+      import("./favoritos/favoritos.module").then((m) => m.FavoritosPageModule),
+  },
+  {
+    path: "bienvenida",
+    loadChildren: () =>
+      import("./bienvenida/bienvenida.module").then(
+        (m) => m.BienvenidaPageModule
+      ),
+  },
+  {
+    path: "registro",
+    loadChildren: () =>
+      import("./registro/registro.module").then((m) => m.RegistroPageModule),
+  },
+  {
+    path: "chat",
+    loadChildren: () =>
+      import("./chat/chat.module").then((m) => m.ChatPageModule),
+  },
+  {
+    path: "intercambio",
+    loadChildren: () =>
+      import("./intercambio/intercambio.module").then(
+        (m) => m.IntercambioPageModule
+      ),
+  },
+  {
+    path: "favoritos",
+    loadChildren: () =>
+      import("./favoritos/favoritos.module").then((m) => m.FavoritosPageModule),
+  },
+  {
+    path: "info-articulo",
+    loadChildren: () =>
+      import("./info-articulo/info-articulo.module").then(
+        (m) => m.InfoArticuloPageModule
+      ),
   },
 
   {
@@ -62,11 +104,13 @@ const routes: Routes = [
       import("./historial/historial.module").then((m) => m.HistorialPageModule),
   },
   {
-    path: 'subir-articulo',
-    loadChildren: () => import('./subir-articulo/subir-articulo.module').then( m => m.SubirArticuloPageModule)
+    path: "subir-articulo",
+    loadChildren: () =>
+      import("./subir-articulo/subir-articulo.module").then(
+        (m) => m.SubirArticuloPageModule
+      ),
   },
-
-]
+];
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
