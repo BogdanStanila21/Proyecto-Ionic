@@ -29,7 +29,7 @@ connection.connect(function(error){
 
 //----------------------------------API artículo------------------------------------------------------------//
 
-// app.get("/articulos", function(req, res, next)
+ //app.get("/articulos", function(req, res, next)
 // {
 //     let variable = "SELECT usuario.nick, nombre, antiguedad, descripcion, estado, imagen FROM articulo JOIN usuario_articulo ON (articulo.articulo_id = usuario_articulo.articulo_id) JOIN usuario ON (usuario_articulo.usuario_id = usuario.usuario_id)";
 //     let variable2 = [req.params.id];
@@ -50,7 +50,7 @@ connection.connect(function(error){
 
 app.get("/articulo/:id", function(req, res, next)
     {
-        let variable = "SELECT articulo.nombre, antiguedad, descripcion, estado, imagen FROM articulo JOIN usuario_articulo ON (articulo.articulo_id = usuario_articulo.articulo_id) JOIN usuario ON (usuario_articulo.usuario_id = usuario.usuario_id) WHERE usuario.usuario_id = ?";
+        let variable = "SELECT articulo.nombre, antiguedad, descripcion, estado, categoria, imagen FROM articulo JOIN usuario_articulo ON (articulo.articulo_id = usuario_articulo.articulo_id) JOIN usuario ON (usuario_articulo.usuario_id = usuario.usuario_id) WHERE usuario.usuario_id = ?";
         let variable2 = [req.params.id];
 
         connection.query(variable, variable2, function(err, result)
@@ -66,10 +66,26 @@ app.get("/articulo/:id", function(req, res, next)
     }
 );
 
+//----------Api para mostrar sólo mis articulos en mi perfil---------//
+app.get("/misarticulos/:usuario_id", function(req, res, next)
+{
+    let var1 = "SELECT * FROM articulo JOIN usuario_articulo ON (articulo.articulo_id= usuario_articulo.articulo_id) WHERE usuario_articulo.usuario_id = ?";
+    let var2 = [req.params.usuario_id]
+    connection.query(var1, var2, function(err, result)
+    {
+        if(err){
+            console.log(err);
+        }else{ 
+            res.send(result)
+            console.log("GET de mis articulos")
+        }       
+    })
+});
+
 app.post("/articulo", function(req, res, next)
 {
-    let variable = "INSERT INTO articulo (nombre, antiguedad, descripcion, estado, imagen) VALUES (?,?,?,?,?)";
-    let variable2 = [req.body.nombre, req.body.antiguedad, req.body.descripcion, req.body.estado, req.body.imagen];
+    let variable = "INSERT INTO articulo (nombre, antiguedad, descripcion, estado, categoria, imagen) VALUES (?,?,?,?,?,?)";
+    let variable2 = [req.body.nombre, req.body.antiguedad, req.body.descripcion, req.body.estado, req.body.categoria, req.body.imagen];
 
     connection.query(variable, variable2, function(err, result)
         {
@@ -99,6 +115,25 @@ app.post("/articulo", function(req, res, next)
 
 app.put("/articulo", function(req, res, next)
 {
+    let variable = "UPDATE articulo SET nombre = ?, antiguedad = ?, descripcion = ?, estado = ?, categoria =?, imagen = ? WHERE articulo_id = " + [req.query.id];
+    let variable2 = [req.body.nombre, req.body.antiguedad, req.body.descripcion, req.body.estado, req.body.categoria, req.body.imagen];
+
+    connection.query(variable, variable2, function(err, result)
+        {
+            if(err){
+                console.log(err);
+            }else{
+                res.send(result);
+                console.log("PUT de artículo");
+            }
+        }
+    );
+}
+);
+
+//----------Api para editar mis articulos en mi perfil---------//
+app.put("/misarticulos/:usuario_id", function(req, res, next)
+{
     let variable = "UPDATE articulo SET nombre = ?, antiguedad = ?, descripcion = ?, estado = ?, imagen = ? WHERE articulo_id = " + [req.query.id];
     let variable2 = [req.body.nombre, req.body.antiguedad, req.body.descripcion, req.body.estado, req.body.imagen];
 
@@ -114,6 +149,9 @@ app.put("/articulo", function(req, res, next)
     );
 }
 );
+
+
+
 
 
 app.delete("/articulo", function(req, res, next)

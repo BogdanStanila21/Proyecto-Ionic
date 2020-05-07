@@ -16,66 +16,23 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-row>
-    <ion-col size="5.8" class="card"
-      ><div class="foto">
-        <img
-          src="https://img.milanuncios.com/fg/3364/48/336448257_2.jpg?VersionId=98GyuXnZAK7IXMPXXgFSl75WWXrQdNbb"
-          alt=""
-        />
-      </div>
-      <p>"producto"</p>
-    </ion-col>
-    <ion-col size="5.8" class="card"
-      ><div class="foto">
-        <img
-          src="https://musicaladn.com/153230/trompeta-sib-weril.jpg"
-          alt=""
-        />
-      </div>
-      <p>"producto"</p>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col size="5.8" class="card"
-      ><div class="foto">
-        <img
-          src="https://img.milanuncios.com/fg/2863/92/286392738_2.jpg?VersionId=iHBw8RbPnWjBAm9aMTrbpcv1rO6P6BDz"
-          alt=""
-        />
-      </div>
-      <p>"producto"</p>
-    </ion-col>
-    <ion-col size="5.8" class="card"
-      ><div class="foto">
-        <img
-          src="https://img.milanuncios.com/fp/1000/95/100095839_1.jpg"
-          alt=""
-        />
-      </div>
-      <p>"producto"</p>
-    </ion-col>
-    <ion-col size="5.8" class="card"
-      ><div class="foto">
-        <img
-          src="https://img.milanuncios.com/fg/3411/06/341106828_1.jpg?VersionId=oewFueNKFC8mDHpOG.XcpzmZlEF6MOyy"
-          alt=""
-        />
-      </div>
-      <p>"producto"</p>
-    </ion-col>
-    <ion-col size="5.8" class="card"
-      ><div class="foto">
-        <img
-          src="https://images.vibbo.com/635x476/456/45661926954.jpg"
-          alt=""
-        />
-      </div>
-      <p>"producto"</p>
-    </ion-col>
+<ion-content *ngIf="misArticulos!=null">
+  <ion-row class="articulos">
+    <ion-col size="5.4" class="card" *ngFor="let item of misArticulos">
+      <ion-card>
+        <ion-item>
+          <img src="{{item.imagen}}" alt="">
+          <ion-button fill="outline" slot="end" (click)= "abirModal()">+info</ion-button>
+        </ion-item>
+
+        <ion-card-content>
+          {{item.nombre}}
+        </ion-card-content>
+     </ion-card>
+    </ion-col>  
   </ion-row>
 </ion-content>
+
 
 <script
   type="module"
