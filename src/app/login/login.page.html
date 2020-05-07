@@ -2,9 +2,9 @@
   <h1 class="titulo">Aplicacion</h1>
   <ion-row class="caja">
     <ion-col size="11">
-      <ion-input placeholder="E-mail"> </ion-input>
-      <ion-input placeholder="Contraseña"> </ion-input>
-      <ion-button class="boton">Entra</ion-button>
+      <ion-input type="email" placeholder="E-mail" #email> </ion-input>
+      <ion-input type="password" placeholder="Contraseña" #contrasenya> </ion-input>
+      <ion-button class="boton" (click)="login(email.value, contrasenya.value)">Entra</ion-button>
       <div class="flex">
         <div class="linea"></div>
         <p class="texto">¿No estás registrado?</p>

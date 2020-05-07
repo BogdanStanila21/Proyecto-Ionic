@@ -6,28 +6,59 @@ ion-header{
         ion-avatar{
             width: 40px;
             height: 40px;
-            margin-right: 10px;
+            margin-right: 16px;
         }
     }
 }
 
 ion-content{
+     --background: url("./fondo5.jpg");
+    
     .mimensaje{
-        text-align: end;
+        padding: 0;
+        margin: 0;
         margin:8px 8px;
-        color: rgb(0, 0, 0);
-        background-color:rgba(3, 184, 48, 0.137);
-        font-size: 24px;
-        padding: 4px;
+        font-size: 16px;
         border-radius: 5px;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        p{
+            margin: 0;
+            color: #282828;
+            padding: 4px 8px;
+            border-radius: 5px 5px 0px 5px;
+            margin-right: 8px;
+            width: fit-content;
+            margin-right: 0%;
+            background-color: rgba(1, 247, 1, 0.349);
+        }
+        .time{
+            font-size: 12px;
+            border-radius: 0px 0px 5px 5px;
+        }
     }
     .otro{
+        padding: 0;
+        margin: 0;
         margin:8px 8px;
-        color: rgb(0, 0, 0);
-        background-color: rgba(250, 128, 114, 0.116);
-        font-size: 24px;
-        padding: 4px;
+        font-size: 16px;
         border-radius: 5px;
+        p{
+            margin: 0;
+            color: #282828;
+            padding: 4px 8px;
+            border-radius: 5px 5px 5px 0px;
+            margin-right: 8px;
+            width: fit-content;
+            margin-right: 0%;
+            background-color: rgba(105, 134, 250, 0.473);
+        }
+        .time{
+            font-size: 12px;
+            border-radius: 0px 0px 5px 5px;
+        }
+        
     }
 }
 

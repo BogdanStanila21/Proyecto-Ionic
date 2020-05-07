@@ -1,8 +1,11 @@
 <ion-header>
   <ion-toolbar>
     <ion-back-button slot="start" class="flecha" defaultHref="/home"></ion-back-button>
-    <!-- <ion-title class="titulo">producto</ion-title> -->
-    <ion-icon name="person-circle-outline" slot="end" class="perfil" [routerLink]="['/perfil']"></ion-icon>
+    <ion-title *ngFor="let i of articulo">{{i.nombre}}</ion-title>
+    <ion-avatar slot="end" [routerLink]="['/perfil']">
+      <img
+        src="{{usuario.foto}}"/>
+    </ion-avatar>
   </ion-toolbar>
 </ion-header>
 

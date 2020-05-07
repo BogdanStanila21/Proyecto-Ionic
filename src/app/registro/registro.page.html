@@ -2,14 +2,14 @@
   <h1 class="titulo">Aplicacion</h1>
   <ion-row class="caja">
     <ion-col size="11">
-      <ion-input placeholder="E-mail"> </ion-input>
-      <ion-input type="password" placeholder="Contraseña"> </ion-input>
-      <ion-input type="password" placeholder="Confirmar Contraseña">
-      </ion-input>
-      <ion-input placeholder="Nick"> </ion-input>
-      <ion-input placeholder="Nombre"> </ion-input>
-      <ion-input type="date" placeholder="Fecha de nacimiento"> </ion-input>
-      <ion-button class="boton">Registro</ion-button>
+      <ion-input placeholder="Nick" #nick> </ion-input>
+      <ion-input placeholder="Nombre" #nombre> </ion-input>
+      <ion-input placeholder="E-mail" #email> </ion-input>
+      <ion-input placeholder="Ubicación" #lugar> </ion-input>
+      <ion-input type="password" placeholder="Contraseña" #contrasenya> </ion-input>
+      <ion-input type="password" placeholder="Confirmar Contraseña" #contrasenya2></ion-input>
+      <!-- <ion-input type="date" placeholder="Fecha de nacimiento"> </ion-input> -->
+      <ion-button class="boton" (click)="postUsuario(nick.value, nombre.value, email.value, lugar.value, contrasenya.value)">Registro</ion-button>
     </ion-col>
   </ion-row>
   <svg

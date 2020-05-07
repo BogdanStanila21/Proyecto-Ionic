@@ -1,0 +1,30 @@
+ion-header{
+    ion-toolbar{
+        --background:var(--color-primary);
+        --color:var(--color-grey);
+        text-align: center;
+        ion-avatar{
+            width: 40px;
+            height: 40px;
+            margin-right: 16px;
+        }
+    }
+}
+
+ion-content{
+    ion-item{
+        ion-avatar{
+            width: 64px;
+            height: 64px;
+        }
+        ion-label{
+            min-width: 100%;
+            font-size: 20px;
+            p{
+                margin-top:8px;
+                overflow: hidden;
+            }
+        }  
+    }
+    
+}

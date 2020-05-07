@@ -3,13 +3,14 @@ import { UsuarioModel } from './../models/usuario';
 import { LoginService } from './../service/login.service';
 
 @Component({
-  selector: 'app-intercambio',
-  templateUrl: './intercambio.page.html',
-  styleUrls: ['./intercambio.page.scss'],
+  selector: 'app-selecionar-mi-producto',
+  templateUrl: './selecionar-mi-producto.page.html',
+  styleUrls: ['./selecionar-mi-producto.page.scss'],
 })
-export class IntercambioPage implements OnInit {
+export class SelecionarMiProductoPage implements OnInit {
 
   public usuario:UsuarioModel
+
   constructor(private auth:LoginService) { }
 
   usuarioLogeado(){

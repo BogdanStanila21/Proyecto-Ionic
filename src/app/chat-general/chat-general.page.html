@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button defaultHref="home" slot="start"></ion-back-button>
+    <ion-title>Chat</ion-title>
+    <ion-avatar slot="end" [routerLink]="['/perfil']">
+      <img
+        src="{{usuario.foto}}">
+    </ion-avatar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item *ngFor="let item of nickUsuario">
+    <ion-avatar slot="start">
+      <img
+        src="{{item.foto}}">
+    </ion-avatar>
+    <ion-label [routerLink]="['/chat',item.usuario_id]">{{item.nick}}</ion-label>
+  </ion-item>
+
+
+</ion-content>

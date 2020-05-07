@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeserviceService } from '../shared/homeservice.service';
 import { Router } from '@angular/router';
+import { LoginService } from './../service/login.service';
+import { UsuarioModel } from './../models/usuario';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +12,13 @@ import { Router } from '@angular/router';
 export class HomePage implements OnInit {
 
   public articulos: any;
+  public usuario:UsuarioModel
 
-  constructor(private api: HomeserviceService, private router: Router) {}
+  constructor(private api: HomeserviceService, private router: Router, private auth: LoginService) {}
+
+  usuarioLogeado(){
+    this.usuario=this.auth.usuarioId;
+  }
 
   mostrarTodos() {
     this.api.getTodos(1).subscribe((data: any) => {
@@ -25,7 +32,9 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+    this.usuarioLogeado();
     this.mostrarTodos();
+
   }
 
 }

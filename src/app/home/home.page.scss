@@ -14,7 +14,7 @@ ion-header{
     ion-avatar {
       width: 40px;
       height: 40px;
-      margin-right: 10px;
+      margin-right: 16px;
     }
   }
 }
@@ -45,8 +45,10 @@ ion-content{
         }
         ion-text{
           color:var(--color-grey);
-          h2{
+          margin: 0 auto;
+          h3{
             margin: 4px;
+            overflow: hidden; 
           }
         }
       }

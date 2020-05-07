@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button defaultHref="home" slot="start"></ion-back-button>
+    <ion-title>Seleciona un producto</ion-title>
+    <ion-avatar slot="end" [routerLink]="['/perfil']">
+      <img src="{{usuario.foto}}">
+    </ion-avatar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar animated></ion-searchbar>
+
+  <ion-row>
+    <ion-col size="6">
+      <div>
+        <img
+          src="https://i.blogs.es/c8c039/650_1000_samsung-suhd-tv-4k-hero-1200-80/450_1000.jpg"
+          alt=""
+        />
+        <ion-text>
+          <h2>Television</h2>
+        </ion-text>
+      </div>
+    </ion-col>
+    <ion-col size="6">
+      <div>
+        <img
+          src="https://http2.mlstatic.com/play4-slim-D_NQ_NP_863713-MLA29127989346_012019-F.webp"
+          alt=""
+        />
+        <ion-text>
+          <h2>Playstation 4</h2>
+        </ion-text>
+      </div>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

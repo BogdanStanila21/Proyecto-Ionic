@@ -1,7 +1,7 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 
-  <ion-tabs>
+  <ion-tabs *ngIf="usuarioLogeado()">
     <ion-tab-bar slot="bottom">
       <ion-tab-button [routerLink]="['/home']" routerLinkActive="activo">
         <ion-icon name="Home"></ion-icon>
@@ -17,8 +17,8 @@
         <ion-icon name="add-circle" class="add"></ion-icon>
         <ion-label>Subir</ion-label>
       </ion-tab-button>
-
-      <ion-tab-button [routerLink]="['/chat']" routerLinkActive="activo">
+  
+      <ion-tab-button [routerLink]="['/chat-general']" routerLinkActive="activo">
         <ion-icon name="chatbubbles"></ion-icon>
         <ion-label>Chat</ion-label>
         <ion-badge>{{ "badge" }}</ion-badge>
@@ -26,7 +26,7 @@
 
       <ion-tab-button [routerLink]="['/intercambio']" routerLinkActive="activo">
         <ion-icon name="swap-horizontal"></ion-icon>
-        <ion-label>Intercambio</ion-label>
+        <ion-label>Peticiones</ion-label>
         <ion-badge>6</ion-badge>
       </ion-tab-button>
     </ion-tab-bar>
