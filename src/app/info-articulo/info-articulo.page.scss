@@ -23,7 +23,7 @@ ion-header{
 
 .foto{
     height: 200px;
-    width: 100%;
+    //width: 100%;
     border-radius: 4px;
 }
 
@@ -51,6 +51,11 @@ ion-button{
         }
     }
        
+}
+
+.info{
+  text-align: center;
+
 }
 
 

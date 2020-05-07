@@ -14,57 +14,66 @@
   <ion-card class="subir">
     <ion-card>
       <ion-item>
-        <ion-textarea placeholder="Título*"></ion-textarea>
+        <ion-textarea placeholder="Título*" #nombre></ion-textarea>
       </ion-item>
     </ion-card>
     <ion-card>
       <ion-item>
-        <ion-textarea placeholder="Antiguedad*"></ion-textarea>
+        <ion-textarea placeholder="Antigüedad*" #antiguedad></ion-textarea>
       </ion-item>
     </ion-card>
     <ion-card>
       <ion-item>
-        <ion-textarea placeholder="Descripción*"></ion-textarea>
+        <ion-textarea placeholder="Descripción*" #descripcion></ion-textarea>
       </ion-item>
     </ion-card>
     <ion-card>
       <ion-item>
         <ion-label>Estado del artículo</ion-label>
-        <ion-select value="estado" okText="Aceptar" cancelText="Cancelar">
-          <ion-select-option value="Vehículos" >sin usar-nuevo</ion-select-option>
-          <ion-select-option value="Videojuegos">usado-como nuevo</ion-select-option>
-          <ion-select-option value="Electrónica">usado-buen estado</ion-select-option>
-          <ion-select-option value="Ropa y Accesorios">notablemente usado</ion-select-option>
+        <ion-select value="estado" okText="Aceptar" cancelText="Cancelar" #estado>
+          <ion-select-option value="sin usar-nuevo" >sin usar-nuevo</ion-select-option>
+          <ion-select-option value="usado-pero como nuevo">usado-como nuevo</ion-select-option>
+          <ion-select-option value="usado-en buen estado">usado-buen estado</ion-select-option>
+          <ion-select-option value="notablemente usado">notablemente usado</ion-select-option>
         </ion-select>
       </ion-item>
   </ion-card> 
-    <ion-card>
-      <ion-item>
-        <ion-label>Escoge una categoria</ion-label>
-        <ion-select value="categoria" okText="Aceptar" cancelText="Cancelar">
-          <ion-select-option value="Vehículos">Vehículos</ion-select-option>
-          <ion-select-option value="Videojuegos">Videojuegos</ion-select-option>
-          <ion-select-option value="Electrónica">Electrónica</ion-select-option>
-          <ion-select-option value="Ropa y Accesorios">Ropa y Accesorios</ion-select-option>
-          <ion-select-option value="Libros y revistas">Libros y revistas</ion-select-option>
-          <ion-select-option value="Muebles de Hogar">Muebles de Hogar</ion-select-option>
-          <ion-select-option value="Coleccionismo">Coleccionismo</ion-select-option>
-          <ion-select-option value="Herramientas">Herramientas</ion-select-option>
-          <ion-select-option value="Otra">Otra</ion-select-option>
-        </ion-select>
-      </ion-item>
+  <ion-card>
+    <ion-item>
+      <ion-label>Escoge una categoria</ion-label>
+      <ion-select value="categoria" okText="Aceptar" cancelText="Cancelar" #categoria>
+        <ion-select-option value="Vehículos">Vehículos</ion-select-option>
+        <ion-select-option value="Videojuegos">Videojuegos</ion-select-option>
+        <ion-select-option value="Electrónica">Electrónica</ion-select-option>
+        <ion-select-option value="Ropa y Accesorios">Ropa y Accesorios</ion-select-option>
+        <ion-select-option value="Libros y revistas">Libros y revistas</ion-select-option>
+        <ion-select-option value="Muebles de Hogar">Muebles de Hogar</ion-select-option>
+        <ion-select-option value="Coleccionismo">Coleccionismo</ion-select-option>
+        <ion-select-option value="Herramientas">Herramientas</ion-select-option>
+        <ion-select-option value="Otra">Otra</ion-select-option>
+      </ion-select>
+    </ion-item>
   </ion-card>
   <ion-card>
     <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201909/11/00194610600879____1__640x640.jpg">
+      <ion-textarea placeholder="Sube una imágen*" #imagen [(ngModel)]="valor"></ion-textarea>
+      <ion-thumbnail slot="end">
+      <!-- <img src="https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201909/11/00194610600879____1__640x640.jpg"> -->
+      <img src="{{valor}}" alt=""> 
       </ion-thumbnail>
-      <ion-label>Sube una imágen de tu artículo</ion-label>
     </ion-item>
   </ion-card>
-
-  <ion-button expand="full" shape="round" color="primary">Subir Artículo</ion-button>
-
+  <ion-button expand="full" shape="round" color="primary" (click)="
+  insertarArticulo(
+    nombre.value,
+    antiguedad.value,
+    descripcion.value,
+    estado.value,
+    categoria.value,
+    imagen.value
+    )
+  ">Subir Artículo</ion-button>
 </ion-card>
+
 
 </ion-content> <!--cierra content-->
