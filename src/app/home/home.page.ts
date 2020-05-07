@@ -21,7 +21,7 @@ export class HomePage implements OnInit {
   }
 
   mostrarTodos() {
-    this.api.getTodos(1).subscribe((data: any) => {
+    this.api.getTodos(this.usuario.usuario_id).subscribe((data: any) => {
       this.articulos = data;
       console.log(data);
     });
