@@ -29,28 +29,28 @@ connection.connect(function(error){
 
 //----------------------------------API artículo------------------------------------------------------------//
 
-// app.get("/articulos", function(req, res, next)
-// {
-//     let variable = "SELECT usuario.nick, nombre, antiguedad, descripcion, estado, imagen FROM articulo JOIN usuario_articulo ON (articulo.articulo_id = usuario_articulo.articulo_id) JOIN usuario ON (usuario_articulo.usuario_id = usuario.usuario_id)";
-//     let variable2 = [req.params.id];
+app.get("/articulos/:id", function(req, res, next)
+{
+    let variable = "SELECT usuario.nick, articulo.articulo_id, articulo.nombre, antiguedad, descripcion, estado, articulo.imagen FROM articulo JOIN usuario_articulo ON (articulo.articulo_id = usuario_articulo.articulo_id) JOIN usuario ON (usuario_articulo.usuario_id = usuario.usuario_id) WHERE usuario_articulo.usuario_id != ?";
+    let variable2 = [req.params.id];
 
-//     connection.query(variable, variable2, function(err, result)
-//         {
-//             if(err){
-//                 console.log(err);
-//             }else{
-//                 res.send(result);
-//                 console.log("GET de artículos");
-//             }
-//         }
-//     );
-// }
-// );
+    connection.query(variable, variable2, function(err, result)
+        {
+            if(err){
+                console.log(err);
+            }else{
+                res.send(result);
+                console.log("GET de artículos");
+            }
+        }
+    );
+}
+);
 
 
 app.get("/articulo/:id", function(req, res, next)
     {
-        let variable = "SELECT articulo.nombre, antiguedad, descripcion, estado, imagen FROM articulo JOIN usuario_articulo ON (articulo.articulo_id = usuario_articulo.articulo_id) JOIN usuario ON (usuario_articulo.usuario_id = usuario.usuario_id) WHERE usuario.usuario_id = ?";
+        let variable = "SELECT articulo.imagen, articulo.nombre, antiguedad, descripcion, estado, usuario.nick, usuario.foto, usuario.valoraciones FROM articulo JOIN usuario_articulo ON (articulo.articulo_id = usuario_articulo.articulo_id) JOIN usuario ON (usuario_articulo.usuario_id = usuario.usuario_id) WHERE articulo.articulo_id = ?";
         let variable2 = [req.params.id];
 
         connection.query(variable, variable2, function(err, result)

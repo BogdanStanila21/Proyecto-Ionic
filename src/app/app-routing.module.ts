@@ -57,9 +57,8 @@ const routes: Routes = [
       ),
   },
   {
-    path: "favoritos",
-    loadChildren: () =>
-      import("./favoritos/favoritos.module").then((m) => m.FavoritosPageModule),
+    path: 'info-articulo/:id',
+    loadChildren: () => import('./info-articulo/info-articulo.module').then( m => m.InfoArticuloPageModule)
   },
   {
     path: "bienvenida",
