@@ -4,3 +4,9 @@ export class ChatModel {
     public mensaje:string;
     constructor(){};
 }
+
+export class UnaConversacionModel {
+    public usuario_id:number;
+    public id:number;
+    constructor(){};
+}

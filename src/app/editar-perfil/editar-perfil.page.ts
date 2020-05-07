@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular'
+import { UsuarioModel } from './../models/usuario';
+import { LoginService } from './../service/login.service';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -10,9 +12,16 @@ import { ToastController } from '@ionic/angular'
 })
 export class EditarPerfilPage implements OnInit {
 
-  constructor(public alertController:AlertController, private router:Router, public toastController: ToastController) { }
+
+  public usuario:UsuarioModel;
+  constructor(public alertController:AlertController, private router:Router, public toastController: ToastController, private auth:LoginService) { }
+
+  usuarioLogeado(){
+    this.usuario=this.auth.usuarioId;
+  }
 
   ngOnInit() {
+    this.usuarioLogeado();
   }
 
   async presentAlertConfirm() {

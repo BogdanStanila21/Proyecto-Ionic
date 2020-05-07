@@ -18,7 +18,7 @@ ion-content{
         padding: 0;
         margin: 0;
         margin:8px 8px;
-        font-size: 24px;
+        font-size: 16px;
         border-radius: 5px;
         display: flex;
         align-items: flex-end;
@@ -26,23 +26,38 @@ ion-content{
         p{
             margin: 0;
             color: #282828;
-            // margin:8px 8px;
             padding: 4px 8px;
-            border-radius: 5px;
+            border-radius: 5px 5px 0px 5px;
             margin-right: 8px;
             width: fit-content;
             margin-right: 0%;
             background-color: rgba(1, 247, 1, 0.349);
         }
+        .time{
+            font-size: 12px;
+            border-radius: 0px 0px 5px 5px;
+        }
     }
     .otro{
-        width: fit-content;
+        padding: 0;
+        margin: 0;
         margin:8px 8px;
-        color: #282828;
-        background-color: rgba(105, 134, 250, 0.473);
-        font-size: 24px;
-        padding: 4px 8px;
+        font-size: 16px;
         border-radius: 5px;
+        p{
+            margin: 0;
+            color: #282828;
+            padding: 4px 8px;
+            border-radius: 5px 5px 5px 0px;
+            margin-right: 8px;
+            width: fit-content;
+            margin-right: 0%;
+            background-color: rgba(105, 134, 250, 0.473);
+        }
+        .time{
+            font-size: 12px;
+            border-radius: 0px 0px 5px 5px;
+        }
         
     }
 }

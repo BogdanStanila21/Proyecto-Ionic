@@ -4,7 +4,7 @@
     <ion-title>Chat</ion-title>
     <ion-avatar slot="end" [routerLink]="['/perfil']">
       <img
-        src="https://www.creativosonline.org/blog/wp-content/uploads/2010/05/creativosonline_crear_avatar_profesional.jpg">
+        src="{{usuario.foto}}">
     </ion-avatar>
   </ion-toolbar>
 </ion-header>
@@ -13,10 +13,14 @@
 
     <ion-text class="timer" *ngFor="let item of chat">
       <div *ngIf="item.usuario_realiza==id;else esFalse" class="mimensaje">
-        <p>{{item.mensaje}}</p> 
+        <p>{{item.mensaje}}</p>
+        <p class="time">{{item.date}}</p>
       </div>
       <ng-template #esFalse>
-        <p class="otro">{{item.mensaje}}</p>
+        <div class="otro">
+          <p>{{item.mensaje}}</p>
+          <p class="time">{{item.date}}</p>
+        </div>
       </ng-template>
     </ion-text>
   

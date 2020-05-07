@@ -5,13 +5,13 @@
         <ion-menu-button>
           <ion-icon name="construct-outline"></ion-icon>
         </ion-menu-button>
-        <p class="text">usuario</p>
+        <p class="text">{{usuario.nick}}</p>
         <ion-row class="estrellas">
-          <p class="text">5</p>
+          <p class="text">{{usuario.valoraciones}}</p>
           <ion-icon class="star" name="star-outline"></ion-icon>
         </ion-row>
         <ion-avatar slot="end" [routerLink]="['/perfil']">
-          <img src="https://www.creativosonline.org/blog/wp-content/uploads/2010/05/creativosonline_crear_avatar_profesional.jpg">
+          <img src="{{usuario.foto}}">
         </ion-avatar>
       </ion-buttons>
     </div>
@@ -118,9 +118,13 @@
         <ion-icon name="settings-outline"></ion-icon>
         <ion-label>Editar perfil</ion-label>
       </ion-item>
-      <ion-item [routerLink]="['/chat']">
+      <ion-item [routerLink]="['/chat-general']">
         <ion-icon name="mail-outline"></ion-icon>
         <ion-label>Mensajes</ion-label>
+      </ion-item>
+      <ion-item (click)="cerrarSesion()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        <ion-label>Cerrar sesion</ion-label>
       </ion-item>
     </ion-list>
   </ion-content>

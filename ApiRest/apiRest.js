@@ -319,10 +319,9 @@ app.get("/usuario/:usuario_id", (req, res) => {
 })
 
 app.post("/usuario", (req, res) => {
-    let valoraciones = 0
-    let usuario = new Array(req.body.nombre, req.body.nick, req.body.email, req.body.lugar, valoraciones, req.body.contrasenya);
+    let usuario = new Array(req.body.nombre, req.body.nick, req.body.email, req.body.lugar, req.body.contrasenya);
     let sql;
-    sql = "INSERT INTO usuario (nombre, nick, email, lugar, valoraciones, contrasenya) VALUES (?, ?, ?, ?, ?, ?)";
+    sql = "INSERT INTO usuario (nombre, nick, email, lugar, contrasenya) VALUES (?, ?, ?, ?, ?)";
     connection.query(sql, usuario, (err, result) => {
         if (err) {
             console.log(err);
@@ -408,6 +407,35 @@ app.post("/chat",(req,res)=>{
             console.log(err)
         }else{
             res.send(result)
+        }
+    })
+})
+
+app.post("/michat/",(req,res)=>{
+    let variable=[req.body.usuario_id, req.body.id]
+    let sql="SELECT * FROM chat WHERE ((usuario_recibe="+req.body.id+")&&(usuario_realiza="+req.body.usuario_id+"))||((usuario_recibe="+req.body.usuario_id+")&&(usuario_realiza="+req.body.id+"))";
+
+    connection.query(sql,variable,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result);
+        }
+    })
+})
+
+//--------------------------------------------------Api para chat-------------------------------//
+
+app.post("/usuario/login",(req,res)=>{
+    let sql;
+    let login=new Array(req.body.email, req.body.contrasenya);
+    sql="SELECT usuario_id, nombre, nick, email, lugar, valoraciones, foto FROM usuario WHERE email=? && contrasenya=?";
+    connection.query(sql,login,(err,result)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result);
+            console.log(result)
         }
     })
 })

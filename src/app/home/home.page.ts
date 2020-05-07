@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LoginService } from './../service/login.service';
+import { UsuarioModel } from './../models/usuario';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,13 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public usuario:UsuarioModel
+  constructor(private auth: LoginService) {
+    this.usuarioLogeado();
+  }
+
+  usuarioLogeado(){
+    this.usuario=this.auth.usuarioId;
+  }
 
 }

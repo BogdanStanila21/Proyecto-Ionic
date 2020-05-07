@@ -1,7 +1,7 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 
-  <ion-tabs>
+  <ion-tabs *ngIf="usuarioLogeado()">
     <ion-tab-bar slot="bottom">
       <ion-tab-button [routerLink]="['/home']" routerLinkActive="activo">
         <ion-icon name="Home"></ion-icon>
