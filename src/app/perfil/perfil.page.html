@@ -13,20 +13,19 @@
         <ion-avatar slot="end" [routerLink]="['/perfil']">
           <img src="{{usuario.foto}}">
         </ion-avatar>
-      </ion-buttons>
+      </ion-buttons>  
     </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="misArticulos!=null">
+<ion-content>
   <ion-row class="articulos">
-    <ion-col size="5.4" class="card" *ngFor="let item of misArticulos">
+    <ion-col size="5.5" class="card" *ngFor="let item of misArticulos">
       <ion-card>
         <ion-item>
           <img src="{{item.imagen}}" alt="">
-          <ion-button fill="outline" slot="end" (click)= "abirModal()">+info</ion-button>
+          <ion-button fill="outline" slot="end" (click)="abirModal(item.articulo_id)">+info</ion-button>
         </ion-item>
-
         <ion-card-content>
           {{item.nombre}}
         </ion-card-content>

@@ -30,5 +30,9 @@ export class ArticuloService {
     return this.http.put(this.url2, articuloEditado);
   }
 
+  getModificado(articulo_id:number){
+    return this.http.get(this.url2 + "/" + articulo_id)
+  }
+
 
 }
