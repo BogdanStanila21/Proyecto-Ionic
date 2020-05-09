@@ -12,7 +12,7 @@ ion-slides {
 }
 
 .swiper-slide h2 {
-  margin-top: 4rem;
+  margin-top: 5rem;
   font-size: 30px;
   color: rgba(0, 0, 0, 0.534);
 }
@@ -26,7 +26,7 @@ ion-slides {
 
 p {
   color: var(--ion-text-color, #ffffff80);
-  margin-top: 360px;
+  margin-top: 380px;
   margin-left: 10px;
   padding: 0 40px;
   font-size: 22px;
@@ -40,10 +40,10 @@ p {
 .dos {
   background: url("https://i.ibb.co/pQ0Zvbs/jpg-cohete-2.jpg") no-repeat
     center/cover;
-  background-position: -230px;
+  background-position: -260px;
   .p2 {
     font-size: 18px;
-    text-justify: left;
+    text-align: justify;
     margin-left: 30px;
   }
 }
@@ -55,11 +55,16 @@ p {
   background-size: cover;
   background-position: -80px;
   p {
-    margin-right: 20px;
     margin-bottom: 10px;
   }
   ion-button {
     width: 100px;
-    margin-right: 20px;
   }
+}
+.puntos {
+  font-size: 22px;
+  position: absolute;
+  right: 155px;
+  bottom: 12px;
+  color: rgba(0, 0, 0, 0.616);
 }
