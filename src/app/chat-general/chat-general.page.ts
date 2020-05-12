@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ChatService } from '../service/chat.service';
 import { ChatModel } from './../models/chat';
 import { UsuarioService } from './../service/usuario.service';
@@ -19,12 +19,14 @@ export class ChatGeneralPage implements OnInit {
   public mensajes:ChatModel[];
   public ultimoMensaje:string[]=[];
   public usuario:UsuarioModel;
+  public timers:any=setInterval(()=>{this.verTodosLosChat()},500);
 
   constructor(private chatService:ChatService, private usuarioService:UsuarioService, private auth:LoginService) { }
 
+  //Usuario actual
   usuarioLogeado(){
     this.id=this.auth.usuarioId.usuario_id;
-    this.usuario=this.auth.usuarioId;
+    this.usuario=this.auth.usuarioId;//usuario logeado
   }
 
   //Comprueba los chat que tiene el usuario y guarda el id del usuario con el que chatea
@@ -58,13 +60,21 @@ export class ChatGeneralPage implements OnInit {
   getUsuarioNick(){
     return this.usuarioService.getUsuarios().subscribe((data:UsuarioModel[])=>{
       console.log(data)
-      for(let i=0;i<data.length;i++){
-        for(let j=0;j<this.idUsuario.length;j++){
-          if(data[i].usuario_id===this.idUsuario[j]){
-            this.nickUsuario.push(data[i])
+      setInterval(()=>{
+        for(let i=0;i<data.length;i++){
+          for(let j=0;j<this.idUsuario.length;j++){
+            if(data[i].usuario_id===this.idUsuario[j]){
+              if(this.nickUsuario.includes(data[i])){
+                console.log("existe")
+              }else{
+                this.nickUsuario.push(data[i])
+              }
+              
+            }
           }
         }
-      }console.log(this.nickUsuario)
+      },500)
+      console.log(this.nickUsuario)
     })
   }
 

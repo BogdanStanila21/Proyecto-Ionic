@@ -30,17 +30,17 @@
 
     <ion-item-divider></ion-item-divider>
 
-     <!-- datos del usuario propietario -->
-    <div class="container2">
-      <img class="avatar" src="{{i.foto}}">
-      
-      <div class="container3">
-        <h6 class="usuario">{{i.nick}}</h6>
-        
+    <ion-item >
+      <ion-avatar slot="start">
+        <img
+          src="{{i.foto}}">
+      </ion-avatar>
+      <div>
+        <ion-title>{{i.nick}}</ion-title>
         <ion-icon class="star" name="star"></ion-icon>
         <ion-text>{{i.valoraciones}}/5</ion-text>
       </div>
-    </div>
-
+      <ion-icon name="chatbubbles" slot="end" [routerLink]="['/chat',i.usuario_id]"></ion-icon>
+    </ion-item>
   </div>
 </ion-content>

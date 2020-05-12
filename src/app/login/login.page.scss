@@ -19,6 +19,12 @@ ion-content {
         margin-bottom: 16px;
         text-align: start;
       }
+      ion-input.ng-invalid.ng-dirty{
+        border-bottom: 1px red solid !important
+      }
+      ion-input.ng-valid{
+        border-bottom: 1px var(--color-success) solid !important
+      } 
       .flex {
         display: flex;
         .linea {
