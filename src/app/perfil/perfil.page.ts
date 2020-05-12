@@ -39,7 +39,7 @@ export class PerfilPage {
   };
   //Muestra sólo los artículos del usuario Logueado//
   VerArticulos(){
-    return this.Api.getArticulo(this.auth.usuarioId.usuario_id).subscribe((data:Articulo[])=>{
+    return this.Api.getArticulos(this.auth.usuarioId.usuario_id).subscribe((data:Articulo[])=>{
       this.misArticulos=data
       console.log(this.misArticulos)
     })

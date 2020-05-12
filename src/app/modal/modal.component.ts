@@ -1,11 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { UsuarioModel } from '../models/usuario';
-import { ActivatedRoute } from '@angular/router';
-import { HomeserviceService } from '../shared/homeservice.service';
 import { LoginService } from '../service/login.service';
 import { Articulo } from '../models/articulo';
 import { ArticuloService } from '../service/articulo.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-modal',
@@ -15,59 +14,64 @@ import { ArticuloService } from '../service/articulo.service';
 export class ModalComponent  {
   public usuario:UsuarioModel
   public misArticulos: Articulo[]
-  public editarArticulo=new Articulo
   public idArticulo = null;
   public articulo: any;
   @Input() articuloId:number
+ 
 
-  constructor(private modalCtrl:ModalController,private activatedRoute: ActivatedRoute, private homeservice: HomeserviceService, private auth:LoginService, private Api: ArticuloService) { }
+  constructor(private modalCtrl:ModalController, private auth:LoginService, private Api: ArticuloService, public toastController: ToastController) { }
 
   usuarioLogeado(){
     this.usuario=this.auth.usuarioId;
   };
-
-  /*VerArticulos(){
-    return this.Api.getArticulo(1).subscribe((data:Articulo[])=>{
-      this.misArticulos=data
-      console.log(this.misArticulos)
-    })
-  };*/
-
   async mostrarInfo(){
     console.log(this.articuloId)
-    await this.homeservice.getArticulo(this.articuloId).subscribe((data: any) => {
+    await this.Api.getArticulo(this.articuloId).subscribe((data: any) => {
       console.log(data);
       this.articulo = data;
     })
   };
 
-  modificarArticulo(nombre:string,antiguedad:string,descripcion:string,estado:string){
+  modificarArticulo(nombre:string,antiguedad:string,descripcion:string,estado:string,categoria:string,imagen:string, articulo_id:number){
     let editar=new Articulo;
     editar.nombre=nombre;
     editar.antiguedad=antiguedad;
     editar.descripcion=descripcion;
     editar.estado=estado;
-    //editar.categoria=categoria;
-    //editar.imagen=imagen
-    editar.articulo_id=this.editarArticulo.articulo_id
+    editar.categoria=categoria;
+    editar.imagen=imagen
+    editar.articulo_id=articulo_id
     return this.Api.putArticulo(editar).subscribe((data)=>{
       console.log(data);
-      this.mostrarInfo()
+      this.presentToast()
+      this.dismissModal()
     })
   };
-  articuloModificado(articuloId){
-    return this.Api.getModificado(articuloId).subscribe((data)=>{
-      this.editarArticulo=data[0]
-      console.log(this.editarArticulo)
+
+  borrarArticulo(articuloId){
+    return this.Api.deleteArticulo(articuloId).subscribe((data)=>{
+      console.log(data);
+      this.dismissModal()
     })
   };
 
   dismissModal(){
     this.modalCtrl.dismiss()
+    //window.location.reload()
   };
     
   ngOnInit() {
     this.mostrarInfo()
+  };
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Has actualizado correctamente',
+      duration: 2000,
+      position: 'middle',
+      color: 'success'
+    });
+    toast.present();
   };
 
 }
