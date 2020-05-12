@@ -23,7 +23,7 @@ export class SubirArticuloPage implements OnInit {
     return this.Api.postArticulo(articulo).subscribe((data)=>{
       console.log(data);
     })
-  }
+  };
 
   ngOnInit() {
   }

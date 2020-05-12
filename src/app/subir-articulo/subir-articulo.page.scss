@@ -16,10 +16,21 @@ ion-back-button{
 }
 
 ion-label{  
-    color: white;
-    font-size: 15px;
+    color:  #2934623f;
+    font-size: 10px;
     text-align: start;
 }
+ion-item{
+    color:  #293462e7;
+    font-size: 15px;
+    text-align: start;  
+    margin: 10px; 
+}
+ion-input{
+    color:  #030a25;
+    font-size: 18px;
+}
+
 ion-content {
     padding: 16px;
 }
@@ -35,6 +46,6 @@ ion-avatar{
     margin-right: 10px;
 }
 .subir{
-    background-color:rgba(111, 111, 112, 0.116);
+    background-color:  #2934623f;
 }
 

@@ -83,6 +83,25 @@ app.get("/articulo/:id", function(req, res, next)
     }
 );
 
+
+//para editar la info de mi articulo subido//
+
+app.get("/articuloinfo/:articulo_id", function(req, res, next)
+{
+    let var1= "SELECT * FROM articulo WHERE articulo_id = ?";
+    let var2= [req.params.articulo_id];
+    connection.query(var1, var2, function(err, result)
+    {
+        if(err){
+            console.log(err);
+        } else{
+            res.send(result);
+            console.log("GET DE ARTICULO MODIFICAR")
+        };
+
+    })
+});
+
 //----------Api para mostrar sólo mis articulos en mi perfil---------//
 app.get("/misarticulos/:usuario_id", function(req, res, next)
 {
@@ -132,8 +151,8 @@ app.post("/articulo", function(req, res, next)
 
 app.put("/articulo", function(req, res, next)
 {
-    let variable = "UPDATE articulo SET nombre = ?, antiguedad = ?, descripcion = ?, estado = ?, categoria =?, imagen = ? WHERE articulo_id = " + [req.query.id];
-    let variable2 = [req.body.nombre, req.body.antiguedad, req.body.descripcion, req.body.estado, req.body.categoria, req.body.imagen];
+    let variable = "UPDATE articulo SET nombre = ?, antiguedad = ?, descripcion = ?, estado = ?, categoria =?, imagen = ? WHERE articulo_id = ? " ;
+    let variable2 = [req.body.nombre, req.body.antiguedad, req.body.descripcion, req.body.estado, req.body.categoria, req.body.imagen, req.body.articulo_id];
 
     connection.query(variable, variable2, function(err, result)
         {

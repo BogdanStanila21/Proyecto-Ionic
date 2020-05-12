@@ -1,8 +1,85 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Mis Artículos subidos</ion-title>
+    <!-- <ion-title *ngFor="let i of articulo">{{i.nombre}}></ion-title> 
+    <ion-avatar slot="end" [routerLink]="['/perfil']"></ion-avatar>
+      <img
+        src="{{usuario.foto}}"/>
+    </ion-avatar>-->
     <ion-buttons slot="end">
       <ion-button (click)="dismissModal()">Cerrar</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<!-- Mostrar información del artículo -->
+<ion-content> 
+  <ion-row > 
+    <ion-col size="10" class="articulo" *ngFor="let i of articulo; let j=index">
+      <ion-card class="card">
+        <img src="{{i.imagen}}" alt="">
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="floating"> Título: </ion-label> 
+            <ion-input clearInput value="{{i.nombre}}" #nombre></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating"> Antigüedad: </ion-label> 
+            <ion-input clearInput value="{{i.antiguedad}}" #antiguedad></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating"> Descripción: </ion-label> 
+            <ion-textarea cols="10" rows="3" clearInput value="{{i.descripcion}}" #descripcion></ion-textarea>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating"> Estado del artículo: </ion-label> 
+            <ion-select value="estado" okText="Aceptar" cancelText="Cancelar" #estado>
+              <ion-select-option value="sin usar-nuevo" >sin usar-nuevo</ion-select-option>
+              <ion-select-option value="usado-pero como nuevo">usado-como nuevo</ion-select-option>
+              <ion-select-option value="usado-en buen estado">usado-buen estado</ion-select-option>
+              <ion-select-option value="notablemente usado">notablemente usado</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating"> Escoge una categoría: </ion-label>
+            <ion-select value="categoria" okText="Aceptar" cancelText="Cancelar" #categoria>
+              <ion-select-option value="Vehículos">Vehículos</ion-select-option>
+              <ion-select-option value="Videojuegos">Videojuegos</ion-select-option>
+              <ion-select-option value="Electrónica">Electrónica</ion-select-option>
+              <ion-select-option value="Ropa y Accesorios">Ropa y Accesorios</ion-select-option>
+              <ion-select-option value="Libros y revistas">Libros y revistas</ion-select-option>
+              <ion-select-option value="Muebles de Hogar">Muebles de Hogar</ion-select-option>
+              <ion-select-option value="Coleccionismo">Coleccionismo</ion-select-option>
+              <ion-select-option value="Herramientas">Herramientas</ion-select-option>
+              <ion-select-option value="Otra">Otra</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating"> Sube una imágen: </ion-label> 
+            <ion-input clearInput value="{{i.imagen}}" #imagen></ion-input>
+          </ion-item>
+
+        </ion-card-content>
+     </ion-card>
+     <br>
+     <ion-button type="submit" expand="full" shape="round" color="success" (click)="modificarArticulo(
+      nombre.value,
+      antiguedad.value,
+      descripcion.value,
+      estado.value,
+      categoria.value,
+      imagen.value,
+      i.articulo_id
+    )">Modificar</ion-button>
+
+     <ion-button expand="full" shape="round" color="danger" (click)="borrarArticulo(i.articulo_id)">Eliminar</ion-button>
+
+    </ion-col>  
+  </ion-row>  
+</ion-content> 
+
+
+

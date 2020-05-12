@@ -17,9 +17,9 @@ export class PerfilPage {
 
   public usuario:UsuarioModel
   public misArticulos: Articulo[]
-  public editarArticulo=new Articulo
-  constructor(private menu: MenuController, private auth:LoginService, private router:Router,  private Api: ArticuloService, private modalCtrl:ModalController) {}
+  constructor(private menu: MenuController, private auth:LoginService, private router:Router,  private Api: ArticuloService, private modalCtrl:ModalController) { }
 
+  //Usuario Logeado//
   usuarioLogeado(){
     this.usuario=this.auth.usuarioId;
   }
@@ -37,31 +37,19 @@ export class PerfilPage {
     this.menu.enable(true, "custom");
     this.menu.open("custom");
   };
-
+  //Muestra sólo los artículos del usuario Logueado//
   VerArticulos(){
-    return this.Api.getArticulo(this.usuario.usuario_id).subscribe((data:Articulo[])=>{
+    return this.Api.getArticulos(this.auth.usuarioId.usuario_id).subscribe((data:Articulo[])=>{
       this.misArticulos=data
       console.log(this.misArticulos)
     })
   };
 
-  modificarArticulo(nombre:string,antiguedad:string,descripcion:string,estado:string,categoria:string,imagen:string){
-    let editar=new Articulo;
-    editar.nombre=nombre;
-    editar.antiguedad=antiguedad;
-    editar.descripcion=descripcion;
-    editar.estado=estado;
-    editar.categoria=categoria;
-    editar.imagen=imagen
-    return this.Api.putArticulo(editar).subscribe((data)=>{
-      console.log(data);
-      this.VerArticulos()
-    })
-  };
 
-  async abirModal(){
+  async abirModal(id:number){
     const modal = await this.modalCtrl.create({
-      component: ModalComponent
+      component: ModalComponent, componentProps:{"articuloId":id}
+
     });
     await modal.present()
   }
@@ -74,6 +62,6 @@ export class PerfilPage {
 
   ngOnInit() {
     this.usuarioLogeado();
-    this.VerArticulos()
+    this.VerArticulos();
   }
 }

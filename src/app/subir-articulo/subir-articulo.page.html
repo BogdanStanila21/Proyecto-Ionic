@@ -12,35 +12,33 @@
 
 <ion-content>
   <ion-card class="subir">
-    <ion-card>
-      <ion-item>
-        <ion-textarea placeholder="Título*" #nombre></ion-textarea>
-      </ion-item>
-    </ion-card>
-    <ion-card>
-      <ion-item>
-        <ion-textarea placeholder="Antigüedad*" #antiguedad></ion-textarea>
-      </ion-item>
-    </ion-card>
-    <ion-card>
-      <ion-item>
-        <ion-textarea placeholder="Descripción*" #descripcion></ion-textarea>
-      </ion-item>
-    </ion-card>
-    <ion-card>
-      <ion-item>
-        <ion-label>Estado del artículo</ion-label>
-        <ion-select value="estado" okText="Aceptar" cancelText="Cancelar" #estado>
-          <ion-select-option value="sin usar-nuevo" >sin usar-nuevo</ion-select-option>
-          <ion-select-option value="usado-pero como nuevo">usado-como nuevo</ion-select-option>
-          <ion-select-option value="usado-en buen estado">usado-buen estado</ion-select-option>
-          <ion-select-option value="notablemente usado">notablemente usado</ion-select-option>
-        </ion-select>
-      </ion-item>
-  </ion-card> 
-  <ion-card>
     <ion-item>
-      <ion-label>Escoge una categoria</ion-label>
+      <ion-label position="floating"> Título* </ion-label>
+      <ion-input clearInput #nombre></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating"> Antigüedad* </ion-label>
+      <ion-input clearInput #antiguedad></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating"> Descripción* </ion-label>
+      <ion-input clearInput #descripcion></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating"> Estado del artículo* </ion-label>
+      <ion-select value="estado" okText="Aceptar" cancelText="Cancelar" #estado>
+        <ion-select-option value="sin usar-nuevo" >sin usar-nuevo</ion-select-option>
+        <ion-select-option value="usado-pero como nuevo">usado-como nuevo</ion-select-option>
+        <ion-select-option value="usado-en buen estado">usado-buen estado</ion-select-option>
+        <ion-select-option value="notablemente usado">notablemente usado</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating"> Escoge una categoría* </ion-label>
       <ion-select value="categoria" okText="Aceptar" cancelText="Cancelar" #categoria>
         <ion-select-option value="Vehículos">Vehículos</ion-select-option>
         <ion-select-option value="Videojuegos">Videojuegos</ion-select-option>
@@ -53,18 +51,18 @@
         <ion-select-option value="Otra">Otra</ion-select-option>
       </ion-select>
     </ion-item>
-  </ion-card>
-  <ion-card>
+
     <ion-item>
-      <ion-textarea placeholder="Sube una imágen*" #imagen [(ngModel)]="valor"></ion-textarea>
+      <ion-label position="floating"> Sube una imágen* </ion-label>
+      <ion-input clearInput [(ngModel)]="valor" #imagen ></ion-input>
       <ion-thumbnail slot="end">
-      <!-- <img src="https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201909/11/00194610600879____1__640x640.jpg"> -->
       <img src="{{valor}}" alt=""> 
       </ion-thumbnail>
     </ion-item>
+
   </ion-card>
-  <ion-button expand="full" shape="round" color="primary" (click)="
-  insertarArticulo(
+<!--botón para subir artículo-->
+  <ion-button expand="full" shape="round" color="primary" (click)="insertarArticulo(
     nombre.value,
     antiguedad.value,
     descripcion.value,
@@ -72,8 +70,7 @@
     categoria.value,
     imagen.value
     )
-  ">Subir Artículo</ion-button>
-</ion-card>
-
+    ">Subir Artículo
+  </ion-button>
 
 </ion-content> <!--cierra content-->
