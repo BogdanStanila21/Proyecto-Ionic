@@ -39,7 +39,7 @@ export class PerfilPage {
   };
 
   VerArticulos(){
-    return this.Api.getArticulo(1).subscribe((data:Articulo[])=>{
+    return this.Api.getArticulo(this.usuario.usuario_id).subscribe((data:Articulo[])=>{
       this.misArticulos=data
       console.log(this.misArticulos)
     })

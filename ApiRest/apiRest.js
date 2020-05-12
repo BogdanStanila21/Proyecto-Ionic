@@ -67,7 +67,7 @@ app.get("/articulos/:id", function(req, res, next)
 
 app.get("/articulo/:id", function(req, res, next)
     {
-        let variable = "SELECT articulo.imagen, articulo.nombre, antiguedad, descripcion, estado, usuario.nick, usuario.foto, usuario.valoraciones FROM articulo JOIN usuario_articulo ON (articulo.articulo_id = usuario_articulo.articulo_id) JOIN usuario ON (usuario_articulo.usuario_id = usuario.usuario_id) WHERE articulo.articulo_id = ?";
+        let variable = "SELECT articulo.imagen, articulo.nombre, antiguedad, descripcion, estado, usuario.nick, usuario.foto, usuario.valoraciones, usuario.usuario_id FROM articulo JOIN usuario_articulo ON (articulo.articulo_id = usuario_articulo.articulo_id) JOIN usuario ON (usuario_articulo.usuario_id = usuario.usuario_id) WHERE articulo.articulo_id = ?";
         let variable2 = [req.params.id];
 
         connection.query(variable, variable2, function(err, result)

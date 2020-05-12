@@ -25,7 +25,26 @@ ion-content {
           transition: 1s;
         }
       }
-
+      ion-input.ng-invalid.ng-dirty{
+        border-bottom: 1px red solid !important
+      }
+      ion-input.ng-valid{
+        border-bottom: 1px var(--color-success) solid !important
+      }
+      .flex {
+        display: flex;
+        .linea {
+          margin: 0 auto;
+          margin-top: 25px;
+          height: 1px;
+          width: 25%;
+          background-color: black;
+        }
+      }
+      span{
+        color: var(--color-danger);
+        opacity: .8;
+      }
       .boton {
         width: 80%;
         height: 40px;
@@ -41,3 +60,4 @@ svg {
   left: 20px;
   opacity: 0.5;
 }
+

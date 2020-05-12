@@ -22,9 +22,9 @@ ion-header{
 }
 
 .foto{
-    height: 200px;
-    //width: 100%;
-    border-radius: 4px;
+  height: 200px;
+  // width: 100%;
+  border-radius: 4px;
 }
 
 ion-button{
@@ -32,31 +32,35 @@ ion-button{
   color: black;
 }
 
-.container2{
-  display: flex;
-  padding: 16px;
-    .avatar{
-      width: 60px;
-      height: 60px;
-      margin-right: 10px;
-      border-radius: 50%;
-      margin-top: 15px;
+ion-item{
+  ion-avatar{
+    width: 64px;
+    height: 64px;
+    margin-top: 15px;
+  }
+  div{
+    ion-title{
+      padding: 0;
+      font-size: 16px;
     }
-    .container3{
-        display: block;
-        .star {
-          font-size: 24px;
-          color:  #ec9b3b;
-          margin: -1px;
-        }
+    ion-icon{
+      margin-top: 8px;
+      font-size: 16px;
+      color: var(--color-secondary);
     }
-       
+    ion-text{
+      margin-left: 8px;
+      font-size: 16px;
+    }
+  }
+  ion-icon{
+    font-size: 32px;
+  }
 }
 
 .info{
   text-align: center;
 
 }
-
 
 
