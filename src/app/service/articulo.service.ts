@@ -10,7 +10,7 @@ export class ArticuloService {
   private url2="http://localhost:3000/articulo";
   private url3="http://localhost:3000/misarticulos";
   private url4="http://localhost:3000/articuloinfo";
-
+  private url5="http://localhost:3000/articulo-usuario";
 
   constructor(private http:HttpClient) { }
 
@@ -52,6 +52,10 @@ export class ArticuloService {
   return this.http.delete(this.url2, options)
   };
 
+
+  getArticuloUsuario(articuloID){
+    return this.http.get(this.url5+"/"+articuloID)
+  }
 
 
 }

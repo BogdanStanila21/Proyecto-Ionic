@@ -9,33 +9,17 @@
 </ion-header>
   
 <ion-content>
-      <ion-row class="favs">
-        <ion-col size="5" class="mitad">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS2MOr781z2aPsktDAc6WfH9zrEQz-HjvNcnCtKkq4eFdPAFOYO&usqp=CAU" alt="">
-          <strong class="nombre">Productos de baño</strong>
-          <p class="texto">Están nuevos, cómpralos que se acaban.</p>
-        </ion-col>
-  
-        <ion-col size="5" class="mitad">
-          <img src="https://fotografias.lasexta.com/clipping/cmsimages02/2019/12/23/9C85EED1-523A-40D2-AB9A-CC085B6EDBFC/58.jpg" alt="">
-          <strong class="nombre">Puesta de sol</strong>
-          <p class="texto"></p>
-        </ion-col>
-      </ion-row>
-  
-      <ion-row class="favs">
-        <ion-col size="5" class="mitad">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSiwSFtcgdkYqK5IvUPrkjWIw_52viHBX2e8YJJ_u1pSnnNOT0s&usqp=CAU" alt="">
-          <strong class="nombre">Champús</strong>
-          <p class="texto"></p>
-        </ion-col>
-  
-        <ion-col size="5" class="mitad">
-          <img src="https://i.blogs.es/5efe2c/cap_001/450_1000.jpg" alt="">
-          <strong class="nombre">La luna</strong>
-          <p class="texto"></p>
-        </ion-col>
-      </ion-row>
+  <ion-row>
+    <ion-col size="6" *ngFor="let item of favoritos">
+      <div>
+        <ion-icon name="close-circle" (click)="eliminarFavorito(item.favoritos_id)"></ion-icon>
+        <img src="{{item.imagen}}" (click)="mostrarInfo(item.articulo_id)" alt=""/>
+        <ion-text>
+          <h3>{{item.nombre}}</h3>
+        </ion-text>
+      </div>
+    </ion-col>
+  </ion-row>
 </ion-content>
   
 
