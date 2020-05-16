@@ -26,7 +26,11 @@ ion-header{
   // width: 100%;
   border-radius: 4px;
 }
-
+ion-icon{
+  font-size: 32px;
+  margin-bottom: 0px;
+  color: var(--color-primary);
+}
 ion-button{
   --background: var(--ion-color-warning);
   color: black;

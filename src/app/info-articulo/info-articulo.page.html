@@ -20,18 +20,19 @@
         <h5><strong>Antigüedad: </strong>{{i.antiguedad}}</h5>
         <h5><strong>Estado: </strong>{{i.estado}}</h5>
         <h5 class="texto">{{i.descripcion}}</h5>
+        <ion-icon name="heart" (click)="crearfavorito(i.articulo_id)"></ion-icon>
       </ion-col>
     </ion-row>
 
      <!-- botón de solicitar producto para el cambio -->
     <ion-col size="12">
-      <ion-button expand="full" shape="round">Solicitar cambio</ion-button>
+      <ion-button expand="full" shape="round" (click)="crearPeticion(i.articulo_id)">Solicitar cambio</ion-button>
     </ion-col>
 
     <ion-item-divider></ion-item-divider>
 
     <ion-item >
-      <ion-avatar slot="start">
+      <ion-avatar slot="start" (click)="verUsuario(i.usuario_id)">
         <img
           src="{{i.foto}}">
       </ion-avatar>

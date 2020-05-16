@@ -10,6 +10,10 @@ export class UsuarioService {
   private url="http://localhost:3000/usuario";
   constructor(private http:HttpClient) { }
 
+  getUsuario(idUsuario:number){
+    return this.http.get(this.url +"/"+idUsuario)
+  }
+
   getUsuarios(){
     return this.http.get(this.url)
   }

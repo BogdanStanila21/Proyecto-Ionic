@@ -23,19 +23,9 @@ export class PerfilPage {
   usuarioLogeado(){
     this.usuario=this.auth.usuarioId;
   }
-  
-  openFirst() {
-    this.menu.enable(true, "first");
-    this.menu.open("first");
-  };
 
   openEnd() {
-    this.menu.open("end");
-  };
-
-  openCustom() {
-    this.menu.enable(true, "custom");
-    this.menu.open("custom");
+    this.menu.close();
   };
 
   VerArticulos(){
