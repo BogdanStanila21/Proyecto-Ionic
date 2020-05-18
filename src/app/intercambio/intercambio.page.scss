@@ -9,14 +9,14 @@ ion-header {
 }
 ion-toolbar{
     text-align: center;
-    color: #293462;
+    color: var(--color-primary);
 }
 ion-back-button{
-    color:  #293462;
+    color: var(--color-primary);
 }
 
 ion-label{  
-    color: white;
+    color: var(--color-grey);
     font-size: 15px;
     text-align: center;
 }
@@ -25,7 +25,7 @@ ion-content {
 }
 ion-icon {
     font-size: 32px;
-    color: #293462;
+    color: var(--color-primary);
     margin-right: 8px;
 }
 
@@ -36,7 +36,7 @@ ion-avatar{
 }
 #flecha{
     margin-top: 65px;
-    color: #293462;
+    color: var(--color-primary);
 }
 .mitad1 {
     font-size: 32px;
@@ -50,16 +50,16 @@ ion-avatar{
     margin: 0 auto;
     background-color:rgba(111, 111, 112, 0.116);
     text-align: center;
-    color:  #293462;
+    color: var(--color-primary);
 }
 #icon1{
     text-align: center;
     //color:  #ec9b3b;
-    color: #293462;
+    color: var(--color-primary);
 }
 #icon2{
     text-align: center;
-    color: #293462;
+    color: var(--color-primary);
 }
 .articulos{
     margin-top: 10px;
@@ -68,21 +68,21 @@ ion-avatar{
     width: 100%;
     font-size: 32px;
     margin: 0 auto;
-    background-color: #293462;
+    background-color:  #293462;
     text-align: center;
-}
+}   
 .otros{
     width: 100%;
     font-size: 32px;
     margin: 0 auto;
-    background-color: #ec9b3b;
+    background-color: #EC9B3B;
     text-align: center;
 }
 ion-checkbox{
     margin: 0 auto;
 }
 ion-item{
-    color: #293462;
+    color: var(--color-primary);
     margin: 0 auto;
 }
 h6{
@@ -90,14 +90,17 @@ h6{
 }
 .valorar {
     text-align: center;
-    color: #293462;
+    color: var(--color-primary);
     .star {
       font-size: 32px;
       // display: inline;
       margin: 0 auto;
-      color:  #ec9b3b;
+      color: var(--color-secondary);
     }
   }
+
+
+
 
 
 

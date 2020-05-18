@@ -9,25 +9,25 @@ ion-header {
 }
 ion-toolbar{
     text-align: center;
-    color: #293462;
+    color:  var(--color-primary);
 }
 ion-back-button{
-    color:  #293462;
+    color:  var(--color-primary);
 }
 
 ion-label{  
-    color:  #2934623f;
+    color:  var(--color-primary);
     font-size: 10px;
     text-align: start;
 }
 ion-item{
-    color:  #293462e7;
+    color:  var(--color-primary);
     font-size: 15px;
     text-align: start;  
     margin: 10px; 
 }
 ion-input{
-    color:  #030a25;
+    color:  var(--color-primary);
     font-size: 18px;
 }
 
@@ -36,7 +36,7 @@ ion-content {
 }
 ion-icon {
     font-size: 32px;
-    color: #293462;
+    color:  var(--color-primary);
     margin-right: 8px;
 }
 
@@ -46,6 +46,6 @@ ion-avatar{
     margin-right: 10px;
 }
 .subir{
-    background-color:  #2934623f;
+    background-color:  #2934624b;
 }
 

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UsuarioModel } from './../models/usuario';
 import { LoginService } from './../service/login.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-intercambio',
@@ -8,13 +9,19 @@ import { LoginService } from './../service/login.service';
   styleUrls: ['./intercambio.page.scss'],
 })
 export class IntercambioPage implements OnInit {
-
   public usuario:UsuarioModel
-  constructor(private auth:LoginService) { }
+ 
+
+  constructor(private auth:LoginService, public alertController: AlertController) { }
 
   usuarioLogeado(){
     this.usuario=this.auth.usuarioId;
-  }
+  };
+
+  
+
+
+
 
   ngOnInit() {
     this.usuarioLogeado();

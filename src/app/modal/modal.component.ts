@@ -43,15 +43,16 @@ export class ModalComponent  {
     editar.articulo_id=articulo_id
     return this.Api.putArticulo(editar).subscribe((data)=>{
       console.log(data);
-      this.presentToast()
-      this.dismissModal()
+      this.presentToast();
+      this.dismissModal();
     })
   };
 
   borrarArticulo(articuloId){
     return this.Api.deleteArticulo(articuloId).subscribe((data)=>{
       console.log(data);
-      this.dismissModal()
+      this.dismissModal();
+      this.toastEliminar();      
     })
   };
 
@@ -62,17 +63,29 @@ export class ModalComponent  {
     
   ngOnInit() {
     this.mostrarInfo()
-  };
+  };  
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'Has actualizado correctamente',
-      duration: 2000,
-      position: 'middle',
-      color: 'success'
+      message: 'Artículo modificado',
+      duration: 500,
+      position: 'top',
+      color: 'warning'
     });
     toast.present();
   };
+
+  async toastEliminar() {
+    const toast = await this.toastController.create({
+      message: '¡Se ha eliminado el artículo!',
+      duration: 500,
+      position: 'top',
+      color: 'danger'
+    });
+    toast.present();
+  };
+
+
 
 }
 

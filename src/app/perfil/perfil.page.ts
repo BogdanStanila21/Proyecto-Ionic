@@ -8,6 +8,7 @@ import { MenuController, ModalController } from "@ionic/angular";
 import { ArticuloService } from '../service/articulo.service';
 import { Articulo } from '../models/articulo';
 import { ModalComponent } from '../modal/modal.component';
+import { ThrowStmt } from '@angular/compiler';
 @Component({
   selector: "app-perfil",
   templateUrl: "./perfil.page.html",
@@ -59,6 +60,7 @@ export class PerfilPage {
     this.auth.logOut() 
     window.location.reload();
   }
+
 
   ngOnInit() {
     this.usuarioLogeado();
