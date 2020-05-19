@@ -1,17 +1,18 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-back-button slot="start" defaultHref="app-info-articulo">
-    </ion-back-button>
-    <ion-title>Nombre del chombo</ion-title>
+  <ion-toolbar *ngFor="let item of usuario">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{item.nick}}</ion-title>
+    <ion-avatar slot="end" [routerLink]="['/perfil']">
+      <!-- <img src="{{usuarioLog.foto}}" alt="" /> -->
+    </ion-avatar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-avatar>
-    <img
-      src="https://elintranews.com/wp-content/uploads/2019/06/TERRY-CREW.jpg?w=603"
-      alt=""
-    />
+<ion-content *ngFor="let item of usuario">
+  <ion-avatar class="foto">
+    <!-- <img src="{{item.foto}}" alt="" /> -->
   </ion-avatar>
 
   <ion-icon name="star-outline"></ion-icon
@@ -19,60 +20,17 @@
   ><ion-icon name="star-outline"></ion-icon
   ><ion-icon name="star-outline"></ion-icon
   ><ion-icon name="star-outline"></ion-icon>
-  <p class="vive">Donde vive el chombo</p>
+  <p class="vive">{{item.lugar}}</p>
   <hr />
   <p class="productos">Productos subidos</p>
 
-  <ion-row>
-    <img
-      src="https://http2.mlstatic.com/bicicleta-trek-superfly8-talla-m-doble-suspension-fox-rin29-D_NQ_NP_939443-MCO26444152527_112017-F.jpg"
-      alt=""
-    />
+  <ion-row *ngFor="let i of articulos" (click)="verArticulo(i.articulo_id)">
+    <img src="{{i.imagen}}" alt="" />
     <div class="texto">
       <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis error
-        quidem neque veritatis repellat exercitationem cumque voluptatum...
+        {{i.descripcion}}
       </p>
     </div>
-    <ion-col size="12"> </ion-col>
-  </ion-row>
-  <ion-row>
-    <img
-      src="https://http2.mlstatic.com/guitarra-clasica-gilb-color-negro-funda-y-envio-gratis-D_NQ_NP_950915-MLM25321764001_012017-F.jpg"
-      alt=""
-    />
-    <div class="texto">
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis error
-        quidem neque veritatis repellat exercitationem cumque voluptatum...
-      </p>
-    </div>
-    <ion-col size="12"> </ion-col>
-  </ion-row>
-  <ion-row>
-    <img
-      src="https://p.globalsources.com/IMAGES/PDT/BIG/686/B0855253686.jpg"
-      alt=""
-    />
-    <div class="texto">
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis error
-        quidem neque veritatis repellat exercitationem cumque voluptatum...
-      </p>
-    </div>
-    <ion-col size="12"> </ion-col>
-  </ion-row>
-  <ion-row>
-    <img
-      src="https://cdn.wallapop.com/images/10420/1p/qe/__/c10420p103688913/i226104954.jpg?pictureSize=W640"
-      alt=""
-    />
-    <div class="texto">
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis error
-        quidem neque veritatis repellat exercitationem cumque voluptatum...
-      </p>
-    </div>
-    <ion-col size="12"> </ion-col>
+    <!-- <ion-col size="12"> </ion-col> -->
   </ion-row>
 </ion-content>

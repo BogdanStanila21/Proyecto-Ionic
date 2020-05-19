@@ -20,27 +20,28 @@
         <h5><strong>Antigüedad: </strong>{{i.antiguedad}}</h5>
         <h5><strong>Estado: </strong>{{i.estado}}</h5>
         <h5 class="texto">{{i.descripcion}}</h5>
+        <ion-icon name="heart" (click)="crearfavorito(i.articulo_id)"></ion-icon>
       </ion-col>
     </ion-row>
 
      <!-- botón de solicitar producto para el cambio -->
     <ion-col size="12">
-      <ion-button expand="full" shape="round">Solicitar cambio</ion-button>
+      <ion-button expand="full" shape="round" (click)="crearPeticion(i.articulo_id)">Solicitar cambio</ion-button>
     </ion-col>
 
     <ion-item-divider></ion-item-divider>
 
-     <!-- datos del usuario propietario -->
-    <div class="container2">
-      <img class="avatar" src="{{i.foto}}">
-      
-      <div class="container3">
-        <h6 class="usuario">{{i.nick}}</h6>
-        
+    <ion-item >
+      <ion-avatar slot="start" (click)="verUsuario(i.usuario_id)">
+        <img
+          src="{{i.foto}}">
+      </ion-avatar>
+      <div>
+        <ion-title>{{i.nick}}</ion-title>
         <ion-icon class="star" name="star"></ion-icon>
         <ion-text>{{i.valoraciones}}/5</ion-text>
       </div>
-    </div>
-
+      <ion-icon name="chatbubbles" slot="end" [routerLink]="['/chat',i.usuario_id]"></ion-icon>
+    </ion-item>
   </div>
 </ion-content>

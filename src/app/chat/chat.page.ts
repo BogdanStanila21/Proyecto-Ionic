@@ -67,6 +67,7 @@ export class ChatPage implements OnInit {
     this.usuarioLogeado();
     this.scrollToBottomOnInit()
     this.usuarioId=this.activatedRoute.snapshot.paramMap.get('id');
+    this.verChat()
   }
 
 }

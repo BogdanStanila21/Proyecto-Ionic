@@ -94,7 +94,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: "selecionar-mi-producto",
+    path: "selecionar-mi-producto/:articulo_id",
     loadChildren: () =>
       import("./selecionar-mi-producto/selecionar-mi-producto.module").then(
         (m) => m.SelecionarMiProductoPageModule
@@ -110,21 +110,19 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: "otro",
+    path: "otro/:id",
     loadChildren: () =>
       import("./otro/otro.module").then((m) => m.OtroPageModule),
+    canActivate: [AuthGuard],
   },
-
   {
     path: "**",
-    redirectTo: "home",
+    redirectTo: "login",
     pathMatch: "full",
-  },  {
-    path: 'recuperar',
-    loadChildren: () => import('./recuperar/recuperar.module').then( m => m.RecuperarPageModule)
   },
-
 ];
+
+// ];
 
 @NgModule({
   imports: [
