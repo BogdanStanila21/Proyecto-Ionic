@@ -5,7 +5,7 @@ import { AuthGuard } from "./guards/auth.guard";
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "otro",
+    redirectTo: "bienvenida",
     pathMatch: "full",
   },
   {
@@ -110,15 +110,20 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: "**",
-    redirectTo: "otro",
-    pathMatch: "full",
-  },
-  {
     path: "otro",
     loadChildren: () =>
       import("./otro/otro.module").then((m) => m.OtroPageModule),
   },
+
+  {
+    path: "**",
+    redirectTo: "home",
+    pathMatch: "full",
+  },  {
+    path: 'recuperar',
+    loadChildren: () => import('./recuperar/recuperar.module').then( m => m.RecuperarPageModule)
+  },
+
 ];
 
 @NgModule({

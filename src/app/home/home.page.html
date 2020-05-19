@@ -3,8 +3,7 @@
     <ion-icon name="options-outline" slot="start"></ion-icon>
     <ion-title>Walatroll</ion-title>
     <ion-avatar slot="end" [routerLink]="['/perfil']">
-      <img
-        src="{{usuario.foto}}"/>
+      <img src="{{usuario.foto}}" />
     </ion-avatar>
   </ion-toolbar>
 </ion-header>
@@ -12,15 +11,72 @@
 <ion-content>
   <ion-searchbar animated></ion-searchbar>
 
+  <ion-slides>
+    <ion-slide>
+      <div class="filtro">
+        <i class="fas fa-car"></i>
+        <p>Coches</p>
+      </div>
+      <div class="filtro">
+        <i class="fas fa-motorcycle"></i>
+        <p>Motos</p>
+      </div>
+      <div class="filtro">
+        <i class="fas fa-tshirt"></i>
+        <p>Ropa</p>
+      </div>
+      <div class="filtro">
+        <i class="fas fa-tv"></i>
+        <p>Electronica</p>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="filtro">
+        <i class="fas fa-mobile-alt"></i>
+        <p>Telefonia</p>
+      </div>
+      <div class="filtro">
+        <i class="fas fa-keyboard"></i>
+        <p>Informatica</p>
+      </div>
+      <div class="filtro">
+        <i class="fas fa-futbol"></i>
+        <p>Ocio</p>
+      </div>
+      <div class="filtro">
+        <i class="fas fa-bicycle"></i>
+        <p>Bicicletas</p>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="filtro">
+        <i class="fas fa-gamepad"></i>
+        <p>Videojuegos</p>
+      </div>
+      <div class="filtro">
+        <i class="fas fa-couch"></i>
+        <p>Hogar</p>
+      </div>
+      <div class="filtro">
+        <i class="fas fa-book"></i>
+        <p>Cine, Libros y Musica</p>
+      </div>
+      <div class="filtro">
+        <i class="fas fa-baby"></i>
+        <p>Productos infantiles</p>
+      </div>
+    </ion-slide>
+  </ion-slides>
   <ion-row>
     <ion-col size="6" *ngFor="let i of articulos">
       <div (click)="mostrarInfo(i.articulo_id)">
-        <img src="{{i.imagen}}" alt=""/>
+        <img src="{{i.imagen}}" alt="" />
         <ion-text>
           <h3>{{i.nombre}}</h3>
         </ion-text>
       </div>
     </ion-col>
   </ion-row>
-
 </ion-content>
