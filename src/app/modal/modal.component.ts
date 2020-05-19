@@ -18,7 +18,6 @@ export class ModalComponent  {
   public articulo: any;
   @Input() articuloId:number
  
-
   constructor(private modalCtrl:ModalController, private auth:LoginService, private Api: ArticuloService, public toastController: ToastController) { }
 
   usuarioLogeado(){
@@ -39,8 +38,8 @@ export class ModalComponent  {
     editar.descripcion=descripcion;
     editar.estado=estado;
     editar.categoria=categoria;
-    editar.imagen=imagen
-    editar.articulo_id=articulo_id
+    editar.imagen=imagen;
+    editar.articulo_id=articulo_id;
     return this.Api.putArticulo(editar).subscribe((data)=>{
       console.log(data);
       this.presentToast();

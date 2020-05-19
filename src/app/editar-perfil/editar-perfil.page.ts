@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular'
 import { UsuarioModel } from './../models/usuario';
 import { LoginService } from './../service/login.service';
+import { UsuarioService } from '../service/usuario.service';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -11,20 +12,44 @@ import { LoginService } from './../service/login.service';
   styleUrls: ['./editar-perfil.page.scss'],
 })
 export class EditarPerfilPage implements OnInit {
-
-
   public usuario:UsuarioModel;
-  constructor(public alertController:AlertController, private router:Router, public toastController: ToastController, private auth:LoginService) { }
+  public nuevo:UsuarioModel[]
+
+  constructor(public alertController:AlertController, private router:Router, public toastController: ToastController, private auth:LoginService, private Api: UsuarioService) { }
 
   usuarioLogeado(){
     this.usuario=this.auth.usuarioId;
-  }
+  };
+
+  mostrarUsuario(){
+    return this.Api.getUsuarios().subscribe((data)=>{
+      console.log(data)
+    })
+  };
+
+  editarPerfil(nombre:string,nick:string,email:string,lugar:string,contrasenya:string,foto:string, usuario_id:number ){
+    let editar=new UsuarioModel;
+    editar.nombre=nombre;
+    editar.nick=nick;
+    editar.email=email;
+    editar.lugar=lugar;
+    editar.contrasenya=contrasenya;
+    editar.foto=foto;
+    editar.usuario_id=usuario_id;
+    console.log(editar)
+    return this.Api.putUsuario(editar).subscribe((data)=>{
+      console.log(data);
+      this.usuarioLogeado()
+      //this.presentToastConfirmation();
+    });
+  };
+
 
   ngOnInit() {
     this.usuarioLogeado();
-  }
+  };
 
-  async presentAlertConfirm() {
+  /*async presentAlertConfirm() {
     const alert = await this.alertController.create({
       cssClass:'alert',
       header: 'Confirmación!',
@@ -59,19 +84,17 @@ export class EditarPerfilPage implements OnInit {
     });
 
     await alert.present();
-  }
+  };
 
   async presentToastConfirmation() {
     const toast = await this.toastController.create({
       message: 'Perfil editado satisfactoriamente',
-      color:'success',
-      position:'middle',
+      color:'warning',
+      position:'top',
       duration: 2000
     });
     toast.present();
-  }
-
-
+  };*/
 
 
 }

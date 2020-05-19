@@ -11,32 +11,42 @@
   <ion-avatar>
     <img src="{{usuario.foto}}">
   </ion-avatar>
-
+<!--  
   <ion-button shape="round">Cambiar foto de perfil</ion-button>
-
-  <ion-item>
-    <ion-label position="floating">Nickname</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
+  -->
   <ion-item>
     <ion-label position="floating">Nombre</ion-label>
-    <ion-input></ion-input>
+    <ion-input clearInput value="{{usuario.nombre}}" #nombre></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Nick</ion-label>
+    <ion-input clearInput value="{{usuario.nick}}" #nick></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Email</ion-label>
-    <ion-input  type="email"></ion-input>
+    <ion-input clearInput value="{{usuario.email}}" #email></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Ciudad</ion-label>
-    <ion-input></ion-input>
+    <ion-input clearInput value="{{usuario.lugar}}" #lugar></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Nueva contraseña</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input clearInput value="{{usuario.contrasenya}}" #contrasenya></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Repetir nueva contraseña</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-label position="floating">Foto</ion-label>
+    <ion-input clearInput value="{{usuario.foto}}" #foto></ion-input>
   </ion-item>
+
+<ion-button type="submit" expand="full" shape="round" color="success" (click)="editarPerfil(
+  nombre.value,
+  nick.value,
+  email.value,
+  lugar.value,
+  contrasenya.value,
+  foto.value,
+  usuario.usuario_id
+)">Guardar</ion-button>
 
 </ion-content>

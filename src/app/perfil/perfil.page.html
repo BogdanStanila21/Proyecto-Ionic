@@ -10,15 +10,15 @@
           <p class="text">{{usuario.valoraciones}}</p>
           <ion-icon class="star" name="star-outline"></ion-icon>
         </ion-row>
-        <ion-avatar slot="end" [routerLink]="['/perfil']">
+        <ion-avatar slot="end" [routerLink]="['/perfil']">  
           <img src="{{usuario.foto}}">
         </ion-avatar>
       </ion-buttons>  
     </div>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
+<!-- para refrescar la página cada vez que se edita o elimina artículo -->
+<ion-content> 
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content
       pullingIcon="chevron-down-circle-outline"
@@ -27,9 +27,9 @@
       refreshingText="Refreshing...">
     </ion-refresher-content>
   </ion-refresher>
-
+  <!-- Muestra mis artículos subidos -->
   <ion-row class="articulos">
-    <ion-col size="5.5" class="card" *ngFor="let item of misArticulos">
+    <ion-col size="5.8" class="card" *ngFor="let item of misArticulos">
       <ion-card>
         <ion-item>
           <img src="{{item.imagen}}" alt="">
@@ -43,7 +43,7 @@
   </ion-row>
 </ion-content>
 
-
+<!-- 
 <script
   type="module"
   src="https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/ionic.esm.js"
@@ -66,6 +66,7 @@
   import { menuController } from "https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/index.esm.js";
   window.menuController = menuController;
 </script>
+ -->
 
 <ion-menu side="start" content-id="main-content">
   <ion-header>

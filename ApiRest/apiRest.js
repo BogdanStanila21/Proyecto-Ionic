@@ -406,11 +406,12 @@ app.post("/usuario", (req, res) => {
     })
 })
 
-app.put("/usuario", (req, res) => {
-    let usuario = new Array(req.body.nombre, req.body.nick, req.body.email, req.body.lugar, req.body.contrasenya, req.body.usuario_id);
-    let sql;
-    sql = "UPDATE usuario SET nombre=?, nick=?, email=?, lugar=?, contrasenya=? WHERE usuario_id=?";
-    connection.query(sql, usuario, (err, result) => {
+app.put("/usuario", function (req, res, next)  
+{
+    let var1 = "UPDATE usuario SET nombre=?, nick=?, email=?, lugar=?, contrasenya=?, foto=? WHERE usuario_id=?";
+    let var2 = [req.body.nombre, req.body.nick, req.body.email, req.body.lugar, req.body.contrasenya, req.body.foto, req.body.usuario_id];
+    connection.query(var1, var2, function(err, result) 
+    {
         if (err) {
             console.log(err);
         } else {
@@ -418,7 +419,8 @@ app.put("/usuario", (req, res) => {
             console.log("PUT de usuario");
         }
     })
-})
+});
+
 
 //--------------------------------------------------Api para valoraciones-------------------------------//
 app.put("/usuario/valoraciones", (req, res) => {
