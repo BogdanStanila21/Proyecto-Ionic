@@ -109,15 +109,23 @@ const routes: Routes = [
       ),
     canActivate: [AuthGuard],
   },
-  {
-    path: "**",
-    redirectTo: "login",
-    pathMatch: "full",
-  },
+
   {
     path: "otro",
     loadChildren: () =>
       import("./otro/otro.module").then((m) => m.OtroPageModule),
+  },
+  {
+    path: "recuperacion",
+    loadChildren: () =>
+      import("./recuperacion/recuperacion.module").then(
+        (m) => m.RecuperacionPageModule
+      ),
+  },
+  {
+    path: "**",
+    redirectTo: "login",
+    pathMatch: "full",
   },
 ];
 
