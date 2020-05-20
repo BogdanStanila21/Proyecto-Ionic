@@ -60,11 +60,31 @@ export class RegistroPage implements OnInit {
     usuario.email=email;
     usuario.lugar=lugar;
     usuario.contrasenya=contrasenya;
-    return this.usuarioService.postUsuario(usuario).subscribe((data)=>{
-      console.log(data);
-      this.router.navigate(['/login'])
-      this.presentToastConfirmation
+    this.usuarioService.getUsuarios().subscribe((data:UsuarioModel[])=>{
+      console.log(data)
+      let existeEmail=false;
+      let existeNick=false;
+      for(let i=0;i<data.length;i++){
+        if(data[i].email==email){
+          existeEmail=true
+        }
+        if(data[i].nick==nick){
+          existeNick=true
+        }
+      }
+      if(existeEmail){
+        this.presentToastCancelEmail();
+      }else if(existeNick){
+        this.presentToastCancelNick();
+      }else{
+        return this.usuarioService.postUsuario(usuario).subscribe((data2)=>{
+          console.log(data2);
+          this.router.navigate(['/login'])
+          this.presentToastConfirmation
+        })
+      }
     })
+    
   }
 
   async presentToastConfirmation() {
@@ -72,6 +92,26 @@ export class RegistroPage implements OnInit {
       message: 'Usuario registrado satisfactoriamente',
       color:'success',
       position:'top',
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  async presentToastCancelEmail() {
+    const toast = await this.toastController.create({
+      message: '¡Email ya registrado!',
+      color:'danger',
+      position:'middle',
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  async presentToastCancelNick() {
+    const toast = await this.toastController.create({
+      message: '¡Nick ya registrado!',
+      color:'danger',
+      position:'middle',
       duration: 2000
     });
     toast.present();

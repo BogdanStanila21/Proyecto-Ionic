@@ -212,6 +212,17 @@ app.delete("/articulo", function (req, res, next) {
 
 ///////////////////////////
 
+app.get("/intercambios",(req,res)=>{
+
+    connection.query("SELECT * FROM intercambio", (err,result)=>{
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+        }
+    })
+})
+
 //------------------------------- API para el que realiza-------------------------------//
 app.get("/intercambio/realiza/:id", function (req, res, next) {
     let datos1peticion = [];
@@ -325,6 +336,20 @@ app.put("/intercambio", function (req, res, next) {
     );
 }
 );
+
+app.put("/intercambio/valoracion",(req,res)=>{
+    let variable = "UPDATE intercambio SET usuarioIdValoracion1=? WHERE intercambio_id=?";
+    let variable2 = [req.body.usuarioIdValoracion1, req.body.intercambio_id];
+
+    connection.query(variable, variable2, (err,result)=>{
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+            console.log("PUT de intercambio/valoracion");
+        }
+    })
+})
 
 app.delete("/intercambio", function (req, res, next) {
     let variable = "DELETE FROM intercambio WHERE intercambio_id = ?";

@@ -4,8 +4,8 @@
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
     <ion-title>Subir Artículo</ion-title>
-    <ion-avatar slot="end">
-      <img src="https://www.creativosonline.org/blog/wp-content/uploads/2010/05/creativosonline_crear_avatar_profesional.jpg">
+    <ion-avatar slot="end" [routerLink]="['/perfil']">
+      <img src="{{usuario.foto}}">
     </ion-avatar>
   </ion-toolbar>
 </ion-header>

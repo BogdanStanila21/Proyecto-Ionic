@@ -13,7 +13,7 @@
   <ion-searchbar animated></ion-searchbar>
 
   <ion-row>
-    <ion-col size="6" *ngFor="let item of misArticulos">
+    <ion-col size="6" *ngFor="let item of misArticulos" (click)="presentAlertConfirm(item.articulo_id)">
       <div>
         <img
           src="{{item.imagen}}"
@@ -22,7 +22,6 @@
         <ion-text>
           <h2>{{item.nombre}}</h2>
         </ion-text>
-        <ion-button (click)="presentAlertConfirm(item.articulo_id)">Elegir</ion-button>
       </div>
     </ion-col>
   </ion-row>

@@ -14,14 +14,11 @@
 <ion-content>
 
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content
-      pullingIcon="chevron-down-circle-outline"
-      pullingText="Pull to refresh"
-      refreshingSpinner="crescent"
-      refreshingText="Actualizando...">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
+      refreshingSpinner="crescent" refreshingText="Actualizando...">
     </ion-refresher-content>
   </ion-refresher>
-  
+
   <!-- iconos de Intercambio -->
   <ion-segment value="realiza" (ionChange)="segmentChanged($event)">
     <ion-segment-button class="mitad1" value="realiza" (click)="getIntercambioQueRealizo()">
@@ -34,22 +31,27 @@
     </ion-segment-button>
   </ion-segment>
 
-  
+
   <ion-row class="articulos" *ngFor="let item of peticionesRealiza_recibe">
     <ion-col size="12" *ngIf="item.intercambio_id[0].usuario_idRealiza == usuario.usuario_id">
       <ion-item>
         <ion-toolbar>
-          <h5>Has realizado una petición a <strong (click)="verUsuario(item.intercambio_id[0].usuario_idRecibe)">{{item.usuario_idRecibe[0].nick}}</strong> </h5>
-          <ion-icon slot="end" name="close-circle" *ngIf="item.intercambio_id[0].estado_intercambio == 'pendiente'" (click)="presentAlertCancelar(item.intercambio_id[0].intercambio_id)"></ion-icon>
+          <h5>Has realizado una petición a <strong
+              (click)="verUsuario(item.intercambio_id[0].usuario_idRecibe)">{{item.usuario_idRecibe[0].nick}}</strong>
+          </h5>
+          <ion-icon slot="end" name="close-circle" *ngIf="item.intercambio_id[0].estado_intercambio == 'pendiente'"
+            (click)="presentAlertCancelar(item.intercambio_id[0].intercambio_id)"></ion-icon>
         </ion-toolbar>
-      </ion-item> 
+      </ion-item>
     </ion-col>
-    <ion-col size="12"*ngIf="item.intercambio_id[0].usuario_idRecibe == usuario.usuario_id">
+    <ion-col size="12" *ngIf="item.intercambio_id[0].usuario_idRecibe == usuario.usuario_id">
       <ion-item>
         <ion-toolbar>
-          <h5>Has recibido una petición de <strong (click)="verUsuario(item.intercambio_id[0].usuario_idRealiza)">{{item.usuario_idRealiza[0].nick}}</strong></h5>
+          <h5>Has recibido una petición de <strong
+              (click)="verUsuario(item.intercambio_id[0].usuario_idRealiza)">{{item.usuario_idRecibe[0].nick}}</strong>
+          </h5>
         </ion-toolbar>
-      </ion-item> 
+      </ion-item>
     </ion-col>
     <!-- Artículos ofrecidos y que me ofrecen -->
     <ion-col size="5" class="mios">
@@ -67,10 +69,13 @@
         <ion-label>{{item.articulo_idRecibe[0].nombre}}</ion-label>
       </div>
     </ion-col>
-    <ion-col size="12" *ngIf="item.intercambio_id[0].usuario_idRealiza != usuario.usuario_id && item.intercambio_id[0].estado_intercambio == 'pendiente'">
+    <ion-col size="12"
+      *ngIf="item.intercambio_id[0].usuario_idRealiza != usuario.usuario_id && item.intercambio_id[0].estado_intercambio == 'pendiente'">
       <!-- botones de aceptar/rechazar -->
-      <ion-button expand="full" shape="round" color="success" (click)="presentAlertConfirm(item.intercambio_id[0].intercambio_id, 'aceptada')">Aceptar</ion-button>
-      <ion-button expand="full" shape="round" color="danger" (click)="presentAlertRechazar(item.intercambio_id[0].intercambio_id, 'rechazada')">Rechazar</ion-button>
+      <ion-button expand="full" shape="round" color="success"
+        (click)="presentAlertConfirm(item.intercambio_id[0].intercambio_id, 'aceptada')">Aceptar</ion-button>
+      <ion-button expand="full" shape="round" color="danger"
+        (click)="presentAlertRechazar(item.intercambio_id[0].intercambio_id, 'rechazada')">Rechazar</ion-button>
     </ion-col>
 
     <ion-col size="12">
@@ -83,24 +88,23 @@
       <div class="valorar" *ngIf="checkbox">
         <!-- valorar al usuario -->
         <h6>Valora al usuario</h6> <br>
-        <ion-icon class="star" name="star-outline"></ion-icon>
-        <ion-icon class="star" name="star-outline"></ion-icon>
-        <ion-icon class="star" name="star-outline"></ion-icon>
-        <ion-icon class="star" name="star-outline"></ion-icon>
-        <ion-icon class="star" name="star-outline"></ion-icon>
+        <ion-icon class="star" name="star-outline" *ngFor="let items of [1,2,3,4,5]" (click)="valorValorar(items, item.usuario_idRecibe[0].usuario_id, item.intercambio_id[0].intercambio_id, item.intercambio_id[0].usuarioIdValoracion1, item.articulo_idRealiza[0].articulo_id, item.articulo_idRecibe[0].articulo_id)"></ion-icon>
       </div>
-      <div class="valorar" *ngIf="item.intercambio_id[0].estado_intercambio == 'pendiente' && item.intercambio_id[0].usuario_idRealiza == usuario.usuario_id">
+      <div class="valorar"
+        *ngIf="item.intercambio_id[0].estado_intercambio == 'pendiente' && item.intercambio_id[0].usuario_idRealiza == usuario.usuario_id">
         <!-- pendiente de respuesta -->
         <ion-icon name="speedometer-outline"></ion-icon>
         <h6>Tu solicitud se encuentra pendiente de respuesta</h6> <br>
       </div>
-      <div class="valorar" *ngIf="item.intercambio_id[0].estado_intercambio == 'rechazada' && item.intercambio_id[0].usuario_idRealiza == usuario.usuario_id">
+      <div class="valorar"
+        *ngIf="item.intercambio_id[0].estado_intercambio == 'rechazada' && item.intercambio_id[0].usuario_idRealiza == usuario.usuario_id">
         <ion-icon name="sad-outline"></ion-icon>
         <h6>Lo sentimos. Su petición ha sido denegada</h6>
-        <ion-button expand="full" shape="round" color="warning" (click)="eliminarIntercambio(item.intercambio_id[0].intercambio_id)">Aceptar</ion-button>
+        <ion-button expand="full" shape="round" color="warning"
+          (click)="eliminarIntercambio(item.intercambio_id[0].intercambio_id)">Aceptar</ion-button>
       </div>
     </ion-col>
   </ion-row>
- 
+
 </ion-content>
 <!--cierra content-->

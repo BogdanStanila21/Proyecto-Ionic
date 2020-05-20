@@ -35,7 +35,7 @@ ion-avatar{
     margin-right: 16px;
 }
 #flecha{
-    margin-top: 65px;
+    margin: 65px 0 0 0;
     color: #293462;
 }
 .mitad1 {
@@ -70,6 +70,11 @@ ion-avatar{
     margin: 0 auto;
     background-color: #293462;
     text-align: center;
+    img{
+        height: 192px;
+        object-fit: cover;
+        justify-content: center center;
+    }
 }
 .otros{
     width: 100%;
@@ -77,6 +82,11 @@ ion-avatar{
     margin: 0 auto;
     background-color: #ec9b3b;
     text-align: center;
+    img{
+        height: 192px;
+        object-fit: cover;
+        justify-content: center center;
+    }
 }
 ion-checkbox{
     margin: 0 auto;
@@ -96,6 +106,9 @@ h6{
       // display: inline;
       margin: 0 auto;
       color:  #ec9b3b;
+    }
+    ion-icon{
+        margin: 0;
     }
   }
 

@@ -9,6 +9,7 @@ export class IntercambioModel {
     public usuario_idRecibe:number;
     public articulo_idRecibe:number;
     public estado_intercambio:string;
+    public usuarioIdValoracion1:number;
     constructor(){}
 }
 

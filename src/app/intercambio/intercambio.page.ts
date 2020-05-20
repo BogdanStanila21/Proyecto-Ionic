@@ -6,6 +6,9 @@ import { IntercambioModel, IntercambioVerModel } from './../models/intercambio';
 import { Articulo } from './../models/articulo';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { UsuarioService } from './../service/usuario.service';
+import { ArticuloService } from './../service/articulo.service';
+
 
 @Component({
   selector: 'app-intercambio',
@@ -15,11 +18,12 @@ import { Router } from '@angular/router';
 export class IntercambioPage implements OnInit {
 
   public usuario: UsuarioModel;
-  public peticionesRealiza_recibe:any;
+  public peticionesRealiza_recibe:IntercambioVerModel[];
   public checkbox=false;
   public posicionSegment=false;
+  public valorRating:number;
 
-  constructor(private auth: LoginService, private intercambioService: IntercambioService, private alertController:AlertController, private router:Router) { }
+  constructor(private auth: LoginService, private intercambioService: IntercambioService, private alertController:AlertController, private router:Router, private usuarioService:UsuarioService, private articuloService: ArticuloService) { }
 
   usuarioLogeado() {
     this.usuario = this.auth.usuarioId;
@@ -50,7 +54,11 @@ export class IntercambioPage implements OnInit {
               datosUnUsuario.usuario_idRecibe = usuarioRecibe;
               datosUnUsuario.intercambio_id=[data[i]];
               
-              datos.push(datosUnUsuario)
+              if((datosUnUsuario.intercambio_id[0].usuarioIdValoracion1 != 0) && (datosUnUsuario.intercambio_id[0].usuarioIdValoracion1 == datosUnUsuario.usuario_idRecibe[0].usuario_id)){
+                console.log("valorado")
+              }else{
+                datos.push(datosUnUsuario)
+              }
             })
           })
         })
@@ -82,10 +90,14 @@ export class IntercambioPage implements OnInit {
 
               datosUnUsuario.articulo_idRealiza = articuloRealiza;
               datosUnUsuario.articulo_idRecibe = articuloRecibe;
-              datosUnUsuario.usuario_idRealiza = usuarioRealiza;
+              datosUnUsuario.usuario_idRecibe = usuarioRealiza;
               datosUnUsuario.intercambio_id=[data[i]];
               
-              datos.push(datosUnUsuario)
+              if((datosUnUsuario.intercambio_id[0].usuarioIdValoracion1 != 0) && (datosUnUsuario.intercambio_id[0].usuarioIdValoracion1 == datosUnUsuario.usuario_idRecibe[0].usuario_id)){
+                console.log("valorado")
+              }else{
+                datos.push(datosUnUsuario)
+              }
             })
           })
         })
@@ -103,6 +115,8 @@ export class IntercambioPage implements OnInit {
       console.log(data)
       if(this.posicionSegment){
         this.getIntercambioQueRecibo();
+      }else{
+        this.getIntercambioQueRealizo();
       }
     })
     
@@ -111,6 +125,7 @@ export class IntercambioPage implements OnInit {
   eliminarIntercambio(id:number){
     return this.intercambioService.deleteIntercambio(id).subscribe((data)=>{
       console.log(data)
+      this.getIntercambioQueRealizo();
     })
   }
 
@@ -118,9 +133,49 @@ export class IntercambioPage implements OnInit {
     this.router.navigate(['/otro',usuarioId])
   }
 
+  valorValorar(num:number, usuarioId:number, intercambioId:number, usuarioIDValoracion:number, articulo_id1:number, articulo_id2:number){
+    console.log(num, usuarioId)
+    this.presentAlertValoraciones(num,usuarioId,intercambioId, usuarioIDValoracion, articulo_id1, articulo_id2);
+    
+  }
+  
+  valorarUsuario(valoracion:number, usuarioId:number){
+    let usuarioValoracion = new UsuarioModel;
+    usuarioValoracion.usuario_id=usuarioId;
+    usuarioValoracion.valoraciones=valoracion;
+    return this.usuarioService.putUsuarioValoracion(usuarioValoracion).subscribe((data)=>{
+      console.log(data);
+    })
+  }
+
+  putIntercambioValoracionUsuario(intercambioId:number, usuarioId:number){
+    let valoracion=new IntercambioModel;
+    valoracion.intercambio_id=intercambioId;
+    valoracion.usuarioIdValoracion1=usuarioId
+    return this.intercambioService.putIntercambioValoracion(valoracion).subscribe((data)=>{
+      console.log(data)
+    })
+  }
+
+  elimiarArticulo(articulo_id:number){
+    return this.articuloService.deleteArticulo(articulo_id).subscribe((data)=>{
+      console.log(data)
+      if(this.posicionSegment){
+        this.getIntercambioQueRecibo();
+      }else{
+        this.getIntercambioQueRealizo();
+      }
+    })
+  }
+
   doRefresh(event) {
-    this.getIntercambioQueRecibo();
-    this.getIntercambioQueRealizo();
+    console.log("SAf")
+    if (this.posicionSegment==false){
+      this.getIntercambioQueRealizo();
+      console.log("SAfdsadasd")
+    }else if(this.posicionSegment==true){
+      this.getIntercambioQueRecibo();
+    }
     setTimeout(() => {
       console.log('Async operation has ended');
       event.target.complete();
@@ -130,7 +185,12 @@ export class IntercambioPage implements OnInit {
   segmentChanged(ev: any) {
     if(ev.detail.value=="recibe"){
       this.posicionSegment=true;
+      console.log(this.posicionSegment)
+    }else if(ev.detail.value=="realiza"){
+      this.posicionSegment=false;
+      console.log(this.posicionSegment)
     }
+    
   }
 
   async presentAlertConfirm(id:number, estado:string) {
@@ -176,7 +236,7 @@ export class IntercambioPage implements OnInit {
           text: 'Aceptar',
           cssClass: 'alertButton2',
           handler: () => {
-            this.actualizarIntercambio(id, estado)
+            this.actualizarIntercambio(id, estado);
           }
         }
       ]
@@ -203,7 +263,39 @@ export class IntercambioPage implements OnInit {
           cssClass: 'alertButton2',
           handler: () => {
             this.eliminarIntercambio(id)
-            this.getIntercambioQueRealizo();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  async presentAlertValoraciones(valoracion:number, usuarioId:number, intercambioId:number, usuarioIdValoracion:number, articulo_id1:number, articulo_id2:number) {
+    const alert = await this.alertController.create({
+      header: '!Valoración!',
+      cssClass:'alert',
+      message: '¿Deseas valorar este intercambio con '+valoracion+' estrellas?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'alertButton',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Aceptar',
+          cssClass: 'alertButton2',
+          handler: () => {
+            this.valorarUsuario(valoracion, usuarioId);
+            this.putIntercambioValoracionUsuario(intercambioId, usuarioId)
+            this.checkbox=false
+            if(usuarioIdValoracion!=0){
+              this.eliminarIntercambio(intercambioId);
+              this.elimiarArticulo(articulo_id1);
+              this.elimiarArticulo(articulo_id2);
+            }
           }
         }
       ]

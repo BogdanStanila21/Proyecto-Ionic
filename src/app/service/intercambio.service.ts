@@ -12,6 +12,8 @@ export class IntercambioService {
   private url3 = "http://localhost:3000/intercambio/recibe";
   private url4 = "http://localhost:3000/intercambio/articulo";
   private url5 = "http://localhost:3000/intercambio/usuario";
+  private url6 = "http://localhost:3000/intercambio/valoracion";
+  private url7 = "http://localhost:3000/intercambios";
 
   constructor(private http:HttpClient) { }
 
@@ -31,12 +33,20 @@ export class IntercambioService {
     return this.http.get(this.url5+"/"+usuarioId)
   }
 
+  getIntercambios(){
+    return this.http.get(this.url7);
+  }
+
   postIntercambio(intercambio:IntercambioModel){
     return this.http.post(this.url,intercambio)
   }
 
   putIntercambio(estado:IntercambioModel){
     return this.http.put(this.url, estado)
+  }
+
+  putIntercambioValoracion(valoracion:IntercambioModel){
+    return this.http.put(this.url6, valoracion)
   }
 
   deleteIntercambio(intercambioId:number){

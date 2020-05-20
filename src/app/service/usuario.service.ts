@@ -8,6 +8,8 @@ import { UsuarioModel } from './../models/usuario';
 export class UsuarioService {
 
   private url="http://localhost:3000/usuario";
+  private url2="http://localhost:3000/usuario/valoraciones";
+
   constructor(private http:HttpClient) { }
 
   getUsuario(idUsuario:number){
@@ -20,6 +22,10 @@ export class UsuarioService {
 
   postUsuario(usuario:UsuarioModel){
     return this.http.post(this.url,usuario);
+  }
+
+  putUsuarioValoracion(valoracion:UsuarioModel){
+    return this.http.put(this.url2, valoracion)
   }
 
 }

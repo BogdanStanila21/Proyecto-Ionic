@@ -13,9 +13,6 @@ ion-header{
 
 ion-content{
     --background: var(--color-grey) ;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
     ion-searchbar{
       --background:white;
       --icon-color:var(--color-primary);
@@ -25,10 +22,10 @@ ion-content{
       --background:var(--color-grey);
       ion-col{
         div{
-          text-align: center;
           background-color: var(--color-primary);
           border-radius: 3px;
           cursor: pointer;
+          text-align: center;
           img {
             margin-top: 1vw;
             width: 95%;
