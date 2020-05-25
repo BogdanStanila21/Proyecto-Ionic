@@ -11,10 +11,60 @@ import { UsuarioModel } from './../models/usuario';
 })
 export class HomePage implements OnInit {
 
+  // list_original = [
+  //   "item 1",
+  //   "item 2",
+  //   "item 3",
+  //   "item 4",
+  //   "hola",
+  //   "maria",
+  //   "JAUSUDSADI",
+  // ];
+  // list_to_show = this.articulos;
+  // selected_index = -1;
+  // show_list = true;
+
   public articulos: any;
-  public usuario:UsuarioModel
+  public usuario: UsuarioModel;
+
+  list_to_show = this.articulos;
+  selected_index = -1;
+  show_list = true;
 
   constructor(private api: HomeserviceService, private router: Router, private auth: LoginService) {}
+
+  onCancel(val) {
+    this.show_list = false;
+  }
+
+  click_bar() {
+    this.show_list = true;
+  }
+
+  // click_item(val) {
+  //   for (let i = 0; i < this.list_original.length; i++) {
+  //     if (
+  //       this.list_to_show[val].toUpperCase() ===
+  //       this.list_original[i].toUpperCase()
+  //     ) {
+  //       this.selected_index = i;
+  //       break;
+  //     }
+  //   }
+  //   this.show_list = false;
+  // }
+
+  change_query(query) {
+    let k = 0;
+    this.list_to_show = [];
+    for (let i = 0; i < this.articulos.length; i++) {
+      if (this.articulos[i].nombre.toUpperCase().includes(query.toUpperCase())) {
+        this.list_to_show[k] = this.articulos[i].nombre;
+        k += 1;
+      }
+    }
+  }
+
 
   usuarioLogeado(){
     this.usuario=this.auth.usuarioId;
@@ -36,5 +86,5 @@ export class HomePage implements OnInit {
     this.mostrarTodos();
 
   }
-
+  
 }

@@ -3,16 +3,22 @@
     <ion-icon name="options-outline" slot="start"></ion-icon>
     <ion-title>Walatroll</ion-title>
     <ion-avatar slot="end" [routerLink]="['/perfil']">
-      <img
-        src="{{usuario.foto}}"/>
+      <img src="{{usuario.foto}}"/>
     </ion-avatar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar animated></ion-searchbar>
+  <ion-searchbar animated
+      [(ngModel)]="searchQuery"
+      (click)="click_bar()"
+      (ionCancel)="onCancel($event)"
+      (ngModelChange)="change_query($event)"
+      showCancelButton="focus"
+      placeholder="Buscar">
+  </ion-searchbar>
 
-  <ion-row>
+  <!-- <ion-row>
     <ion-col size="6" *ngFor="let i of articulos">
       <div (click)="mostrarInfo(i.articulo_id)">
         <img src="{{i.imagen}}" alt=""/>
@@ -21,6 +27,35 @@
         </ion-text>
       </div>
     </ion-col>
+  </ion-row> -->
+
+<!-- ---------------------------- -->
+
+<ion-row>
+  <ion-col size="6" *ngFor="let item of articulos; let i = index">
+    <!-- <div class="ion-padding"> -->
+      <!-- <div *ngIf="show_list"> -->
+        <!-- <ion-list> -->
+          <ion-item (click)="mostrarInfo(item.articulo_id)">
+            <!-- <ion-label (click)="mostrarInfo(i.articulo_id)">{{ item }}</ion-label> -->
+            <img src="{{item.imagen}}" alt="Oh oh... no carga">
+            <ion-text>
+              <h3>{{item.nombre}}</h3>
+            </ion-text>
+          </ion-item>
+        <!-- </ion-list> -->
+      <!-- </div> -->
+    </ion-col>
   </ion-row>
 
+    <!-- <ion-card *ngIf="!show_list">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">details</ion-card-title>
+      </ion-card-header> -->
+
+      <!-- <ion-card-content class="ion-justify-content-center">
+        {{ this.list_original[this.selected_index] }}
+      </ion-card-content>
+    </ion-card> -->
+  <!-- </div> -->
 </ion-content>

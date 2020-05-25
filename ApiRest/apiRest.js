@@ -401,7 +401,7 @@ app.delete("/favoritos", function (req, res, next) {
             console.log(nuevo)
             res.send(result);
             console.log("DELETE de favoritos");
-        }
+        } 
     }
     );
 }
