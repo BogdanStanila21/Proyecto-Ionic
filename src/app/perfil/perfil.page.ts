@@ -50,6 +50,14 @@ export class PerfilPage {
     window.location.reload();
   }
 
+  doRefresh(event) {
+    this.ngOnInit();
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 1000);
+  }
+
   ngOnInit() {
     this.usuarioLogeado();
     this.VerArticulos();

@@ -11,13 +11,15 @@
 <ion-content>
   <ion-row>
     <ion-col size="6" *ngFor="let item of favoritos">
-      <div>
-        <ion-icon name="close-circle" (click)="eliminarFavorito(item.favoritos_id)"></ion-icon>
-        <img src="{{item.imagen}}" (click)="mostrarInfo(item.articulo_id)" alt=""/>
-        <ion-text>
-          <h3>{{item.nombre}}</h3>
-        </ion-text>
-      </div>
+      <ion-card>
+        <div>
+          <ion-icon name="close-circle" (click)="eliminarFavorito(item.favoritos_id)"></ion-icon>
+          <img src="{{item.imagen}}" (click)="mostrarInfo(item.articulo_id)" alt=""/>
+          <ion-text>
+            <h4>{{item.nombre}}</h4>
+          </ion-text>
+        </div>
+      </ion-card>
     </ion-col>
   </ion-row>
 </ion-content>

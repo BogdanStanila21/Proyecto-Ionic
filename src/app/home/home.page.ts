@@ -81,6 +81,13 @@ export class HomePage implements OnInit {
       this.router.navigate(['/info-articulo', articulo_id])
   }
 
+  doRefresh(event) {
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 1000);
+  }
+
   ngOnInit() {
     this.usuarioLogeado();
     this.mostrarTodos();

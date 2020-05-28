@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <div class="ion-page" id="main-content">
+    <div id="main-content">
       <ion-buttons slot="start">
         <ion-menu-button>
           <ion-icon name="menu-outline"></ion-icon>
@@ -10,29 +10,37 @@
           <p class="text">{{usuario.valoraciones}}</p>
           <ion-icon class="star" name="star-outline"></ion-icon>
         </ion-row>
-        <ion-avatar slot="end" [routerLink]="['/perfil']">
-          <img src="{{usuario.foto}}">
-        </ion-avatar>
       </ion-buttons>  
     </div>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
-  <ion-row class="articulos">
-    <ion-col size="5.5" class="card" *ngFor="let item of misArticulos">
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="crescent"
+      refreshingText="Actualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-row>
+    <ion-col size="6" *ngFor="let item of misArticulos">
       <ion-card>
-        <ion-item>
-          <img src="{{item.imagen}}" alt="">
-          <ion-button fill="outline" slot="end" (click)="abirModal(item.articulo_id)">+info</ion-button>
-        </ion-item>
-        <ion-card-content>
-          {{item.nombre}}
-        </ion-card-content>
-     </ion-card>
-    </ion-col>  
+        <div (click)="abirModal(item.articulo_id)">
+          <img src="{{item.imagen}}" alt=""/>
+          <ion-text>
+            <h4>{{item.nombre}}</h4>
+          </ion-text>
+        </div>
+      </ion-card>
+    </ion-col>
   </ion-row>
 </ion-content>
+
 
 
 <script
@@ -61,7 +69,7 @@
 <ion-menu side="start" content-id="main-content">
   <ion-header>
     <ion-toolbar translucent>
-      <ion-title>Menu</ion-title>
+      <ion-title>Menú</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
@@ -80,7 +88,7 @@
       </ion-item>
       <ion-item (click)="cerrarSesion()" (click)="openEnd()">
         <ion-icon name="log-out-outline"></ion-icon>
-        <ion-label>Cerrar sesion</ion-label>
+        <ion-label>Cerrar sesión</ion-label>
       </ion-item>
     </ion-list>
   </ion-content>

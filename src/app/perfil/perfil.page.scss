@@ -1,8 +1,6 @@
-@import url(../home/home.page.scss);
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+ion-toolbar{
+  --background: var(--color-primary);
+  color: var(--color-grey);
 }
 
 .text {
@@ -11,17 +9,17 @@
   margin: 0 auto;
 }
 ion-header {
-  // padding: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
 
   ion-menu-button {
     font-size: 32px;
+    color: var(--color-grey);
   }
   ion-icon {
-    font-size: 56px;
-    color: #293462;
+    font-size: 32px;
+    color: var(--color-grey);
     margin: 0 auto;
   }
   ion-avatar{
@@ -35,60 +33,50 @@ ion-header {
   }
   .star {
     font-size: 28px;
-    // display: inline;
     margin-left: 8px;
-    color: #293462;
+    color: var(--color-grey);
+    margin-right: 16px;
   }
 }
-ion-content {
-  //padding: 4px;
-  //display: flex;
 
-  /*ion-row {
-    // padding: 8px 32px;
-    .card {
-      background-color: #293462;
-      height: 256px;
-      padding: 4px;
-      border-radius: 8px;
-      margin: 0 auto;
-      margin-top: 16px;
 
-      .foto {
-        height: 80%;
-
+ion-content{
+  // text-align: center!important;
+  --background: var(--color-grey) ;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  ion-searchbar{
+    --background:white;
+    --icon-color:var(--color-primary);
+    --box-shadow:2px 2px 3px -1px rgba(0,0,0,0.21);   
+  }
+  ion-row{
+    --background:var(--color-grey);
+    ion-col{
+      div{
+        text-align: center;
+        border-radius: 3px;
+        cursor: pointer;
         img {
-          height: 100%;
-          width: 100%;
-          border-radius: 8px;
+          margin-top: 1vw;
+          width: 95%;
+          height: 192px;
+          object-fit: cover;
+          object-position: center center;
+        }
+        ion-text{
+          color:var(--color-primary);
+          margin: 0 auto;
+          h4{
+            margin: 0px;
+            overflow: hidden;
+            background-color: #29346252;
+          }
         }
       }
-      p {
-        margin-top: 12px;
-        color: white;
-        text-align: center;
-        font-weight: 700;
-        font-size: 24px;
-      }
     }
-  }*/
-
-  .articulos{
-    margin-top: 16px;
-}
-  .card{
-    width: 100%;
-    font-size: 48px;
-    margin: 0 auto;
-    //background-color: #293462;
-    text-align: center;
-    margin-bottom: 16px;
-    //color: white;  
   }
-  ion-card-content{
-    background-color: #29346252;
-    color: #293462;
-    font-size: 14px;
-  }
-
 }
+
+

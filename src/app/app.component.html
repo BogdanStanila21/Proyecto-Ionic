@@ -3,8 +3,8 @@
 
   <ion-tabs *ngIf="usuarioLogeado()">
     <ion-tab-bar slot="bottom">
-      <ion-tab-button>
-        <ion-icon name="Home" [routerLink]="['/home']" routerLinkActive="activo"></ion-icon>
+      <ion-tab-button  [routerLink]="['/home']" routerLinkActive="activo">
+        <ion-icon name="Home"></ion-icon>
         <ion-label>Home</ion-label>
       </ion-tab-button>
 
