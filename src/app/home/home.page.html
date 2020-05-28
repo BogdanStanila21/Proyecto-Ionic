@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-icon name="options-outline" slot="start"></ion-icon>
+    <ion-icon slot="start"></ion-icon>
     <ion-title>Walatroll</ion-title>
     <ion-avatar slot="end" [routerLink]="['/perfil']">
       <img
@@ -10,16 +10,28 @@
 </ion-header>
 
 <ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="crescent"
+      refreshingText="Actualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
   <ion-searchbar animated></ion-searchbar>
 
   <ion-row>
     <ion-col size="6" *ngFor="let i of articulos">
-      <div (click)="mostrarInfo(i.articulo_id)">
-        <img src="{{i.imagen}}" alt=""/>
-        <ion-text>
-          <h3>{{i.nombre}}</h3>
-        </ion-text>
-      </div>
+      <ion-card>
+        <div (click)="mostrarInfo(i.articulo_id)">
+          <img src="{{i.imagen}}" alt=""/>
+          <ion-text>
+            <h4>{{i.nombre}}</h4>
+          </ion-text>
+        </div>
+      </ion-card>
     </ion-col>
   </ion-row>
 

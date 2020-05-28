@@ -18,6 +18,7 @@ ion-header{
     }
   }
 }
+
 ion-content{
   --background: var(--color-grey) ;
   background-repeat: no-repeat;
@@ -33,7 +34,6 @@ ion-content{
     ion-col{
       div{
         text-align: center;
-        background-color: var(--color-primary);
         border-radius: 3px;
         cursor: pointer;
         img {
@@ -44,11 +44,12 @@ ion-content{
           object-position: center center;
         }
         ion-text{
-          color:var(--color-grey);
+          color:var(--color-primary);
           margin: 0 auto;
-          h3{
-            margin: 4px;
-            overflow: hidden; 
+          h4{
+            margin: 0px;
+            overflow: hidden;
+            background-color: #29346252;
           }
         }
       }

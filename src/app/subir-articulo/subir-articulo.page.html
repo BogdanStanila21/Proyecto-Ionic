@@ -4,13 +4,14 @@
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
     <ion-title>Subir Artículo</ion-title>
-    <ion-avatar slot="end">
+    <ion-avatar slot="end" [routerLink]="['/perfil']">
       <img src="https://www.creativosonline.org/blog/wp-content/uploads/2010/05/creativosonline_crear_avatar_profesional.jpg">
     </ion-avatar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
   <ion-card class="subir">
     <ion-item>
       <ion-label position="floating"> Título* </ion-label>
@@ -53,7 +54,7 @@
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating"> Sube una imágen* </ion-label>
+      <ion-label position="floating"> Sube una imagen* </ion-label>
       <ion-input clearInput [(ngModel)]="valor" #imagen ></ion-input>
       <ion-thumbnail slot="end">
       <img src="{{valor}}" alt=""> 
