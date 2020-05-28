@@ -3,8 +3,7 @@
     <ion-icon name="options-outline" slot="start"></ion-icon>
     <ion-title>Walatroll</ion-title>
     <ion-avatar slot="end" [routerLink]="['/perfil']">
-      <img
-        src="{{usuario.foto}}"/>
+      <img src="{{usuario.foto}}" />
     </ion-avatar>
   </ion-toolbar>
 </ion-header>
@@ -15,12 +14,11 @@
   <ion-row>
     <ion-col size="6" *ngFor="let i of articulos">
       <div (click)="mostrarInfo(i.articulo_id)">
-        <img src="{{i.imagen}}" alt=""/>
+        <img src="{{i.imagen}}" alt="" />
         <ion-text>
-          <h3>{{i.nombre}}</h3>
+          <ion-item>{{i.nombre}}</ion-item>
         </ion-text>
       </div>
     </ion-col>
   </ion-row>
-
 </ion-content>

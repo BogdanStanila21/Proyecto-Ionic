@@ -6,11 +6,23 @@
       <ion-input placeholder="Nombre" #nombre> </ion-input>
       <ion-input placeholder="E-mail" #email> </ion-input>
       <ion-input placeholder="Ubicación" #lugar> </ion-input>
-      <ion-input type="password" placeholder="Contraseña" #contrasenya> </ion-input>
-      <ion-input type="password" placeholder="Confirmar Contraseña" #contrasenya2></ion-input>
+      <ion-input type="password" placeholder="Contraseña" #contrasenya>
+      </ion-input>
+      <ion-input
+        type="password"
+        placeholder="Confirmar Contraseña"
+        #contrasenya2
+      ></ion-input>
       <!-- <ion-input type="date" placeholder="Fecha de nacimiento"> </ion-input> -->
-      <ion-button class="boton" (click)="postUsuario(nick.value, nombre.value, email.value, lugar.value, contrasenya.value)">Registro</ion-button>
+      <ion-button
+        class="boton"
+        (click)="postUsuario(nick.value, nombre.value, email.value, lugar.value, contrasenya.value)"
+        >Registro</ion-button
+      >
+      <ion-button (click)="enviar(email.value)"></ion-button>
     </ion-col>
+
+    <script></script>
   </ion-row>
   <svg
     version="1.1"

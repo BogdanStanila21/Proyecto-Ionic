@@ -5,32 +5,6 @@ let cors = require("cors");
 let mysql = require("mysql");
 var nodemailer = require("nodemailer");
 
-function enviar(correo) {
-  var transporter = nodemailer.createTransport({
-    service: "Gmail",
-    auth: {
-      user: "bienvenida.vitu@gmail.com",
-      pass: "ironhack",
-    },
-  });
-
-  var mailOptions = {
-    from: "prueba - ... <bienvenida.vitu@gmail.com>",
-    to: correo,
-    subject: "Asunto",
-    text: " Wolap ",
-  };
-
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error);
-      res.send(500, err.message);
-    } else {
-      console.log("Email sent");
-      res.status(200).jsonp(req.body);
-    }
-  });
-}
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -372,6 +346,33 @@ app.get("/usuario/:usuario_id", (req, res) => {
     } else {
       res.send(result);
       console.log("GET de usuario params");
+    }
+  });
+});
+
+app.post("/usuariomail", (req, res) => {
+  var transporter = nodemailer.createTransport({
+    service: "Gmail",
+    auth: {
+      user: "bienvenida.vitu@gmail.com",
+      pass: "ironhack",
+    },
+  });
+
+  var mailOptions = {
+    from: "prueba - ... <bienvenida.vitu@gmail.com>",
+    to: req.body.email,
+    subject: "Asunto",
+    text: " Hola , bienvenido a esta wea. ",
+  };
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+      res.send(500, err.message);
+    } else {
+      console.log("Email sent");
+      res.status(200).jsonp(req.body);
     }
   });
 });
