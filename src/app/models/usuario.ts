@@ -5,7 +5,7 @@ export class UsuarioModel {
     public lugar:string;
     public email:string;
     public contrasenya:string;
-    public imagen:string;
+    public foto:string;
     public valoraciones:number;
     constructor(){};
 }

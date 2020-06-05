@@ -58,7 +58,7 @@ export class ChatPage implements OnInit {
   scrollToBottomOnInit() {
     setTimeout(() => {
         if (this.content.scrollToBottom) {
-            this.content.scrollToBottom(100);
+            this.content.scrollToBottom(0);
         }
     }, 500);
   }

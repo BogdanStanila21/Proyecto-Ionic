@@ -2,41 +2,43 @@
   <ion-toolbar>
     <ion-back-button defaultHref="perfil" slot="start"></ion-back-button>
     <ion-title>Editar perfil</ion-title>
-    <ion-icon name="checkmark-outline" slot="end" (click)="presentAlertConfirm()"></ion-icon>
+    <ion-icon name="" slot="end" ></ion-icon>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngFor="let item of datosDeUsuario" [formGroup]="editarForm">
 
   <ion-avatar>
-    <img src="{{usuario.foto}}">
+    <img src="{{url}}" alt="">
   </ion-avatar>
+  
 
-  <ion-button shape="round">Cambiar foto de perfil</ion-button>
+  <ion-button shape="round" (click)="presentAlertFoto()">Cambiar foto de perfil</ion-button>
 
   <ion-item>
     <ion-label position="floating">Nickname</ion-label>
-    <ion-input></ion-input>
+    <ion-input value="{{item.nick}}" #nick formControlName="nick"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Nombre</ion-label>
-    <ion-input></ion-input>
+    <ion-input value="{{item.nombre}}" #nombre formControlName="nombre"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Email</ion-label>
-    <ion-input  type="email"></ion-input>
+    <ion-input  type="email" value="{{item.email}}" #email formControlName="email"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Ciudad</ion-label>
-    <ion-input></ion-input>
+    <ion-input value="{{item.lugar}}" #lugar formControlName="lugar"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Nueva contraseña</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input type="password" #contrasenya formControlName="contrasenya"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Repetir nueva contraseña</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input type="password" #contrasenya2 formControlName="contrasenya2"></ion-input>
   </ion-item>
+  <ion-button class="botonInferior" shape="round" (click)="presentAlertConfirm(nick.value, nombre.value, email.value, lugar.value, contrasenya.value)">Guardar cambios</ion-button>
 
 </ion-content>

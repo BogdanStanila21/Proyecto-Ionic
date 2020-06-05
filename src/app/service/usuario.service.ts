@@ -28,4 +28,8 @@ export class UsuarioService {
     return this.http.put(this.url2, valoracion)
   }
 
+  putUsuario(usuario:UsuarioModel){
+    return this.http.put(this.url, usuario)
+  }
+
 }

@@ -2,12 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import { LoginService } from './../service/login.service';
 import { Router } from '@angular/router';
 import { UsuarioModel } from './../models/usuario';
-import { async } from 'rxjs/internal/scheduler/async';
-
 import { MenuController, ModalController } from "@ionic/angular";
 import { ArticuloService } from '../service/articulo.service';
 import { Articulo } from '../models/articulo';
 import { ModalComponent } from '../modal/modal.component';
+
 @Component({
   selector: "app-perfil",
   templateUrl: "./perfil.page.html",
@@ -15,8 +14,8 @@ import { ModalComponent } from '../modal/modal.component';
 })
 export class PerfilPage {
 
-  public usuario:UsuarioModel
-  public misArticulos: Articulo[]
+  public usuario:UsuarioModel;
+  public misArticulos: Articulo[] = [];
   constructor(private menu: MenuController, private auth:LoginService, private router:Router,  private Api: ArticuloService, private modalCtrl:ModalController) { }
 
   //Usuario Logeado//
@@ -48,6 +47,15 @@ export class PerfilPage {
   cerrarSesion(){
     this.auth.logOut() 
     window.location.reload();
+  }
+
+  doRefresh(event) {
+    this.VerArticulos();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 1000);
   }
 
   ngOnInit() {

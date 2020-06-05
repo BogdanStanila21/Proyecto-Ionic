@@ -234,29 +234,7 @@ app.get("/intercambio/realiza/:id", function (req, res, next) {
             console.log(err);
         } else {
             console.log("GET de intercambio realiza");
-            res.send(result)
-            // connection.query("SELECT * FROM articulo WHERE articulo_id="+result[0].articulo_idRealiza,(err,result2)=>{
-            //     if(err){
-            //         console.log(err);
-            //     }else{
-            //         datos1peticion.push(result2);
-            //         connection.query("SELECT * FROM usuario WHERE usuario_id="+result[0].usuario_idRecibe,(err,result3)=>{
-            //             if(err){
-            //                 console.log(err);
-            //             }else{
-            //                 datos1peticion.push(result3);
-            //                 connection.query("SELECT * FROM articulo WHERE articulo_id="+result[0].articulo_idRecibe,(err,result4)=>{
-            //                     if(err){
-            //                         console.log(err)
-            //                     }else{
-            //                         datos1peticion.push(result4);
-            //                         res.send(datos1peticion)
-            //                     }
-            //                 })
-            //             }
-            //         })
-            //     }
-            // })
+            res.send(result);
         }
     }
     );
@@ -481,9 +459,9 @@ app.post("/usuario", (req, res) => {
 })
 
 app.put("/usuario", (req, res) => {
-    let usuario = new Array(req.body.nombre, req.body.nick, req.body.email, req.body.lugar, req.body.contrasenya, req.body.usuario_id);
+    let usuario = new Array(req.body.nombre, req.body.nick, req.body.email, req.body.lugar, req.body.foto, req.body.contrasenya, req.body.usuario_id);
     let sql;
-    sql = "UPDATE usuario SET nombre=?, nick=?, email=?, lugar=?, contrasenya=? WHERE usuario_id=?";
+    sql = "UPDATE usuario SET nombre=?, nick=?, email=?, lugar=?, foto=?, contrasenya=? WHERE usuario_id=?";
     connection.query(sql, usuario, (err, result) => {
         if (err) {
             console.log(err);

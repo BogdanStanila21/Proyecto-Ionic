@@ -10,19 +10,19 @@
 
 <ion-content>
 
-  <ion-searchbar animated></ion-searchbar>
-
   <ion-row>
     <ion-col size="6" *ngFor="let item of misArticulos" (click)="presentAlertConfirm(item.articulo_id)">
-      <div>
-        <img
-          src="{{item.imagen}}"
-          alt=""
-        />
-        <ion-text>
-          <h2>{{item.nombre}}</h2>
-        </ion-text>
-      </div>
+      <ion-card>
+        <div>
+          <img
+            src="{{item.imagen}}"
+            alt=""
+          />
+          <ion-text>
+            <h3>{{item.nombre}}</h3>
+          </ion-text>
+        </div>
+      </ion-card>
     </ion-col>
   </ion-row>
 

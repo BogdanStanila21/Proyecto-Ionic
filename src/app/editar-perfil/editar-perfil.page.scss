@@ -32,11 +32,16 @@ ion-content{
         --color:var(--color-grey);
     }
     ion-item{
-        --background:var(--color-grey);
-        margin-bottom: 3vh;
-        ion-input{
-            --color:var(--color-primary);
-           
+        --background:white;
+        // margin-bottom: 2vh;
+        ion-label{
+            color: grey;
         }
+        ion-input{
+            --color:var(--color-primary);   
+        }
+    }
+    .botonInferior{
+        margin: 4vh 0 4vh 0;
     }
 }

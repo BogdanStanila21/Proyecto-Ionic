@@ -37,7 +37,7 @@ export class OtroPage implements OnInit {
   }
 
   verArticulo(articuloId){
-    this.router.navigate(['/info-articulo', articuloId])
+    this.router.navigate(['/info-articulo', articuloId]);
   }
 
   ngOnInit() {

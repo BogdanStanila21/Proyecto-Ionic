@@ -63,3 +63,10 @@
   }
   
 }
+
+.my-custom-class {
+  --background:var(--color-primary);
+  --spinner-color: #fff;
+
+  color: #fff;
+}

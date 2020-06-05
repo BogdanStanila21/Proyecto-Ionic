@@ -4,7 +4,7 @@ import { LoginService } from './../service/login.service';
 import { IntercambioService } from './../service/intercambio.service';
 import { IntercambioModel, IntercambioVerModel } from './../models/intercambio';
 import { Articulo } from './../models/articulo';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { UsuarioService } from './../service/usuario.service';
 import { ArticuloService } from './../service/articulo.service';
@@ -18,12 +18,12 @@ import { ArticuloService } from './../service/articulo.service';
 export class IntercambioPage implements OnInit {
 
   public usuario: UsuarioModel;
-  public peticionesRealiza_recibe:IntercambioVerModel[];
+  public peticionesRealiza_recibe:IntercambioVerModel[]=[];
   public checkbox=false;
   public posicionSegment=false;
   public valorRating:number;
 
-  constructor(private auth: LoginService, private intercambioService: IntercambioService, private alertController:AlertController, private router:Router, private usuarioService:UsuarioService, private articuloService: ArticuloService) { }
+  constructor(private auth: LoginService, private intercambioService: IntercambioService, private alertController:AlertController, private router:Router, private usuarioService:UsuarioService, private articuloService: ArticuloService, private loadingController:LoadingController) { }
 
   usuarioLogeado() {
     this.usuario = this.auth.usuarioId;
@@ -168,11 +168,10 @@ export class IntercambioPage implements OnInit {
     })
   }
 
+
   doRefresh(event) {
-    console.log("SAf")
     if (this.posicionSegment==false){
       this.getIntercambioQueRealizo();
-      console.log("SAfdsadasd")
     }else if(this.posicionSegment==true){
       this.getIntercambioQueRecibo();
     }
