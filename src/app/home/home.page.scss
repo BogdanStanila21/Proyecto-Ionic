@@ -19,7 +19,7 @@ ion-header{
   }
 }
 ion-content{
-  --background: var(--color-grey) ;
+  --background: url("../chat/fondo5.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -29,10 +29,10 @@ ion-content{
     --box-shadow:2px 2px 3px -1px rgba(0,0,0,0.21);   
   }
   ion-row{
-    --background:var(--color-grey);
+    justify-content: center;
     ion-col{
       ion-card{
-        margin: 0;
+        border: 1px solid var(--border-card);
         div{
           text-align: center;
           border-radius: 3px;

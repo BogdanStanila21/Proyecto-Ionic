@@ -21,12 +21,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: "menu",
-    loadChildren: () =>
-      import("./menu/menu.module").then((m) => m.MenuPageModule),
-    canActivate: [AuthGuard],
-  },
-  {
     path: "editar-perfil",
     loadChildren: () =>
       import("./editar-perfil/editar-perfil.module").then(
@@ -43,12 +37,6 @@ const routes: Routes = [
     path: "registro",
     loadChildren: () =>
       import("./registro/registro.module").then((m) => m.RegistroPageModule),
-  },
-  {
-    path: "historial",
-    loadChildren: () =>
-      import("./historial/historial.module").then((m) => m.HistorialPageModule),
-    canActivate: [AuthGuard],
   },
   {
     path: "info-articulo/:id",

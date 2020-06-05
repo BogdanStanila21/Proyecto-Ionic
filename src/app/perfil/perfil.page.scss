@@ -38,74 +38,41 @@ ion-header {
     margin-right: 16px;
   }
 }
-ion-content {
-  //padding: 4px;
-  //display: flex;
-
-  /*ion-row {
-    // padding: 8px 32px;
-    .card {
-      background-color: #293462;
-      height: 256px;
-      padding: 4px;
-      border-radius: 8px;
-      margin: 0 auto;
-      margin-top: 16px;
-
-      .foto {
-        height: 80%;
-
-        img {
-          height: 100%;
-          width: 100%;
-          border-radius: 8px;
-        }
-      }
-      p {
-        margin-top: 12px;
-        color: white;
-        text-align: center;
-        font-weight: 700;
-        font-size: 24px;
-      }
-    }
-  }*/
-
-  .articulos{
-    margin-top: 16px;
-}
-  .card{
-    width: 100%;
-    font-size: 48px;
-    margin: 0 auto;
-    //background-color: #293462;
-    text-align: center;
-    margin-bottom: 16px;
-    //color: white;  
+ion-content{
+  --background: url("../chat/fondo5.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  ion-searchbar{
+    --background:white;
+    --icon-color:var(--color-primary);
+    --box-shadow:2px 2px 3px -1px rgba(0,0,0,0.21);   
   }
-  ion-card-content{
-    background-color: #29346252;
-    color: #293462;
-    font-size: 14px;
-  }
-
-  .noHay{
-    text-align: center;
+  ion-row{
+    --background:var(--color-grey);
+    justify-content: center;
     ion-col{
-      ion-card{
-        padding: 4px;
-        margin-top: 10vh;
-        img{
-          height: 320px;
+      div{
+        text-align: center;
+        border-radius: 3px;
+        cursor: pointer;
+        img {
+          margin-top: 1vw;
           width: 95%;
+          height: 192px;
           object-fit: cover;
           object-position: center center;
         }
         ion-text{
-          color: var(--color-primary);
+          color:var(--color-primary);
+          margin: 0 auto;
+          h4{
+            margin: 0px;
+            overflow: hidden;
+            background-color: #29346252;
+          }
         }
       }
     }
   }
-
 }

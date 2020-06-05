@@ -27,7 +27,7 @@ ion-content {
 }
 ion-icon {
     font-size: 32px;
-    color: #293462;
+    color: var(--color-primary);
     margin-right: 8px;
 }
 
@@ -38,13 +38,13 @@ ion-avatar{
 }
 #flecha{
     margin: 65px 0 0 0;
-    color: #293462;
+    color: var(--color-primary);
 }
 .mitad1 {
   height: 20px;
     font-size: 20px;
     margin: 0 auto;
-    background-color:white;
+    background-color: var(--color-grey);
     text-align: center;
     --indicator-height:3px;
     --color-checked:var(--color-secondary);
@@ -53,28 +53,28 @@ ion-avatar{
   height: 20px;
     font-size: 20px;
     margin: 0 auto;
-    background-color:white;
+    background-color: var(--color-grey);
     text-align: center;
     --indicator-height:3px;
     --color-checked:var(--color-secondary);
 }
 #icon1{
     text-align: center;
-    //color:  #ec9b3b;
-    color: #293462;
+    color: var(--color-primary);
 }
 #icon2{
     text-align: center;
-    color: #293462;
+    color: var(--color-primary);
 }
 .articulos{
     margin-top: 10px;
 }
 .mios{
+  border-radius: 3px;
     width: 100%;
     font-size: 32px;
     margin: 0 auto;
-    background-color: #293462;
+    background-color: var(--color-primary);
     text-align: center;
     img{
         height: 192px;
@@ -83,10 +83,11 @@ ion-avatar{
     }
 }
 .otros{
+  border-radius: 3px;
     width: 100%;
     font-size: 32px;
     margin: 0 auto;
-    background-color: #ec9b3b;
+    background-color: var(--color-secondary);
     text-align: center;
     img{
         height: 192px;
@@ -98,20 +99,25 @@ ion-checkbox{
     margin: 0 auto;
 }
 ion-item{
-    color: #293462;
-    margin: 0 auto;
+    color: var(--color-primary);
+    border-radius: 3px;
+    border: 1px solid var(--border-card);
+    h5{
+      text-align: center;
+      color: var(--color-primary);
+    }
 }
 h6{
     margin: 0 auto; 
 }
 .valorar {
     text-align: center;
-    color: #293462;
+    color: var(--color-primary);
     .star {
       font-size: 32px;
       // display: inline;
       margin: 0 auto;
-      color:  #ec9b3b;
+      color:  var(--color-secondary);
     }
     ion-icon{
         margin: 0;
@@ -119,7 +125,7 @@ h6{
 }
 
 ion-content{
-    --background: var(--color-grey);
+  --background: url("../chat/fondo5.jpg");
 }
 
 .noHay{

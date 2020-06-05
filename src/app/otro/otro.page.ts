@@ -27,6 +27,7 @@ export class OtroPage implements OnInit {
   getUsuario(){
     this.usuarioService.getUsuario(this.idUsuario).subscribe((data:UsuarioModel[])=>{
       this.usuario=data
+      console.log(data)
     })
   }
   getArticulos(){

@@ -19,5 +19,20 @@
     <ion-label [routerLink]="['/chat',item.usuario_id]">{{item.nick}}</ion-label>
   </ion-item>
 
+  <ion-row class="noHay" *ngIf="nickUsuario[0==null]">
+    <ion-col size="12">
+      <ion-card>
+        <img
+          src="https://static7.depositphotos.com/1001911/763/v/450/depositphotos_7630053-stock-illustration-confused-emoticon.jpg"
+          alt="">
+        <ion-text>
+          <h4>
+            Lo sentimos, no has tienes ningun chat.
+          </h4>
+        </ion-text>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
 
 </ion-content>

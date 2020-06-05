@@ -12,27 +12,30 @@ ion-header{
 }
 
 ion-content{
-    --background: var(--color-grey) ;
+  --background: url("../chat/fondo5.jpg");
     ion-row{
-      --background:var(--color-grey);
+      justify-content: center;
       ion-col{
-        div{
-          border-radius: 3px;
-          cursor: pointer;
-          text-align: center;
-          img {
-            margin-top: 1vw;
-            width: 95%;
-            height: 192px;
-            object-fit: cover;
-            object-position: center center;
-          }
-          ion-text{
-            color:var(--color-grey);
-            h3{
-              margin: 0;
-              background-color: var(--background-text);
-              color: var(--color-primary);
+        ion-card{
+          border: 1px solid var(--border-card);
+          div{
+            border-radius: 3px;
+            cursor: pointer;
+            text-align: center;
+            img {
+              margin-top: 1vw;
+              width: 95%;
+              height: 192px;
+              object-fit: cover;
+              object-position: center center;
+            }
+            ion-text{
+              color:var(--color-grey);
+              h3{
+                margin: 0;
+                background-color: var(--background-text);
+                color: var(--color-primary);
+              }
             }
           }
         }

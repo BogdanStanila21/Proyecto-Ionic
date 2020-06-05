@@ -23,7 +23,7 @@
     <ion-col size="6" *ngFor="let item of favoritos">
       <ion-card>
         <div>
-          <ion-icon name="close-circle" (click)="eliminarFavorito(item.favoritos_id)"></ion-icon>
+          <ion-icon name="close-circle" (click)="eliminarFavorito(item.favoritos_id)" color="danger"></ion-icon>
           <img src="{{item.imagen}}" (click)="mostrarInfo(item.articulo_id)" alt="" />
           <ion-text>
             <h3>{{item.nombre}}</h3>

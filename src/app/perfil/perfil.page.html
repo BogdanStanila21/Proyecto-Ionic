@@ -18,46 +18,42 @@
 <ion-content>
 
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
-      refreshingSpinner="crescent" refreshingText="Actualizando...">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="crescent"
+      refreshingText="Actualizando...">
     </ion-refresher-content>
   </ion-refresher>
 
-  <ion-row class="articulos">
-    <ion-col size="5.5" class="card" *ngFor="let item of misArticulos">
+  <ion-row>
+    <ion-col size="6" *ngFor="let item of misArticulos">
       <ion-card>
-        <ion-item>
-          <img src="{{item.imagen}}" alt="">
-          <ion-button fill="outline" slot="end" (click)="abirModal(item.articulo_id)">+info</ion-button>
-        </ion-item>
-        <ion-card-content>
-          {{item.nombre}}
-        </ion-card-content>
+        <div (click)="abirModal(item.articulo_id)">
+          <img src="{{item.imagen}}" alt=""/>
+          <ion-text>
+            <h4>{{item.nombre}}</h4>
+          </ion-text>
+        </div>
       </ion-card>
     </ion-col>
   </ion-row>
-
-  <ion-row class="noHay" *ngIf="misArticulos[0]==null">
-    <ion-col size="12">
-      <ion-card>
-        <img
-          src="https://static7.depositphotos.com/1001911/763/v/450/depositphotos_7630053-stock-illustration-confused-emoticon.jpg"
-          alt="">
-        <ion-text>
-          <h4>
-            Lo sentimos, no tienes articulos.
-          </h4>
-        </ion-text>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-
 </ion-content>
 
 
-<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/ionic.esm.js"></script>
-<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/ionic.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core@next/css/ionic.bundle.css" />
+
+<script
+  type="module"
+  src="https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/ionic.esm.js"
+></script>
+<script
+  nomodule
+  src="https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/ionic.js"
+></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@ionic/core@next/css/ionic.bundle.css"
+/>
 <style>
   :root {
     --ion-safe-area-top: 20px;
@@ -72,7 +68,7 @@
 <ion-menu side="start" content-id="main-content">
   <ion-header>
     <ion-toolbar translucent>
-      <ion-title>Menu</ion-title>
+      <ion-title>Menú</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
@@ -87,7 +83,7 @@
       </ion-item>
       <ion-item (click)="cerrarSesion()" (click)="openEnd()">
         <ion-icon name="log-out-outline"></ion-icon>
-        <ion-label>Cerrar sesion</ion-label>
+        <ion-label>Cerrar sesión</ion-label>
       </ion-item>
     </ion-list>
   </ion-content>

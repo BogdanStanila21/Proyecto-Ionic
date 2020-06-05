@@ -22,6 +22,8 @@ export class IntercambioPage implements OnInit {
   public checkbox=false;
   public posicionSegment=false;
   public valorRating:number;
+  public realiza=false;
+  public recibe=false;
 
   constructor(private auth: LoginService, private intercambioService: IntercambioService, private alertController:AlertController, private router:Router, private usuarioService:UsuarioService, private articuloService: ArticuloService, private loadingController:LoadingController) { }
 
@@ -32,6 +34,12 @@ export class IntercambioPage implements OnInit {
   getIntercambioQueRealizo() {
     this.intercambioService.getIntercambioRealiza(this.usuario.usuario_id).subscribe((data: IntercambioModel[]) => {
       let datos = [];
+      if(data[0] == null){
+        this.realiza=true;
+        console.log(this.realiza)
+      }else{
+        this.realiza=false;
+      }
 
       for (let i = 0; i < data.length; i++) {
 
@@ -63,6 +71,7 @@ export class IntercambioPage implements OnInit {
           })
         })
       }
+      
       console.log(datos)
       this.peticionesRealiza_recibe=datos;
     })
@@ -71,6 +80,12 @@ export class IntercambioPage implements OnInit {
   getIntercambioQueRecibo() {
     this.intercambioService.getIntercambioRecibe(this.usuario.usuario_id).subscribe((data: IntercambioModel[]) => {
       let datos = [];
+      if(data[0] == null){
+        this.recibe=true;
+        console.log(this.recibe)
+      }else{
+        this.recibe=false;
+      }
 
       for (let i = 0; i < data.length; i++) {
 
@@ -81,10 +96,10 @@ export class IntercambioPage implements OnInit {
 
         this.intercambioService.getIntercambioArticulo(data[i].articulo_idRealiza).subscribe((data1: Articulo[]) => {
           articuloRealiza = data1;
-
+          
           this.intercambioService.getIntercambioArticulo(data[i].articulo_idRecibe).subscribe((data2: Articulo[]) => {
             articuloRecibe = data2;
-
+            
             this.intercambioService.getIntercambioUsuario(data[i].usuario_idRealiza).subscribe((data3: UsuarioModel[]) => {
               usuarioRealiza = data3;
 
@@ -93,10 +108,11 @@ export class IntercambioPage implements OnInit {
               datosUnUsuario.usuario_idRecibe = usuarioRealiza;
               datosUnUsuario.intercambio_id=[data[i]];
               
+              
               if((datosUnUsuario.intercambio_id[0].usuarioIdValoracion1 != 0) && (datosUnUsuario.intercambio_id[0].usuarioIdValoracion1 == datosUnUsuario.usuario_idRecibe[0].usuario_id)){
                 console.log("valorado")
               }else{
-                datos.push(datosUnUsuario)
+                datos.push(datosUnUsuario);                
               }
             })
           })
@@ -184,10 +200,10 @@ export class IntercambioPage implements OnInit {
   segmentChanged(ev: any) {
     if(ev.detail.value=="recibe"){
       this.posicionSegment=true;
-      console.log(this.posicionSegment)
+      //console.log(this.posicionSegment)
     }else if(ev.detail.value=="realiza"){
       this.posicionSegment=false;
-      console.log(this.posicionSegment)
+      //console.log(this.posicionSegment)
     }
     
   }

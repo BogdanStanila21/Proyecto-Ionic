@@ -26,5 +26,23 @@ ion-content{
             }
         }  
     }
+    .noHay{
+        text-align: center;
+        ion-col{
+          ion-card{
+            padding: 4px;
+            margin-top: 10vh;
+            img{
+              height: 320px;
+              width: 95%;
+              object-fit: cover;
+              object-position: center center;
+            }
+            ion-text{
+              color: var(--color-primary);
+            }
+          }
+        }
+      }
     
 }

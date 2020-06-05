@@ -84,8 +84,9 @@
   --color-success: #77AD40;
   --color-danger: #AD2F4A;
   --color-grey: #E8E8E8;
-  --color-grey-dark: #D3D3D3;
-  --background-text:#29346252
+  --color-grey-dark: rgb(102, 102, 102);
+  --background-text:#29346252;
+  --border-card:#dddcdc;
 }
 
 @media (prefers-color-scheme: dark) {
