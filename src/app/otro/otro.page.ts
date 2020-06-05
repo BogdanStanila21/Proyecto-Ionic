@@ -15,7 +15,7 @@ export class OtroPage implements OnInit {
 
   public idUsuario=null;
   public usuario:UsuarioModel[];
-  public articulos:Articulo[];
+  public articulos:Articulo[]=[];
   public usuarioLog: UsuarioModel;
   constructor(private activatedRoute: ActivatedRoute, private usuarioService:UsuarioService, private articulosService:ArticuloService, private auth: LoginService, private router:Router) { }
 
