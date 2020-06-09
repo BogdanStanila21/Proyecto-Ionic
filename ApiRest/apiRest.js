@@ -25,13 +25,46 @@ connection.connect(function (error) {
   }
 });
 
-//////////////////////
+// Nodemailer
 
-//----------------------------------API artículo------------------------------------------------------------//
+var mailOptions = {
+  from: "prueba - 45 <bienvenida.vitu@gmail.com>",
+  to: correo,
+  subject: "Asunto",
+  text: aleatorio("0123456789abcdefABCDEF", 10),
+};
+
+function enviar(correo) {
+  //////////////////////
+
+  //----------------------------------API artículo------------------------------------------------------------//
+  app.post("/mail"),
+    function (req, res, next) {
+      var transporter = nodemailer.createTransport({
+        service: "Gmail",
+        auth: {
+          user: "bienvenida.vitu@gmail.com",
+          pass: "ironhack",
+        },
+      });
+
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
+          res.send(500, err.message);
+        } else {
+          console.log("Email sent");
+          res.status(200).jsonp(req.body);
+        }
+      });
+    };
+
+  correo = "geafalconjoseantonio@gmail.com";
+}
 
 app.get("/articulos/:id", function (req, res, next) {
   let variable =
-    "SELECT usuario.nick, articulo.articulo_id, articulo.nombre, antiguedad, descripcion, estado, articulo.imagen FROM articulo JOIN usuario_articulo ON (articulo.articulo_id = usuario_articulo.articulo_id) JOIN usuario ON (usuario_articulo.usuario_id = usuario.usuario_id) WHERE usuario_articulo.usuario_id != ?";
+    "SELECT usuario.nick, articulo.articulo_id, articulo.nombre, antiguedad, descripcion, estado, articulo.imagen , categoria FROM articulo JOIN usuario_articulo ON (articulo.articulo_id = usuario_articulo.articulo_id) JOIN usuario ON (usuario_articulo.usuario_id = usuario.usuario_id) WHERE usuario_articulo.usuario_id != ?";
   let variable2 = [req.params.id];
 
   connection.query(variable, variable2, function (err, result) {
@@ -43,24 +76,6 @@ app.get("/articulos/:id", function (req, res, next) {
     }
   });
 });
-
-//app.get("/articulos", function(req, res, next)
-// {
-//     let variable = "SELECT usuario.nick, nombre, antiguedad, descripcion, estado, imagen FROM articulo JOIN usuario_articulo ON (articulo.articulo_id = usuario_articulo.articulo_id) JOIN usuario ON (usuario_articulo.usuario_id = usuario.usuario_id)";
-//     let variable2 = [req.params.id];
-
-//     connection.query(variable, variable2, function(err, result)
-//         {
-//             if(err){
-//                 console.log(err);
-//             }else{
-//                 res.send(result);
-//                 console.log("GET de artículos");
-//             }
-//         }
-//     );
-// }
-// );
 
 app.get("/articulo/:id", function (req, res, next) {
   let variable =
@@ -77,6 +92,19 @@ app.get("/articulo/:id", function (req, res, next) {
   });
 });
 
+app.get("/:categoria", function (request, response) {
+  let sql =
+    "SELECT * FROM articulo WHERE categoria ='" +
+    request.params.categoria +
+    "'";
+  connection.query(sql, function (err, result) {
+    if (err) console.log(err);
+    else {
+      response.send(result);
+      console.log("GET de categoria");
+    }
+  });
+});
 //----------Api para mostrar sólo mis articulos en mi perfil---------//
 app.get("/misarticulos/:usuario_id", function (req, res, next) {
   let var1 =

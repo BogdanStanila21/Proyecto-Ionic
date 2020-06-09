@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-recuperacion',
-  templateUrl: './recuperacion.page.html',
-  styleUrls: ['./recuperacion.page.scss'],
+  selector: "app-recuperacion",
+  templateUrl: "./recuperacion.page.html",
+  styleUrls: ["./recuperacion.page.scss"],
 })
 export class RecuperacionPage implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

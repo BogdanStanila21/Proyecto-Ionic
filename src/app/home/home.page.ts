@@ -29,6 +29,12 @@ export class HomePage implements OnInit {
       console.log(data);
     });
   }
+  mostrartype(categoria) {
+    this.api.gettype(categoria).subscribe((data: any[]) => {
+      this.articulos = data;
+      console.log(categoria);
+    });
+  }
 
   mostrarInfo(articulo_id: Number) {
     this.router.navigate(["/info-articulo", articulo_id]);
