@@ -3,8 +3,7 @@
     <ion-icon slot="start"></ion-icon>
     <ion-title>Walatroll</ion-title>
     <ion-avatar slot="end" [routerLink]="['/perfil']">
-      <img
-        src="{{usuario.foto}}"/>
+      <img src="{{usuario.foto}}" />
     </ion-avatar>
   </ion-toolbar>
 </ion-header>
@@ -21,9 +20,84 @@
   </ion-refresher>
 
   <ion-searchbar animated></ion-searchbar>
+  <ion-slides>
+    <ion-slide>
+      <div (click)="mostrartype('Coches')" class="filtro">
+        <i class="fas fa-car"></i>
+        <p>Coches</p>
+      </div>
+      <div (click)="mostrartype('Motos')" class="filtro">
+        <i class="fas fa-motorcycle"></i>
+        <p>Motos</p>
+      </div>
+      <div (click)="mostrartype('Ropa')" class="filtro">
+        <i class="fas fa-tshirt"></i>
+        <p>Ropa</p>
+      </div>
+      <div (click)="mostrartype('Electronica')" class="filtro">
+        <i class="fas fa-tv"></i>
+        <p>Electronica</p>
+      </div>
+    </ion-slide>
 
+    <ion-slide>
+      <div (click)="mostrartype('Telefonica')" class="filtro">
+        <i class="fas fa-mobile-alt"></i>
+        <p>Telefonia</p>
+      </div>
+      <div (click)="mostrartype('Informatica')" class="filtro">
+        <i class="fas fa-keyboard"></i>
+        <p>Informatica</p>
+      </div>
+      <div (click)="mostrartype('Ocio')" class="filtro">
+        <i class="fas fa-futbol"></i>
+        <p>Ocio</p>
+      </div>
+      <div (click)="mostrartype('Bicicletas')" class="filtro">
+        <i class="fas fa-bicycle"></i>
+        <p>Bicicletas</p>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div (click)="mostrartype('Videojuegos')" class="filtro">
+        <i class="fas fa-gamepad"></i>
+        <p>Videojuegos</p>
+      </div>
+      <div (click)="mostrartype('Hogar')" class="filtro">
+        <i class="fas fa-couch"></i>
+        <p>Hogar</p>
+      </div>
+      <div (click)="mostrartype('Cultura')" class="filtro">
+        <i class="fas fa-book"></i>
+        <p>Cine, Libros y Musica</p>
+      </div>
+      <div (click)="mostrartype('Infantil')" class="filtro">
+        <i class="fas fa-baby"></i>
+        <p>Productos infantiles</p>
+      </div>
+    </ion-slide>
+  </ion-slides>
+  <input
+    type="text"
+    id="myInput"
+    onkeyup="myFunction()"
+    placeholder="Search for names.."
+  />
+  <ul id="myUL">
+    <li><a href="#">Adele</a></li>
+    <li><a href="#">Agnes</a></li>
+
+    <li><a href="#">Billy</a></li>
+    <li><a href="#">Bob</a></li>
+
+    <li><a href="#">Calvin</a></li>
+    <li><a href="#">Christina</a></li>
+    <li><a href="#">Cindy</a></li>
+  </ul>
   <ion-row>
     <ion-col size="6" *ngFor="let i of articulos">
+<<<<<<< HEAD
       <ion-card>
         <div (click)="mostrarInfo(i.articulo_id)">
           <img src="{{i.imagen}}" alt=""/>
@@ -32,7 +106,14 @@
           </ion-text>
         </div>
       </ion-card>
+=======
+      <div (click)="mostrarInfo(i.articulo_id)">
+        <img src="{{i.imagen}}" alt="" />
+        <ion-text>
+          <ion-item>{{i.nombre}}</ion-item>
+        </ion-text>
+      </div>
+>>>>>>> jose2
     </ion-col>
   </ion-row>
-
 </ion-content>

@@ -109,17 +109,27 @@ const routes: Routes = [
       ),
     canActivate: [AuthGuard],
   },
+
   {
-    path: "otro/:id",
+    path: "otro/:id",    loadChildren: () =>
+      import("./otro/otro.module").then((m) => m.OtroPageModule),
+  },
+  {
+    path: "recuperacion",
     loadChildren: () =>
-      import("./otro/otro.module").then((m) => m.OtroPageModule), canActivate: [AuthGuard],
+      import("./recuperacion/recuperacion.module").then(
+        (m) => m.RecuperacionPageModule
+      ),
   },
   {
     path: "**",
     redirectTo: "login",
     pathMatch: "full",
   },
+<<<<<<< HEAD
   
+=======
+>>>>>>> jose2
 ];
 
 @NgModule({

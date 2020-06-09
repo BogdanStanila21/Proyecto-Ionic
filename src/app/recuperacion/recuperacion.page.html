@@ -1,69 +1,42 @@
 <ion-content>
-  <h1 class="titulo">Aplicacion</h1>
-<<<<<<< HEAD
-  <ion-row class="caja" >
-    <ion-col size="11" >
-      <form [formGroup]="registroForm">
-        <ion-input placeholder="Nick*" #nick formControlName="nick"> </ion-input>
-        <span *ngIf="registroForm.controls['nick'].hasError('minlength')">
-          Por favor, intoduce un nick de al menos 4 carácteres
-        </span>
-        <span *ngIf="registroForm.controls['nick'].hasError('maxlength')">
-          Por favor, intoduce un nick de maximo 12 carácteres
-        </span>
-        <ion-input placeholder="Nombre*" #nombre formControlName="nombre"> </ion-input>
-        <span *ngIf="registroForm.controls['nombre'].hasError('minlength')">
-          Por favor, intoduce un nombre de al menos 2 carácteres
-        </span>
-        <span *ngIf="registroForm.controls['nombre'].hasError('maxlength')">
-          Por favor, intoduce un nick de maximo 20 carácteres
-        </span>
-        <ion-input placeholder="E-mail*" #email formControlName="email"> </ion-input>
-        <span *ngIf="registroForm.controls['email'].hasError('pattern')">
-          Formato de Email no valido
-        </span>
-        <ion-input placeholder="Ubicación*" #lugar formControlName="lugar"> </ion-input>
-        <ion-input type="password" placeholder="Contraseña*" #contrasenya formControlName="contrasenya"> </ion-input>
-        <span *ngIf="registroForm.controls['contrasenya'].hasError('pattern')">
-          La contraseña debe tener mayúsculas, minúsculas y números
-        </span>
-        <ion-input type="password" placeholder="Confirmar Contraseña*" #contrasenya2 formControlName="contrasenya2"></ion-input>
-        <span *ngIf="registroForm.controls.contrasenya2.errors?.matchPass">
-          Las contraseñas no coinciden
-        </span>
-        <!-- <ion-input type="date" placeholder="Fecha de nacimiento"> </ion-input> -->
-        <ion-button class="boton" [disabled]="!registroForm.valid" (click)="postUsuario(nick.value, nombre.value, email.value, lugar.value, contrasenya.value)">Registro</ion-button>
-        <div class="flex">
-          <div class="linea"></div>
-          <p class="texto">¿Ya estás registrado?</p>
-          <div class="linea"></div>
-        </div>
-        <ion-button [routerLink]="['/login']" class="boton">Entra</ion-button>
-      </form>
-=======
+  <h1 class="titulo">Restaurar</h1>
   <ion-row class="caja">
     <ion-col size="11">
-      <ion-input placeholder="Nick" #nick> </ion-input>
-      <ion-input placeholder="Nombre" #nombre> </ion-input>
-      <ion-input placeholder="E-mail" #email> </ion-input>
-      <ion-input placeholder="Ubicación" #lugar> </ion-input>
-      <ion-input type="password" placeholder="Contraseña" #contrasenya>
-      </ion-input>
-      <ion-input
-        type="password"
-        placeholder="Confirmar Contraseña"
-        #contrasenya2
-      ></ion-input>
-      <!-- <ion-input type="date" placeholder="Fecha de nacimiento"> </ion-input> -->
-      <ion-button
-        class="boton"
-        (click)="postUsuario(nick.value, nombre.value, email.value, lugar.value, contrasenya.value)"
-        >Registro</ion-button
-      >
->>>>>>> jose2
-    </ion-col>
+      <p>
+        Ingresa E-mail registrado
+      </p>
 
-    <script></script>
+      <ion-input placeholder="E-mail" #email> </ion-input>
+
+      <ion-button class="boton">Enviar</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row class="caja">
+    <ion-col size="11">
+      <p>
+        Se ha enviado un Email con un codigo de verificacion
+      </p>
+
+      <ion-input placeholder="Codigo" #codigo> </ion-input>
+
+      <ion-button class="boton">Enviar</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row class="caja">
+    <ion-col size="11">
+      <p>
+        Nueva contraseña
+      </p>
+
+      <ion-input placeholder="contraseña" #contraseña> </ion-input>
+      <p>
+        Repite la contraseña anterior
+      </p>
+
+      <ion-input placeholder="contraseña" #contraseña> </ion-input>
+
+      <ion-button class="boton">Enviar</ion-button>
+    </ion-col>
   </ion-row>
   <svg
     version="1.1"
