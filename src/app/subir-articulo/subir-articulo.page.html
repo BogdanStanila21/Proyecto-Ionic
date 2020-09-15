@@ -40,15 +40,16 @@
     <ion-item>
       <ion-label position="floating"> Escoge una categoría* </ion-label>
       <ion-select value="categoria" okText="Aceptar" cancelText="Cancelar" #categoria>
-        <ion-select-option value="Vehículos">Vehículos</ion-select-option>
-        <ion-select-option value="Videojuegos">Videojuegos</ion-select-option>
-        <ion-select-option value="Electrónica">Electrónica</ion-select-option>
-        <ion-select-option value="Ropa y Accesorios">Ropa y Accesorios</ion-select-option>
-        <ion-select-option value="Libros y revistas">Libros y revistas</ion-select-option>
-        <ion-select-option value="Muebles de Hogar">Muebles de Hogar</ion-select-option>
-        <ion-select-option value="Coleccionismo">Coleccionismo</ion-select-option>
-        <ion-select-option value="Herramientas">Herramientas</ion-select-option>
-        <ion-select-option value="Otra">Otra</ion-select-option>
+        <ion-select-option value="Misterio">Misterio</ion-select-option>
+        <ion-select-option value="Fantasía">Fantasía</ion-select-option>
+        <ion-select-option value="Histórico">Histórico</ion-select-option>
+        <ion-select-option value="Biográfico">Biográfico</ion-select-option>
+        <ion-select-option value="Literatura">Literatura</ion-select-option>
+        <ion-select-option value="Aventura">Aventura</ion-select-option>
+        <ion-select-option value="Novela">Novela</ion-select-option>
+        <ion-select-option value="Distopía">Distopía</ion-select-option>
+        <ion-select-option value="Paranormal">Paranormal</ion-select-option>
+        <ion-select-option value="Cómic">Cómic</ion-select-option>
       </ion-select>
     </ion-item>
 
@@ -70,7 +71,7 @@
     categoria.value,
     imagen.value
     )
-    ">Subir Artículo
+    " [routerLink]="['/perfil']">Subir Artículo
   </ion-button>
 
 </ion-content> <!--cierra content-->

@@ -75,13 +75,13 @@ ion-content{
             object-position: center center;
           }
           ion-text{
-            color:var(--color-primary);
+            color:var(--color-grey);
             margin: 0 auto;
             
             h3{
               overflow: hidden;
               margin: 0;
-              background-color:var(--background-text);
+              background-color:var(--color-primary);
             }
           }
         }

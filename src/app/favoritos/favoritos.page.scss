@@ -4,7 +4,7 @@ ion-header {
       color: #ffffff;
     }
     ion-toolbar{
-      --background: #293462;
+      --background: var(--color-primary);
       text-align: center;
       ion-avatar {
         width: 40px;
@@ -39,7 +39,14 @@ ion-content{
           border-radius: 3px;
           cursor: pointer;
           ion-icon{
+            position: absolute;
+            margin-left: 135px;
+            padding-top: 4px;
             font-size: 32px;
+            color: var(--color-secondary);
+            background-color: #ffffff98;
+            border-radius: 3px;
+
           }
           img {
             margin-top: 1vw;
@@ -49,12 +56,12 @@ ion-content{
             object-position: center center;
           }
           ion-text{
-            color:var(--color-primary);
+            color:var(--color-grey);
             margin: 0 auto;
             h3{
               margin: 0;
               overflow: hidden;
-              background-color: var(--background-text);
+              background-color: var(--color-primary);
             }
           }
         }

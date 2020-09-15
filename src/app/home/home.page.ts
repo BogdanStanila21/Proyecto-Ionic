@@ -11,8 +11,9 @@ import { UsuarioModel } from './../models/usuario';
 })
 export class HomePage implements OnInit {
 
-  public articulos: any;
-  public usuario:UsuarioModel
+  public articulos: any [];
+  public usuario:UsuarioModel;
+  public textoBuscar = '';
 
   constructor(private api: HomeserviceService, private router: Router, private auth: LoginService) {}
 
@@ -21,7 +22,7 @@ export class HomePage implements OnInit {
   }
 
   mostrarTodos() {
-    this.api.getTodos(this.usuario.usuario_id).subscribe((data: any) => {
+    this.api.getTodos(this.usuario.usuario_id).subscribe((data: any[]) => {
       this.articulos = data;
       console.log(data);
     });
@@ -36,6 +37,10 @@ export class HomePage implements OnInit {
       console.log('Async operation has ended');
       event.target.complete();
     }, 1000);
+  }
+
+  buscar(event){
+    this.textoBuscar= event.detail.value;
   }
 
   ngOnInit() {

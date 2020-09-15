@@ -38,6 +38,21 @@
       </ion-card>
     </ion-col>
   </ion-row>
+
+  <ion-row class="noHay" *ngIf="misArticulos[0]==null">
+    <ion-col size="12">
+      <ion-card>
+        <img
+          src="https://static7.depositphotos.com/1001911/763/v/450/depositphotos_7630053-stock-illustration-confused-emoticon.jpg"
+          alt="">
+        <ion-text>
+          <h4>
+            Lo sentimos, no has subido ningun libro.
+          </h4>
+        </ion-text>
+      </ion-card>
+    </ion-col>
+  </ion-row>
 </ion-content>
 
 
@@ -88,6 +103,8 @@
     </ion-list>
   </ion-content>
 </ion-menu>
+
+
 
 <script>
   async function openMenu() {

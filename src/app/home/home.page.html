@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-icon name="" slot="start"></ion-icon>
-    <ion-title>Walatroll</ion-title>
+    <ion-title>Vitu</ion-title>
     <ion-avatar slot="end" [routerLink]="['/perfil']">
       <img src="{{usuario.foto}}" />
     </ion-avatar>
@@ -19,12 +19,12 @@
     </ion-refresher-content>
   </ion-refresher>
   
-  <ion-searchbar animated></ion-searchbar>
+  <ion-searchbar animated (ionChange) = "buscar ($event)"></ion-searchbar>
 
   <ion-row>
-    <ion-col size="6" *ngFor="let i of articulos">
+    <ion-col size="6" *ngFor="let i of articulos | filtro: textoBuscar:'nombre'">
       <ion-card>
-        <div (click)="mostrarInfo(i.articulo_id)">
+        <div (click)="mostrarInfo(i.articulo_id)"> 
           <img src="{{i.imagen}}" alt="" />
           <ion-text>
             <h3>{{i.nombre}}</h3>
