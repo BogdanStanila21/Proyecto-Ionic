@@ -27,40 +27,40 @@ connection.connect(function (error) {
 
 // Nodemailer
 
-var mailOptions = {
-  from: "prueba - 45 <bienvenida.vitu@gmail.com>",
-  to: correo,
-  subject: "Asunto",
-  text: aleatorio("0123456789abcdefABCDEF", 10),
-};
+// var mailOptions = {
+//   from: "prueba - 45 <bienvenida.vitu@gmail.com>",
+//   to: correo,
+//   subject: "Asunto",
+//   text: aleatorio("0123456789abcdefABCDEF", 10),
+// };
 
-function enviar(correo) {
-  //////////////////////
+// function enviar(correo) {
+//////////////////////
 
-  //----------------------------------API artículo------------------------------------------------------------//
-  app.post("/mail"),
-    function (req, res, next) {
-      var transporter = nodemailer.createTransport({
-        service: "Gmail",
-        auth: {
-          user: "bienvenida.vitu@gmail.com",
-          pass: "ironhack",
-        },
-      });
+//----------------------------------API artículo------------------------------------------------------------//
+//   app.post("/mail"),
+//     function (req, res, next) {
+//       var transporter = nodemailer.createTransport({
+//         service: "Gmail",
+//         auth: {
+//           user: "bienvenida.vitu@gmail.com",
+//           pass: "ironhack",
+//         },
+//       });
 
-      transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-          console.log(error);
-          res.send(500, err.message);
-        } else {
-          console.log("Email sent");
-          res.status(200).jsonp(req.body);
-        }
-      });
-    };
+//       transporter.sendMail(mailOptions, function (error, info) {
+//         if (error) {
+//           console.log(error);
+//           res.send(500, err.message);
+//         } else {
+//           console.log("Email sent");
+//           res.status(200).jsonp(req.body);
+//         }
+//       });
+//     };
 
-  correo = "geafalconjoseantonio@gmail.com";
-}
+//   correo = "geafalconjoseantonio@gmail.com";
+// }
 
 app.get("/articulos/:id", function (req, res, next) {
   let variable =
